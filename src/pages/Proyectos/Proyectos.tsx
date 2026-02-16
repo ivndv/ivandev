@@ -9,6 +9,10 @@ import {
   Rocket,
 } from "lucide-react";
 
+/**
+ * Página de Proyectos que renderiza una lista de tarjetas (cards)
+ * con información sobre proyectos personales, tecnologías usadas y enlaces.
+ */
 const Projects = () => {
   const projects = [
 
@@ -25,7 +29,7 @@ const Projects = () => {
         github: "https://github.com/Ivandv19/landing-page-1906.git",
       },
     },
- 
+
 
     {
       id: 2,
@@ -40,7 +44,7 @@ const Projects = () => {
         github: "https://github.com/Ivandv19/gestor-activos.git",
       },
     },
- 
+
     {
       id: 3,
       title: "Alura Flix",
@@ -48,7 +52,7 @@ const Projects = () => {
         "Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos. La aplicación permite a los usuarios visualizar videos filtrados por categoría, eliminar y editar videos, y crear nuevos videos mediante un formulario.",
       image:
         "/aluraflix.png",
-      tags: ["HTML", "CSS", "JavaScript", "React", ],
+      tags: ["HTML", "CSS", "JavaScript", "React",],
       links: {
         demo: "https://alura-flix-flax.vercel.app/",
         github: "https://github.com/Ivandv19/challenge-aluraflix.git",
@@ -76,7 +80,7 @@ const Projects = () => {
         "/space-app-v2.png",
       tags: ["HTML", "CSS", "JavaScript", "React"],
       links: {
-        demo: "https://space-appv2.vercel.app/", 
+        demo: "https://space-appv2.vercel.app/",
         github: "https://github.com/Ivandv19/space-app-v2.git",
       },
     },
@@ -133,7 +137,7 @@ const Projects = () => {
       },
     },
 
-   
+
   ];
 
   return (
@@ -181,7 +185,7 @@ const Projects = () => {
                   </h3>
                   <div className="p-2 bg-gray-50 rounded-lg text-gray-400 transition-colors">
                     {project.title.includes("Music") ||
-                    project.title.includes("Flux") ? (
+                      project.title.includes("Flux") ? (
                       <MonitorPlay size={20} />
                     ) : project.title.includes("Space") ? (
                       <Rocket size={20} />

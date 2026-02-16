@@ -2,14 +2,18 @@
 import { Github, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
+/**
+ * Componente Footer que muestra información de contacto, redes sociales,
+ * enlaces legales y copyright.
+ */
 const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 py-12 border-t border-red-900/50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* GRID PRINCIPAL */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          
+
           {/* COLUMNA 1: Marca y Descripción */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white tracking-tighter">
@@ -28,7 +32,7 @@ const Footer = () => {
               Desarrollador Web Frontend Jr apasionado por crear interfaces
               modernas, funcionales y optimizadas.
             </p>
-            
+
             {/* Redes Sociales */}
             <div className="flex space-x-4 pt-2">
               <a
@@ -36,6 +40,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-red-500 transition-colors"
+                aria-label="GitHub"
               >
                 <Github size={20} />
               </a>
@@ -44,6 +49,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-red-500 transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
@@ -65,7 +71,7 @@ const Footer = () => {
                 <Link
                   to="/skills"
                   className="hover:text-red-500 transition-colors"
-                > 
+                >
                   Skills
                 </Link>
               </li>

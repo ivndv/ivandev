@@ -1,6 +1,10 @@
 
 import { MapPin, User, GraduationCap, Briefcase } from "lucide-react";
 
+/**
+ * Página "Sobre Mí" con información biográfica detallada, 
+ * historia personal y datos de contacto rápido.
+ */
 const SobreMi = () => {
   return (
     <section className="min-h-screen bg-gray-50 text-gray-900 py-20 px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { Menu, X, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Componente Header que contiene la navegación principal y el logo.
+ * Incluye una versión desktop con enlaces y una versión móvil con menú de hamburguesa.
+ */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,12 +23,12 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-sm border-b border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
+
           {/* LOGO */}
           <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer">
-            <img 
-              src="/logo.png" 
-              alt="Logo" 
+            <img
+              src="/logo.png"
+              alt="Logo"
               className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent hover:ring-red-600 transition-all duration-300"
             />
           </Link>
@@ -34,7 +38,7 @@ const Header = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path} 
+                to={link.path}
                 className="text-gray-300 hover:text-red-500 font-medium text-sm tracking-wide transition-colors duration-200 relative group"
               >
                 {link.name}
@@ -45,9 +49,9 @@ const Header = () => {
 
           {/* ICONOS */}
           <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="https://github.com/tu-usuario" 
-              target="_blank" 
+            <a
+              href="https://github.com/tu-usuario"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-red-500 hover:bg-red-900/10 p-2 rounded-full transition-all duration-300"
             >

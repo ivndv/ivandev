@@ -1,6 +1,10 @@
 
 import { GraduationCap, Calendar, Award, BookOpen, CheckCircle2 } from 'lucide-react';
 
+/**
+ * Página de Formación que lista certificaciones, estudios académicos
+ * y competencias adquiridas en cada institución.
+ */
 const Formacion = () => {
   const educationData = [
     {

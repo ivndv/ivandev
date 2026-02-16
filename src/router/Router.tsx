@@ -3,21 +3,21 @@ import { Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/Layout/Layout.tsx";
 
 // Lazy Loading
-const Hero = lazy(() => import("@/pages/Hero"));
-const Skills = lazy(() => import("@/pages/Skills"));
-const Experiencia = lazy(() => import("@/pages/Experiencia"));
-const Proyectos = lazy(() => import("@/pages/Proyectos"));
-const SobreMi = lazy(() => import("@/pages/SobreMi"));
-const Formacion = lazy(() => import("@/pages/Formacion"));
-const Contacto = lazy(() => import("@/pages/Contacto"));
-const NotFound = lazy(() => import("@/pages/NotFound"));
+const Hero = lazy(() => import("@/pages/Hero/Hero"));
+const Skills = lazy(() => import("@/pages/Skills/Skills"));
+const Experiencia = lazy(() => import("@/pages/Experiencia/Experiencia"));
+const Proyectos = lazy(() => import("@/pages/Proyectos/Proyectos"));
+const SobreMi = lazy(() => import("@/pages/SobreMi/SobreMi"));
+const Formacion = lazy(() => import("@/pages/Formacion/Formacion"));
+const Contacto = lazy(() => import("@/pages/Contacto/Contacto"));
+const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const Router = () => {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Cargando...</div>}>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Hero/>} />
+          <Route path="/" element={<Hero />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/experiencia" element={<Experiencia />} />
           <Route path="/proyectos" element={<Proyectos />} />

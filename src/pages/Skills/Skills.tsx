@@ -19,6 +19,10 @@ import {
   Sparkles,
 } from "lucide-react";
 
+/**
+ * Página de Skills que agrupa habilidades por categorías (Frontend, Backend, Cloud, etc.)
+ * y muestra cada tecnología con su respectivo ícono y nivel de dominio.
+ */
 const Skills = () => {
   const skillCategories = [
     {
@@ -133,23 +137,23 @@ const Skills = () => {
         <div className="space-y-16">
           {skillCategories.map((category, index) => (
             <div key={index} className="space-y-6">
-              
+
               <div className="flex items-center justify-center gap-4 mb-8">
-                
+
                 <div className="h-px bg-black flex-1 rounded-full opacity-20"></div>
-                
+
                 <h3 className="text-2xl font-bold text-gray-900 whitespace-nowrap text-center px-4">
                   {category.title}
                 </h3>
-                
+
                 <div className="h-px bg-black flex-1 rounded-full opacity-20"></div>
-                
+
               </div>
-              
+
               {category.description && (
-                  <p className="text-sm text-gray-600 -mt-6 mb-6 text-center italic">
-                    {category.description}
-                  </p>
+                <p className="text-sm text-gray-600 -mt-6 mb-6 text-center italic">
+                  {category.description}
+                </p>
               )}
 
               {/* GRID DE SKILLS */}
