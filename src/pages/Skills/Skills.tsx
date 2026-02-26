@@ -31,9 +31,12 @@ const Skills = () => {
 				{ name: "HTML5", icon: <Layout />, level: "Avanzado" },
 				{ name: "CSS3", icon: <Palette />, level: "Avanzado" },
 				{ name: "JavaScript", icon: <Code2 />, level: "Intermedio" },
+				{ name: "TypeScript", icon: <Code2 />, level: "Intermedio" },
 				{ name: "React", icon: <Cpu />, level: "Intermedio" },
 				{ name: "Tailwind CSS", icon: <Palette />, level: "Intermedio" },
-				{ name: "Vite", icon: <Zap />, level: "Intermedio" },
+				{ name: "Astro", icon: <Zap />, level: "Intermedio" },
+				{ name: "Angular", icon: <Layout />, level: "Intermedio" },
+				{ name: "Next.js", icon: <Globe />, level: "Básico" },
 			],
 		},
 		{
@@ -42,8 +45,15 @@ const Skills = () => {
 			skills: [
 				{ name: "Node.js", icon: <Server />, level: "Intermedio" },
 				{ name: "Express", icon: <Server />, level: "Intermedio" },
+				{ name: "Hono", icon: <Server />, level: "Intermedio" },
 				{ name: "MySQL", icon: <Database />, level: "Intermedio" },
+				{ name: "Drizzle ORM", icon: <Database />, level: "Intermedio" },
 				{ name: "REST APIs", icon: <Globe />, level: "Intermedio" },
+				{ name: "Zod", icon: <ShieldCheck />, level: "Intermedio" },
+				{ name: "Better Auth", icon: <ShieldCheck />, level: "Básico" },
+				{ name: "JWT", icon: <ShieldCheck />, level: "Intermedio" },
+				{ name: "Swagger", icon: <Globe />, level: "Intermedio" },
+				{ name: "Next.js (Fullstack)", icon: <Globe />, level: "Básico" },
 			],
 		},
 		{
@@ -53,6 +63,9 @@ const Skills = () => {
 				{ name: "Git", icon: <GitBranch />, level: "Intermedio" },
 				{ name: "GitHub", icon: <GitBranch />, level: "Intermedio" },
 				{ name: "npm / pnpm", icon: <Terminal />, level: "Intermedio" },
+				{ name: "Bun", icon: <Zap />, level: "Intermedio" },
+				{ name: "Vite", icon: <Zap />, level: "Intermedio" },
+				{ name: "Biome", icon: <Zap />, level: "Intermedio" },
 				{ name: "Postman", icon: <Globe />, level: "Intermedio API" },
 			],
 		},
@@ -61,35 +74,45 @@ const Skills = () => {
 			description: "",
 			skills: [
 				{ name: "Azure", icon: <Cloud />, level: "Básico" },
+				{ name: "Cloudflare", icon: <Cloud />, level: "Intermedio" },
 				{ name: "Oracle Cloud", icon: <Cloud />, level: "Básico" },
+			],
+		},
+		{
+			title: "DevOps",
+			description: "",
+			skills: [
+				{ name: "Docker", icon: <Box />, level: "Básico" },
+				{ name: "GitHub Actions", icon: <Zap />, level: "Básico" },
 			],
 		},
 		{
 			title: "En Desarrollo / Explorando",
 			description: "",
 			skills: [
-				{ name: "TypeScript", icon: <Code2 />, level: "Aprendiendo" },
-				{ name: "Next.js", icon: <Globe />, level: "Aprendiendo" },
-				{ name: "Astro", icon: <Zap />, level: "Aprendiendo" },
-				{ name: "Vue / Angular", icon: <Layout />, level: "Aprendiendo" },
+				{ name: "Vue", icon: <Layout />, level: "Aprendiendo" },
 				{ name: "Django", icon: <Server />, level: "Aprendiendo" },
 				{ name: "MongoDB", icon: <Database />, level: "Aprendiendo" },
 				{ name: "PostgreSQL", icon: <Database />, level: "Aprendiendo" },
 				{ name: "Python", icon: <Code2 />, level: "Aprendiendo" },
 				{ name: "Java", icon: <Code2 />, level: "Aprendiendo" },
-				{ name: "Docker", icon: <Box />, level: "Aprendiendo" },
 				{ name: "AWS", icon: <Cloud />, level: "Aprendiendo" },
 				{ name: "Google Cloud", icon: <Cloud />, level: "Aprendiendo" },
 			],
 		},
 		{
-			title: "QA & Accesibilidad",
+			title: "QA & Testing",
 			description: "",
 			skills: [
 				{ name: "Jest", icon: <ShieldCheck />, level: "Básico" },
+				{ name: "Vitest", icon: <ShieldCheck />, level: "Intermedio" },
 				{ name: "React Testing", icon: <ShieldCheck />, level: "Básico" },
-				{ name: "WCAG / ARIA", icon: <Users />, level: "Básico" },
 			],
+		},
+		{
+			title: "Accesibilidad",
+			description: "",
+			skills: [{ name: "WCAG / ARIA", icon: <Users />, level: "Básico" }],
 		},
 
 		{
@@ -100,7 +123,6 @@ const Skills = () => {
 				{ name: "Gemini", icon: <Sparkles />, level: "Intermedio" },
 				{ name: "GitHub Copilot", icon: <Sparkles />, level: "Intermedio" },
 				{ name: "Claude", icon: <Brain />, level: "Intermedio" },
-				{ name: "V0 / Bolt", icon: <Zap />, level: "Básico" },
 			],
 		},
 
@@ -134,8 +156,8 @@ const Skills = () => {
 
 				{/* MAPEO DE CATEGORÍAS */}
 				<div className="space-y-16">
-					{skillCategories.map((category, index) => (
-						<div key={index} className="space-y-6">
+					{skillCategories.map((category) => (
+						<div key={category.title} className="space-y-6">
 							<div className="flex items-center justify-center gap-4 mb-8">
 								<div className="h-px bg-text-main flex-1 rounded-full opacity-20"></div>
 
@@ -154,9 +176,9 @@ const Skills = () => {
 
 							{/* GRID DE SKILLS */}
 							<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-								{category.skills.map((skill, skillIndex) => (
+								{category.skills.map((skill) => (
 									<div
-										key={skillIndex}
+										key={skill.name}
 										className="group relative bg-surface-bg border border-surface-border rounded-lg p-4 shadow-sm hover:border-accent hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] hover:-translate-y-1 flex flex-col items-center justify-center gap-3 text-center"
 									>
 										{/* ICONO */}

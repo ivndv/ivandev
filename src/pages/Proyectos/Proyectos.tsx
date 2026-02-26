@@ -19,16 +19,29 @@ const Projects = () => {
 			title: "Fluxbeats",
 			description:
 				"Fluxbeats es una aplicación web para mostrar un servicio de ventas de licencias de beats musicales libres de derechos de autor.",
-			image: "/fluxbeats.png",
-			tags: ["React", "Vite", "Tailwindcss", "Node.js"],
+			image: "https://portafolio-web-front.mgdc.site/fluxbeats.png",
+			tags: ["React", "Vite", "Tailwindcss", "Node.js", "Cloudflare"],
 			links: {
-				demo: "https://landing-page.mgdc.site",
-				github: "https://github.com/Ivandv19/landing-page-1906.git",
+				demo: "https://landing-page.mgdc.site/",
+				github: "https://github.com/Ivandv19/landing-page-1906",
 			},
 		},
 
 		{
 			id: 2,
+			title: "Fluxdev Blog",
+			description:
+				"Blog personal y profesional construido con Astro y Cloudflare D1, enfocado en compartir conocimiento sobre desarrollo web y tecnología.",
+			image: "https://portafolio-web-front.mgdc.site/fluxdev.png",
+			tags: ["Astro", "Cloudflare", "D1 (SQLite)", "TailwindCSS"],
+			links: {
+				demo: "https://fluxdev.mgdc.site",
+				github: "https://github.com/Ivandv19/blog-personal-fluxdev",
+			},
+		},
+
+		{
+			id: 3,
 			title: "Gestor de activos",
 			description:
 				"Gestor de activos es una aplicacion web para administrqar activos de una empresa, permitiendo llevar un control detallado de los mismos.",
@@ -41,7 +54,7 @@ const Projects = () => {
 		},
 
 		{
-			id: 3,
+			id: 4,
 			title: "Alura Flix",
 			description:
 				"Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos. La aplicación permite a los usuarios visualizar videos filtrados por categoría, eliminar y editar videos, y crear nuevos videos mediante un formulario.",
@@ -53,7 +66,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 4,
+			id: 5,
 			title: "Space App V3",
 			description:
 				"Space App V3 es una aplicación interactiva para gestionar y visualizar contenido diverso sobre el espacio, incluyendo una galería de imágenes, noticias y un apartado del sistema solar.",
@@ -65,7 +78,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 5,
+			id: 6,
 			title: "Space App v2",
 			description:
 				"Este proyecto es una aplicación para gestionar y visualizar una galería de fotos, con funcionalidades para filtrar y buscar contenido por una palabra o por tags. Está diseñado para proporcionar una experiencia interactiva y visualmente atractiva.",
@@ -77,7 +90,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 6,
+			id: 7,
 			title: "Alura Cinema",
 			description:
 				"Este proyecto es una aplicación para gestionar y visualizar videos, con funcionalidades como vizualizar y agregar a una seccion especial de favoritos. Está diseñado para proporcionar una experiencia interactiva y visualmente atractiva.",
@@ -89,7 +102,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 7,
+			id: 8,
 			title: "Encriptador de Texto",
 			description:
 				"Desafío de Lógica. Aplicación que encripta y desencripta mensajes para intercambiar información secreta usando llaves de sustitución.",
@@ -101,7 +114,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 8,
+			id: 9,
 			title: "PetShop",
 			description:
 				"Sitio web para tienda de mascotas. Enfoque en validación de formularios (Regex) y arquitectura de navegación fluida.",
@@ -113,7 +126,7 @@ const Projects = () => {
 			},
 		},
 		{
-			id: 9,
+			id: 10,
 			title: "Fokus",
 			description:
 				"App de productividad basada en la técnica Pomodoro. Manejo de temporizadores, audio y estados de la aplicación para enfoque y descanso.",
@@ -171,7 +184,7 @@ const Projects = () => {
 									</h3>
 									<div className="p-2 bg-surface-border/30 rounded-lg text-text-muted">
 										{project.title.includes("Music") ||
-										project.title.includes("Flux") ? (
+											project.title.includes("Flux") ? (
 											<MonitorPlay size={20} />
 										) : project.title.includes("Space") ? (
 											<Rocket size={20} />

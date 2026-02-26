@@ -36,7 +36,7 @@ const Formacion = () => {
 			institution: "Alura Latam / Oracle Next Education",
 			title: "Desarrollador Frontend & Cloud Computing (OCI)",
 			date: "Ene 2024 - Oct 2024",
-			type: "Certificación Intensiva (G6)",
+			type: "Bootcamp / Especialización",
 			description:
 				"Graduado del programa Oracle Next Education (ONE). Desarrollo de aplicaciones web completas, bases de datos y fundamentos de infraestructura en la nube.",
 			skills: [
