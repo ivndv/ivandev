@@ -1,3 +1,4 @@
+import { Turnstile } from "@marsidev/react-turnstile";
 import { Check, Copy, Loader2, Mail, MapPin, MessageCircle, Send } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
@@ -11,6 +12,7 @@ const Contacto = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 
 	const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 	const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 	const [errorMsg, setErrorMsg] = useState("");
 
@@ -33,7 +35,7 @@ const Contacto = () => {
 			const res = await fetch("/api/contact", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(form),
+				body: JSON.stringify({ ...form, turnstileToken }),
 			});
 
 			const data = (await res.json()) as { success: boolean; error?: string };
@@ -44,6 +46,7 @@ const Contacto = () => {
 
 			setStatus("success");
 			setForm({ name: "", email: "", subject: "", message: "" });
+			setTurnstileToken(null);
 		} catch (err) {
 			setStatus("error");
 			setErrorMsg(err instanceof Error ? err.message : "Error al enviar el mensaje.");
@@ -172,6 +175,7 @@ const Contacto = () => {
 								</div>
 							)}
 
+
 							<form onSubmit={handleSubmit} className="space-y-6">
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 									{/* Nombre */}
@@ -247,10 +251,17 @@ const Contacto = () => {
 										className="w-full px-4 py-3 rounded-lg bg-page-bg border border-surface-border focus:border-accent focus:bg-surface-bg focus:ring-2 focus:ring-accent/30 outline-none resize-none"
 									/>
 								</div>
+								{/* Turnstile Widget */}
+								<Turnstile
+									siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+									onSuccess={setTurnstileToken}
+									onExpire={() => setTurnstileToken(null)}
+									options={{ theme: "auto" }}
+								/>
 								{/* Botón Submit */}
 								<button
 									type="submit"
-									disabled={status === "loading"}
+									disabled={status === "loading" || !turnstileToken}
 									className="w-full py-4 px-6 bg-accent hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 transition-all"
 								>
 									{status === "loading" ? (

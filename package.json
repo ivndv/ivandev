@@ -14,6 +14,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@marsidev/react-turnstile": "^1.4.2",
 		"@tailwindcss/vite": "^4.2.1",
 		"hono": "^4.12.3",
 		"lucide-react": "^0.556.0",
@@ -21,7 +22,8 @@
 		"react-dom": "^19.2.4",
 		"react-router-dom": "^7.13.1",
 		"resend": "^6.9.2",
-		"tailwindcss": "^4.2.1"
+		"tailwindcss": "^4.2.1",
+		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.4",

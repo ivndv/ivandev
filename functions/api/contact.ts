@@ -1,34 +1,59 @@
 import { Hono } from "hono";
 import { handle } from "hono/cloudflare-pages";
 import { Resend } from "resend";
+import { z } from "zod";
 
 type Env = {
     RESEND_API_KEY: string;
     RESEND_TO_EMAIL: string;
+    TURNSTILE_SECRET_KEY: string;
 };
+
+const ContactSchema = z.object({
+    name: z.string().min(1, "El nombre es requerido.").max(100),
+    email: z.string().email("El email no es válido."),
+    subject: z.string().min(1, "El asunto es requerido.").max(200),
+    message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres.").max(2000),
+    turnstileToken: z.string().min(1, "Token de seguridad requerido."),
+});
 
 const app = new Hono<{ Bindings: Env }>();
 
 app.post("/api/contact", async (c) => {
-    const body = await c.req.json<{
-        name: string;
-        email: string;
-        subject: string;
-        message: string;
-    }>();
+    const body = await c.req.json();
 
-    const { name, email, subject, message } = body;
-
-    // Validación básica
-    if (!name || !email || !subject || !message) {
-        return c.json({ success: false, error: "Todos los campos son requeridos." }, 400);
+    const parsed = ContactSchema.safeParse(body);
+    if (!parsed.success) {
+        const firstError = parsed.error.errors[0]?.message ?? "Datos inválidos.";
+        return c.json({ success: false, error: firstError }, 400);
     }
 
+    const { name, email, subject, message, turnstileToken } = parsed.data;
+
+    // Verificar Turnstile
+    const tsRes = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({
+                secret: c.env.TURNSTILE_SECRET_KEY,
+                response: turnstileToken,
+            }),
+        },
+    );
+
+    const tsData = (await tsRes.json()) as { success: boolean };
+    if (!tsData.success) {
+        return c.json({ success: false, error: "Verificación de seguridad fallida. Intenta de nuevo." }, 403);
+    }
+
+    // Enviar email via Resend
     const resend = new Resend(c.env.RESEND_API_KEY);
     const toEmail = c.env.RESEND_TO_EMAIL || "ivangtx19@gmail.com";
 
     const { error } = await resend.emails.send({
-        from: "Portafolio <onboarding@resend.dev>", // Cambiar por tu dominio verificado
+        from: "Portafolio <onboarding@resend.dev>",
         to: [toEmail],
         subject: `[Portafolio] ${subject}`,
         html: `
