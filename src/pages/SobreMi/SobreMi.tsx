@@ -1,13 +1,18 @@
 import { Briefcase, GraduationCap, MapPin, User } from "lucide-react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 /**
  * Página "Sobre Mí" con información biográfica detallada,
  * historia personal y datos de contacto rápido.
  */
 const SobreMi = () => {
+	const { ref, isVisible } = useScrollAnimation(0.05);
 	return (
 		<section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-6xl mx-auto">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`max-w-6xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* ENCABEZADO "SÁNDWICH" */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">

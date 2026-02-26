@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Montserrat", "sans-serif";
+	--font-sans: "Montserrat", "sans-serif";
 
-  /* Semantic Tokens */
-  --color-page-bg: var(--page-bg);
-  --color-text-main: var(--text-main);
-  --color-text-muted: var(--text-muted);
-  --color-surface-bg: var(--surface-bg);
-  --color-surface-border: var(--surface-border);
-  --color-accent: var(--accent);
-  --color-accent-muted: var(--accent-muted);
+	/* Semantic Tokens */
+	--color-page-bg: var(--page-bg);
+	--color-text-main: var(--text-main);
+	--color-text-muted: var(--text-muted);
+	--color-surface-bg: var(--surface-bg);
+	--color-surface-border: var(--surface-border);
+	--color-accent: var(--accent);
+	--color-accent-muted: var(--accent-muted);
 }
 
 :root {
@@ -43,12 +43,53 @@
 	/* custom dark red bg */
 }
 
-@variant dark
-(
-&:where(.dark, .dark *));
+@variant dark (&:where(.dark, .dark *));
 
 /* Global Transitions for smooth theme switching */
 html,
 body {
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+	transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ===========================================
+   🎞️ SCROLL ANIMATIONS
+   =========================================== */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.animate-on-scroll {
+	opacity: 0;
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+	animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.fade-in {
+	opacity: 0;
+	transition: opacity 0.8s ease-out;
+}
+
+.fade-in.visible {
+	animation: fadeIn 1s ease-out forwards;
 }

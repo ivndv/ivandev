@@ -1,4 +1,5 @@
 import { ArrowUpRight, Github, GraduationCap, Linkedin } from "lucide-react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const DiscordIcon = ({ size = 18, className = "" }) => (
 	<svg
@@ -18,12 +19,16 @@ const DiscordIcon = ({ size = 18, className = "" }) => (
  * Incluye foto de perfil, título impactante, descripción corta y botones de acción.
  */
 const Hero = () => {
+	const { ref, isVisible } = useScrollAnimation(0.1);
 	return (
 		<section
 			id="inicio"
 			className="bg-page-bg min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-20 transition-colors duration-300"
 		>
-			<div className="w-full max-w-5xl mx-auto space-y-12">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`w-full max-w-5xl mx-auto space-y-12 animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* 1. CONTENEDOR SUPERIOR (Título y Foto) */}
 				<div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-20 w-full px-4">
 					{/* Título - Columna Izquierda */}
@@ -54,8 +59,8 @@ const Hero = () => {
 								Desarrollador Full Stack
 							</span>{" "}
 							apasionado por la{" "}
-							<span className="font-semibold text-text-main">tecnología</span>. Me
-							encanta{" "}
+							<span className="font-semibold text-text-main">tecnología</span>.
+							Me encanta{" "}
 							<span className="font-semibold text-text-main">
 								construir soluciones integrales
 							</span>
@@ -66,7 +71,9 @@ const Hero = () => {
 							.
 							<br />
 							Además, integro{" "}
-							<span className="font-semibold text-text-main">DevOps y Cloud</span>{" "}
+							<span className="font-semibold text-text-main">
+								DevOps y Cloud
+							</span>{" "}
 							para automatizar despliegues y garantizar{" "}
 							<span className="font-semibold text-text-main">
 								infraestructura escalable y confiable
@@ -129,7 +136,8 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<GraduationCap size={18} /> Codigo facilito <ArrowUpRight size={16} />
+							<GraduationCap size={18} /> Codigo facilito{" "}
+							<ArrowUpRight size={16} />
 						</a>
 					</div>
 

@@ -7,12 +7,14 @@ import {
 	MonitorPlay,
 	Rocket,
 } from "lucide-react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 /**
  * Página de Proyectos que renderiza una lista de tarjetas (cards)
  * con información sobre proyectos personales, tecnologías usadas y enlaces.
  */
 const Projects = () => {
+	const { ref, isVisible } = useScrollAnimation(0.05);
 	const projects = [
 		{
 			id: 1,
@@ -141,7 +143,10 @@ const Projects = () => {
 
 	return (
 		<section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-7xl mx-auto">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`max-w-7xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* ENCABEZADO */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -204,9 +209,9 @@ const Projects = () => {
 
 								{/* TAGS */}
 								<div className="flex flex-wrap gap-2 mb-6">
-									{project.tags.map((tag, index) => (
+									{project.tags.map((tag) => (
 										<span
-											key={index}
+											key={tag}
 											className="px-2.5 py-1 text-[11px] font-semibold text-text-muted bg-surface-border/30 rounded-md border border-surface-border/50"
 										>
 											{tag}

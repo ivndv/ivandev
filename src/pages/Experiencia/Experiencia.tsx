@@ -1,10 +1,12 @@
 import { Briefcase, Building2, Calendar, MapPin } from "lucide-react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 /**
  * Página de Experiencia que muestra una línea de tiempo (timeline) con
  * los roles y empresas donde se ha trabajado o realizado prácticas.
  */
 const Experience = () => {
+	const { ref, isVisible } = useScrollAnimation(0.05);
 	const experienceData = [
 		{
 			id: 1,
@@ -25,7 +27,10 @@ const Experience = () => {
 
 	return (
 		<section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-4xl mx-auto">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`max-w-4xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* ENCABEZADO */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -91,9 +96,9 @@ const Experience = () => {
 
 								{/* Tags de Tecnologías/Habilidades */}
 								<div className="flex flex-wrap gap-2">
-									{job.skills.map((skill, i) => (
+									{job.skills.map((skill) => (
 										<span
-											key={i}
+											key={skill}
 											className="px-3 py-1 text-xs font-medium text-text-muted bg-surface-border/30 rounded-md border border-surface-border/50"
 										>
 											{skill}

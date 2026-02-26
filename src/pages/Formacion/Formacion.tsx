@@ -5,12 +5,14 @@ import {
 	CheckCircle2,
 	GraduationCap,
 } from "lucide-react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 /**
  * Página de Formación que lista certificaciones, estudios académicos
  * y competencias adquiridas en cada institución.
  */
 const Formacion = () => {
+	const { ref, isVisible } = useScrollAnimation(0.05);
 	const educationData = [
 		{
 			id: 1,
@@ -72,7 +74,10 @@ const Formacion = () => {
 
 	return (
 		<section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-5xl mx-auto">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`max-w-5xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* ENCABEZADO "SÁNDWICH" */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -135,9 +140,9 @@ const Formacion = () => {
 											Competencias Adquiridas:
 										</h4>
 										<div className="flex flex-wrap gap-2">
-											{edu.skills.map((skill, index) => (
+											{edu.skills.map((skill) => (
 												<span
-													key={index}
+													key={skill}
 													className="px-3 py-1 bg-surface-border/30 text-text-muted text-xs font-semibold rounded-md border border-surface-border group-hover:border-accent-muted group-hover:bg-page-bg transition-colors"
 												>
 													{skill}
