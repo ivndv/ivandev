@@ -24,7 +24,7 @@ app.post("/api/contact", async (c) => {
 
     const parsed = ContactSchema.safeParse(body);
     if (!parsed.success) {
-        const firstError = parsed.error.errors[0]?.message ?? "Datos inválidos.";
+        const firstError = parsed.error.issues[0]?.message ?? "Datos inválidos.";
         return c.json({ success: false, error: firstError }, 400);
     }
 
