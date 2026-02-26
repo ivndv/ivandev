@@ -10,6 +10,8 @@ const Proyectos = lazy(() => import("@/pages/Proyectos/Proyectos"));
 const SobreMi = lazy(() => import("@/pages/SobreMi/SobreMi"));
 const Formacion = lazy(() => import("@/pages/Formacion/Formacion"));
 const Contacto = lazy(() => import("@/pages/Contacto/Contacto"));
+const Privacidad = lazy(() => import("@/pages/Legal/Privacidad"));
+const Terminos = lazy(() => import("@/pages/Legal/Terminos"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const Router = () => {
@@ -24,6 +26,8 @@ export const Router = () => {
           <Route path="/sobre-mi" element={<SobreMi />} />
           <Route path="/formacion" element={<Formacion />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/terminos" element={<Terminos />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

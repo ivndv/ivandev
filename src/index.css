@@ -1,6 +1,52 @@
-
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Montserrat", "sans-serif";
+
+  /* Semantic Tokens */
+  --color-page-bg: var(--page-bg);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-surface-bg: var(--surface-bg);
+  --color-surface-border: var(--surface-border);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+}
+
+:root {
+  --page-bg: #f9fafb;
+  /* gray-50 */
+  --text-main: #111827;
+  /* gray-900 */
+  --text-muted: #4b5563;
+  /* gray-600 */
+  --surface-bg: #ffffff;
+  --surface-border: #e5e7eb;
+  /* gray-200 */
+  --accent: #dc2626;
+  /* red-600 */
+  --accent-muted: #fef2f2;
+  /* red-50 */
+}
+
+.dark {
+  --page-bg: #000000;
+  --text-main: #ffffff;
+  --text-muted: #d1d5db;
+  /* gray-300 - more intense than gray-400 */
+  --surface-bg: #0a0a0a;
+  --surface-border: #1f2937;
+  /* gray-800 */
+  --accent: #ef4444;
+  /* red-500 */
+  --accent-muted: #331010;
+  /* custom dark red bg */
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Global Transitions for smooth theme switching */
+html,
+body {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }

@@ -43,7 +43,7 @@ const Formacion = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gray-50 text-gray-900 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* ENCABEZADO "SÁNDWICH" */}
         <div className="text-center mb-16 space-y-4 mt-16">
@@ -51,9 +51,9 @@ const Formacion = () => {
             Mi Formación Académica
           </h2>
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px bg-black flex-1 rounded-full opacity-20 max-w-[100px]"></div>
-            <p className="text-gray-600 text-lg italic">Certificaciones y Estudios</p>
-            <div className="h-px bg-black flex-1 rounded-full opacity-20 max-w-[100px]"></div>
+            <div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
+            <p className="text-text-muted text-lg italic">Certificaciones y Estudios</p>
+            <div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
           </div>
         </div>
 
@@ -61,51 +61,51 @@ const Formacion = () => {
           {educationData.map((edu) => (
             <div
               key={edu.id}
-              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 relative overflow-hidden group"
+              className="bg-surface-bg rounded-2xl p-6 md:p-8 border border-surface-border shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] relative overflow-hidden group"
             >
-              <div className="absolute -right-6 -bottom-6 text-gray-50 group-hover:text-red-50/50 transition-colors duration-500">
+              <div className="absolute -right-6 -bottom-6 text-page-bg group-hover:text-accent-muted/50">
                 <Award size={180} strokeWidth={0.5} />
               </div>
               <div className="relative z-10 flex flex-col md:flex-row gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="bg-red-50 text-red-600 p-2 rounded-lg">
+                    <span className="bg-accent-muted text-accent p-2 rounded-lg">
                       <GraduationCap size={24} />
                     </span>
-                    <span className="text-sm font-bold text-red-600 uppercase tracking-wider">
+                    <span className="text-sm font-bold text-accent uppercase tracking-wider">
                       {edu.type}
                     </span>
                   </div>
                   {/* Título */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-text-main mb-2">
                     {edu.title}
                   </h3>
 
-                  <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-4 font-medium">
+                  <div className="flex flex-wrap items-center gap-4 text-text-muted mb-4 font-medium">
                     <span className="flex items-center gap-1.5">
-                      <BookOpen size={16} className="text-red-500" />
+                      <BookOpen size={16} className="text-accent" />
                       {edu.institution}
                     </span>
-                    <span className="hidden md:inline text-gray-300">|</span>
-                    <span className="flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm">
+                    <span className="hidden md:inline text-surface-border">|</span>
+                    <span className="flex items-center gap-1.5 bg-surface-border/50 px-3 py-1 rounded-full text-sm text-text-main">
                       <Calendar size={14} />
                       {edu.date}
                     </span>
                   </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-6 max-w-2xl">
+                  <p className="text-text-muted leading-relaxed mb-6 max-w-2xl">
                     {edu.description}
                   </p>
 
                   <div>
-                    <h4 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                      <CheckCircle2 size={14} className="text-red-600" /> Competencias Adquiridas:
+                    <h4 className="text-sm font-bold text-text-main mb-3 flex items-center gap-2">
+                      <CheckCircle2 size={14} className="text-accent" /> Competencias Adquiridas:
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {edu.skills.map((skill, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-50 text-gray-700 text-xs font-semibold rounded-md border border-gray-200 group-hover:border-red-100 group-hover:bg-white transition-colors"
+                          className="px-3 py-1 bg-surface-border/30 text-text-muted text-xs font-semibold rounded-md border border-surface-border group-hover:border-accent-muted group-hover:bg-page-bg transition-colors"
                         >
                           {skill}
                         </span>
@@ -113,7 +113,7 @@ const Formacion = () => {
                     </div>
                   </div>
                 </div>
-                <div className="md:w-1/4 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-gray-100 pt-6 md:pt-0 md:pl-6 mt-6 md:mt-0">
+                <div className="md:w-1/4 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-surface-border/50 pt-6 md:pt-0 md:pl-6 mt-6 md:mt-0">
                   {edu.certified ? (
                     <div className="text-center">
                       <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 text-green-600">

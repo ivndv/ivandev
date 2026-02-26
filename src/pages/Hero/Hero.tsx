@@ -1,4 +1,3 @@
-
 import {
   Github,
   Linkedin,
@@ -28,12 +27,12 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="bg-black min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-20"
+      className="bg-page-bg min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-20 transition-colors duration-300"
     >
       {/* 1. CONTENEDOR PRINCIPAL */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-10 mb-8 w-full max-w-5xl">
         {/* Título */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-right tracking-tight leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-main text-center md:text-right tracking-tight leading-tight">
           Hola, soy Ivan Cruz y <br />
           construyo páginas web
         </h1>
@@ -50,31 +49,31 @@ const Hero = () => {
 
       {/* 2. DESCRIPCIÓN */}
       <div className="max-w-4xl mx-auto text-center mb-10">
-        <p className="text-white font-light text-center sm:text-base text-[4vw]">
+        <p className="text-text-muted font-light text-center sm:text-base text-[4vw]">
           Soy un{" "}
-          <span className="font-semibold">Desarrollador Web Frontend Jr</span>{" "}
-          apasionado por la <span className="font-semibold">tecnología</span>.
+          <span className="font-semibold text-text-main">Desarrollador Web Frontend Jr</span>{" "}
+          apasionado por la <span className="font-semibold text-text-main">tecnología</span>.
           Me encanta{" "}
-          <span className="font-semibold">
+          <span className="font-semibold text-text-main">
             crear interfaces atractivas, modernas, funcionales y optimizadas
           </span>
           , utilizando{" "}
-          <span className="font-semibold">tecnologías actuales</span> para
-          <span className="font-semibold">
+          <span className="font-semibold text-text-main">tecnologías actuales</span> para
+          <span className="font-semibold text-text-main">
             mejorar la experiencia del usuario
           </span>
           .
           <br />
           Actualmente, me encuentro cursando programas y certificaciones en{" "}
-          <span className="font-semibold">desarrollo web</span>,{" "}
-          <span className="font-semibold">computación en la nube</span> y{" "}
-          <span className="font-semibold">tecnologías modernas</span>,
+          <span className="font-semibold text-text-main">desarrollo web</span>,{" "}
+          <span className="font-semibold text-text-main">computación en la nube</span> y{" "}
+          <span className="font-semibold text-text-main">tecnologías modernas</span>,
           fortaleciendo mis habilidades para aportar valor en proyectos
           desafiantes.
           <br />
-          Estoy en <span className="font-semibold">constante aprendizaje</span>,
+          Estoy en <span className="font-semibold text-text-main">constante aprendizaje</span>,
           perfeccionando tanto mis{" "}
-          <span className="font-semibold">
+          <span className="font-semibold text-text-main">
             habilidades profesionales como personales
           </span>
           .
@@ -87,7 +86,7 @@ const Hero = () => {
           href="https://github.com/Ivandv19"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-white hover:text-red-500 transition-colors"
+          className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
         >
           <Github size={18} /> Github <span className="font-medium"></span>{" "}
           <ArrowUpRight size={16} />
@@ -96,7 +95,7 @@ const Hero = () => {
           href="https://www.linkedin.com/in/ivan-cruz-1906mx"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-white hover:text-red-500 transition-colors"
+          className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
         >
           <Linkedin size={18} /> Linkedin <span className="font-medium"></span>{" "}
           <ArrowUpRight size={16} />
@@ -106,7 +105,7 @@ const Hero = () => {
           href="https://discord.com/users/ivandv19"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-white hover:text-red-500 transition-colors"
+          className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
         >
           <DiscordIcon size={18} /> Discord <ArrowUpRight size={16} />
         </a>
@@ -115,7 +114,7 @@ const Hero = () => {
           href="https://app.aluracursos.com/user/ivanmx19"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-white hover:text-red-500 transition-colors"
+          className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
         >
           <span className="font-bold text-lg">a</span>{" "}
           <span className="font-medium"></span> Alura <ArrowUpRight size={16} />
@@ -125,7 +124,7 @@ const Hero = () => {
           href="https://codigofacilito.com/usuarios/Ivandv19"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 text-white hover:text-red-500 transition-colors"
+          className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
         >
           <GraduationCap size={18} /> Codigo facilito <ArrowUpRight size={16} />
         </a>
@@ -139,7 +138,7 @@ const Hero = () => {
         <a
           href="/cv.pdf"
           download
-          className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_25px_rgba(220,38,38,0.6)]"
+          className="bg-accent hover:opacity-90 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-[0_0_15px_var(--accent)]"
         >
           Descargar CV
         </a>

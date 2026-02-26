@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Menu, X, Github } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 
 /**
  * Componente Header que contiene la navegación principal y el logo.
@@ -8,6 +9,7 @@ import { Link } from 'react-router-dom';
  */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: 'Inicio', path: '/' },
@@ -20,7 +22,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-sm border-b border-red-600 shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
+    <header className="fixed top-0 w-full z-50 bg-surface-bg/95 backdrop-blur-sm border-b border-accent shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
 
@@ -29,7 +31,7 @@ const Header = () => {
             <img
               src="/logo.png"
               alt="Logo"
-              className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent hover:ring-red-600 transition-all duration-300"
+              className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent hover:ring-accent transition-all duration-300"
             />
           </Link>
 
@@ -39,31 +41,36 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-300 hover:text-red-500 font-medium text-sm tracking-wide transition-colors duration-200 relative group"
+                className="text-text-muted hover:text-accent font-medium text-sm tracking-wide transition-colors duration-200 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent shadow-[0_0_10px_rgba(220,38,38,0.8)] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
 
           {/* ICONOS */}
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="https://github.com/tu-usuario"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-red-500 hover:bg-red-900/10 p-2 rounded-full transition-all duration-300"
+            <button
+              onClick={toggleTheme}
+              className="text-text-muted hover:text-accent hover:bg-accent/10 p-2 rounded-full transition-all duration-300"
+              aria-label="Toggle Theme"
             >
-              <Github size={22} />
-            </a>
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
           </div>
 
-          {/* BOTÓN HAMBURGUESA */}
-          <div className="md:hidden flex items-center">
+          {/* BOTÓN HAMBURGUESA Y TOGGLE MÓVIL */}
+          <div className="md:hidden flex items-center space-x-3">
+            <button
+              onClick={toggleTheme}
+              className="text-text-muted p-2"
+            >
+              {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+            </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-red-500 focus:outline-none transition-colors"
+              className="text-text-muted hover:text-accent focus:outline-none transition-colors"
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -73,14 +80,14 @@ const Header = () => {
 
       {/* MENÚ MÓVIL */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black border-t border-red-900 absolute w-full shadow-2xl">
+        <div className="md:hidden bg-surface-bg border-t border-accent absolute w-full shadow-2xl">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-4 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-red-950/30 transition-all border-l-2 border-transparent hover:border-red-600"
+                className="block px-3 py-4 rounded-md text-base font-medium text-text-muted hover:text-accent hover:bg-accent/5 transition-all border-l-2 border-transparent hover:border-accent"
               >
                 {link.name}
               </Link>

@@ -120,14 +120,14 @@ const Skills = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gray-50 text-gray-900 py-20 px-4 sm:px-6 lg:px-8 ">
+    <section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* ENCABEZADO */}
         <div className="text-center mb-16 space-y-4 mt-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Mis Habilidades Tecnológicas
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-text-muted max-w-2xl mx-auto text-lg">
             Un desglose de las herramientas, lenguajes y tecnologías que manejo
             y estoy aprendiendo.
           </p>
@@ -140,18 +140,18 @@ const Skills = () => {
 
               <div className="flex items-center justify-center gap-4 mb-8">
 
-                <div className="h-px bg-black flex-1 rounded-full opacity-20"></div>
+                <div className="h-px bg-text-main flex-1 rounded-full opacity-20"></div>
 
-                <h3 className="text-2xl font-bold text-gray-900 whitespace-nowrap text-center px-4">
+                <h3 className="text-2xl font-bold text-text-main whitespace-nowrap text-center px-4">
                   {category.title}
                 </h3>
 
-                <div className="h-px bg-black flex-1 rounded-full opacity-20"></div>
+                <div className="h-px bg-text-main flex-1 rounded-full opacity-20"></div>
 
               </div>
 
               {category.description && (
-                <p className="text-sm text-gray-600 -mt-6 mb-6 text-center italic">
+                <p className="text-sm text-text-muted -mt-6 mb-6 text-center italic">
                   {category.description}
                 </p>
               )}
@@ -161,19 +161,19 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="group relative bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:border-red-600 transition-all duration-300 hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] hover:-translate-y-1 flex flex-col items-center justify-center gap-3 text-center"
+                    className="group relative bg-surface-bg border border-surface-border rounded-lg p-4 shadow-sm hover:border-accent hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] hover:-translate-y-1 flex flex-col items-center justify-center gap-3 text-center"
                   >
                     {/* ICONO */}
-                    <div className="text-gray-500 group-hover:text-red-600 transition-colors duration-300">
+                    <div className="text-text-muted group-hover:text-accent">
                       {skill.icon}
                     </div>
 
                     {/* INFO */}
                     <div>
-                      <h4 className="font-semibold text-gray-800 text-sm group-hover:text-black transition-colors">
+                      <h4 className="font-semibold text-text-main text-sm">
                         {skill.name}
                       </h4>
-                      <span className="text-[10px] text-gray-500 group-hover:text-red-600 transition-colors uppercase tracking-wider mt-1 block">
+                      <span className="text-[10px] text-text-muted group-hover:text-accent uppercase tracking-wider mt-1 block">
                         {skill.level}
                       </span>
                     </div>

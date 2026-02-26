@@ -141,7 +141,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gray-50 text-gray-900 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* ENCABEZADO */}
         <div className="text-center mb-16 space-y-4 mt-16">
@@ -150,11 +150,11 @@ const Projects = () => {
           </h2>
 
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px bg-black flex-1 rounded-full opacity-20 max-w-[100px]"></div>
-            <p className="text-gray-600 text-lg italic">
+            <div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
+            <p className="text-text-muted text-lg italic">
               Algunos de mis proyectos personales y de práctica
             </p>
-            <div className="h-px bg-black flex-1 rounded-full opacity-20 max-w-[100px]"></div>
+            <div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
           </div>
         </div>
 
@@ -163,27 +163,27 @@ const Projects = () => {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-[0_0_25px_rgba(0,0,0,0.15)] hover:border-red-600/30 transition-all duration-300 hover:-translate-y-2 flex flex-col"
+              className="group bg-surface-bg rounded-2xl overflow-hidden border border-surface-border shadow-sm hover:shadow-[0_0_25px_rgba(0,0,0,0.15)] hover:border-accent/30 hover:-translate-y-2 flex flex-col"
             >
               {/* IMAGEN DEL PROYECTO */}
-              <div className="relative h-48 overflow-hidden bg-gray-100">
+              <div className="relative h-48 overflow-hidden bg-surface-border/20">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover group-hover:scale-110"
                 />
                 {/* Overlay oscuro al hacer hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100"></div>
               </div>
 
               {/* CONTENIDO */}
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex justify-between items-start mb-4">
                   {/* TÍTULO */}
-                  <h3 className="text-xl font-bold text-gray-900 transition-colors">
+                  <h3 className="text-xl font-bold text-text-main">
                     {project.title}
                   </h3>
-                  <div className="p-2 bg-gray-50 rounded-lg text-gray-400 transition-colors">
+                  <div className="p-2 bg-surface-border/30 rounded-lg text-text-muted">
                     {project.title.includes("Music") ||
                       project.title.includes("Flux") ? (
                       <MonitorPlay size={20} />
@@ -199,7 +199,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                <p className="text-text-muted text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -208,7 +208,7 @@ const Projects = () => {
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-2.5 py-1 text-[11px] font-semibold text-gray-600 bg-gray-100 rounded-md border border-gray-200"
+                      className="px-2.5 py-1 text-[11px] font-semibold text-text-muted bg-surface-border/30 rounded-md border border-surface-border/50"
                     >
                       {tag}
                     </span>
@@ -216,13 +216,13 @@ const Projects = () => {
                 </div>
 
                 {/* BOTONES DE ACCIÓN */}
-                <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100">
+                <div className="flex gap-3 mt-auto pt-4 border-t border-surface-border/50">
                   {project.links.github && (
                     <a
                       href={project.links.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-900 hover:text-white transition-all text-sm font-medium"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-sm font-medium"
                     >
                       <Github size={16} /> Código
                     </a>
@@ -232,7 +232,7 @@ const Projects = () => {
                       href={project.links.demo}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-all text-sm font-medium"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-accent-muted text-accent rounded-lg hover:bg-accent hover:text-white text-sm font-medium"
                     >
                       <ExternalLink size={16} /> Demo
                     </a>
