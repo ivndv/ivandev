@@ -14,36 +14,38 @@
 }
 
 :root {
-  --page-bg: #f9fafb;
-  /* gray-50 */
-  --text-main: #111827;
-  /* gray-900 */
-  --text-muted: #1f2937;
-  /* gray-800 - even darker for maximum legibility */
-  --surface-bg: #ffffff;
-  --surface-border: #e5e7eb;
-  /* gray-200 */
-  --accent: #dc2626;
-  /* red-600 */
-  --accent-muted: #fef2f2;
-  /* red-50 */
+	--page-bg: #f9fafb;
+	/* gray-50 */
+	--text-main: #111827;
+	/* gray-900 */
+	--text-muted: #1f2937;
+	/* gray-800 - even darker for maximum legibility */
+	--surface-bg: #ffffff;
+	--surface-border: #e5e7eb;
+	/* gray-200 */
+	--accent: #dc2626;
+	/* red-600 */
+	--accent-muted: #fef2f2;
+	/* red-50 */
 }
 
 .dark {
-  --page-bg: #000000;
-  --text-main: #ffffff;
-  --text-muted: #d1d5db;
-  /* gray-300 - more intense than gray-400 */
-  --surface-bg: #0a0a0a;
-  --surface-border: #1f2937;
-  /* gray-800 */
-  --accent: #ef4444;
-  /* red-500 */
-  --accent-muted: #331010;
-  /* custom dark red bg */
+	--page-bg: #000000;
+	--text-main: #ffffff;
+	--text-muted: #d1d5db;
+	/* gray-300 - more intense than gray-400 */
+	--surface-bg: #0a0a0a;
+	--surface-border: #1f2937;
+	/* gray-800 */
+	--accent: #ef4444;
+	/* red-500 */
+	--accent-muted: #331010;
+	/* custom dark red bg */
 }
 
-@variant dark (&:where(.dark, .dark *));
+@variant dark
+(
+&:where(.dark, .dark *));
 
 /* Global Transitions for smooth theme switching */
 html,

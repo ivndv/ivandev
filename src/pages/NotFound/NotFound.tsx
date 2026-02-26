@@ -1,7 +1,9 @@
 const NotFound = () => {
-  return <>
-    <h1>404 - Página no encontrada</h1>
-    <p>Lo sentimos, la página que buscas no existe.</p>
-  </>;
-}
+	return (
+		<>
+			<h1>404 - Página no encontrada</h1>
+			<p>Lo sentimos, la página que buscas no existe.</p>
+		</>
+	);
+};
 export default NotFound;
