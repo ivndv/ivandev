@@ -31,7 +31,7 @@ const Formacion = () => {
 				"AngularJS",
 			],
 			logo: "https://media.licdn.com/dms/image/v2/D4E0BAQGvT-5yZf8V3w/company-logo_200_200/company-logo_200_200/0/1719256667793?e=1741824000&v=beta&t=H-SgF_qXz-uE7j9c7d8s9d8s9d8s9d8s9d8s9d8s9d8",
-			certified: false,
+			certified: true,
 		},
 		{
 			id: 2,

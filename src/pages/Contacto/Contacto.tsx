@@ -1,5 +1,6 @@
 import { Check, Copy, Mail, MapPin, MessageCircle, Send } from "lucide-react";
 import { useState } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 /**
  * Página de Contacto que incluye tarjetas de información (email, WhatsApp)
@@ -7,6 +8,7 @@ import { useState } from "react";
  */
 const Contacto = () => {
 	const [copiedField, setCopiedField] = useState<string | null>(null);
+	const { ref, isVisible } = useScrollAnimation(0.05);
 
 	const handleCopy = (text: string, field: string) => {
 		navigator.clipboard.writeText(text);
@@ -16,7 +18,10 @@ const Contacto = () => {
 
 	return (
 		<section className="min-h-screen bg-page-bg text-text-main py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-6xl mx-auto">
+			<div
+				ref={ref as React.RefObject<HTMLDivElement>}
+				className={`max-w-6xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
+			>
 				{/* ENCABEZADO "SÁNDWICH" */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
