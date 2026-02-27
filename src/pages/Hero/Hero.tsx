@@ -23,7 +23,7 @@ const Hero = () => {
 	return (
 		<section
 			id="inicio"
-			className="bg-page-bg min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-20 transition-colors duration-300"
+			className="bg-page-bg min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-16 transition-colors duration-300"
 		>
 			<div
 				ref={ref as React.RefObject<HTMLDivElement>}

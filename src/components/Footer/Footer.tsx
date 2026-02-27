@@ -152,7 +152,7 @@ const Footer = () => {
 				<div className="h-[1px] w-full bg-surface-border mb-12"></div>
 
 				{/* BOTTOM SECTION: Badges & Copyright */}
-				<div className="flex flex-col items-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+				<div className="flex flex-col items-center space-y-8">
 					<div className="text-center">
 						<p className="text-xs uppercase tracking-[0.2em] text-text-muted font-bold mb-4">
 							Desarrollado por <span className="text-text-main">Ivan Cruz</span>

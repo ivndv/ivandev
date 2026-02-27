@@ -24,7 +24,7 @@ const Header = () => {
 	return (
 		<header className="fixed top-0 w-full z-50 bg-surface-bg/95 backdrop-blur-sm border-b border-accent shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between items-center h-20">
+				<div className="flex justify-between items-center h-16">
 					{/* LOGO */}
 					<Link
 						to="/"
