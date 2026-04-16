@@ -1,4 +1,4 @@
-import { Github, Linkedin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /**
@@ -33,7 +33,7 @@ const Footer = () => {
 								rel="noreferrer"
 								className="p-2 bg-accent/5 hover:bg-accent/10 rounded-lg text-text-muted hover:text-accent transition-all duration-300"
 							>
-								<Github size={18} />
+								<span className="icon-[mdi--github] text-white" aria-hidden="true" />
 							</a>
 							<a
 								href="https://www.linkedin.com/in/ivan-cruz-1906mx"
@@ -41,7 +41,7 @@ const Footer = () => {
 								rel="noreferrer"
 								className="p-2 bg-accent/5 hover:bg-accent/10 rounded-lg text-text-muted hover:text-accent transition-all duration-300"
 							>
-								<Linkedin size={18} />
+								<span className="icon-[mdi--linkedin] text-white" aria-hidden="true" />
 							</a>
 							<a
 								href="https://discord.com/users/ivandv19"

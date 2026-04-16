@@ -2,7 +2,6 @@ import {
 	Code2,
 	Dog,
 	ExternalLink,
-	Github,
 	Lock,
 	MonitorPlay,
 	Rocket,
@@ -256,7 +255,7 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<Github size={14} /> Código
+												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Código
 											</a>
 										)}
 										{project.links.githubFrontend && (
@@ -266,7 +265,7 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<Github size={14} /> Frontend
+												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Frontend
 											</a>
 										)}
 										{project.links.githubBackend && (
@@ -276,7 +275,7 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<Github size={14} /> Backend
+												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Backend
 											</a>
 										)}
 									</div>

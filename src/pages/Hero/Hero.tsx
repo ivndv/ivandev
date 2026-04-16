@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, GraduationCap, Linkedin } from "lucide-react";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const DiscordIcon = ({ size = 18, className = "" }) => (
@@ -100,7 +100,8 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<Github size={18} /> Github <ArrowUpRight size={16} />
+							<span className="icon-[mdi--github] text-white" aria-hidden="true" />
+							Github <ArrowUpRight size={16} />
 						</a>
 						<a
 							href="https://www.linkedin.com/in/ivan-cruz-1906mx"
@@ -108,7 +109,8 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<Linkedin size={18} /> Linkedin <ArrowUpRight size={16} />
+							<span className="icon-[mdi--linkedin] text-white" aria-hidden="true" />
+							Linkedin <ArrowUpRight size={16} />
 						</a>
 
 						<a
