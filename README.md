@@ -1,68 +1,65 @@
-# Portafolio Personal V4
 
-## Descripción
+# Portafolio Web V4
 
-Esta es la cuarta versión del sitio web de mi portafolio, diseñada como una plataforma interactiva que muestra de forma profesional mi trayectoria, experiencia y capacidades como desarrollador. Se ha estructurado asegurando enfocarse en brindar una experiencia de usuario sumamente fluida.
+Portafolio Web V4 es un sitio web interactivo para mostrar mi experiencia, proyectos y habilidades como desarrollador, con navegación fluida y diseño moderno.
 
 ## Características
 
-- **Diseño Inmersivo**: Interfaz moderna que no requiere recargas molestas de página, permitiendo navegar libre e instantáneamente de una sección a otra.
-- **Exhibición de Habilidades**: Cuenta con galerías visuales preparadas para mostrar proyectos, lenguajes, tecnologías y herramientas con claridad.
-- **Opciones de Contacto**: Incluye un formulario oficial para enviar dudas o mensajes, acompañado de botones inmediatos de WhatsApp o copiado de email inteligente.
-- **Optimizado Técnicamente**: Estructurado usando estrategias de carga bajo demanda, garantizando que todo sea ultrarrápido sin colgar terminales obsoletas.
+	Navegación Intuitiva: Explora fácilmente las distintas secciones del portafolio con un diseño claro y moderno.
+	Interactividad: Interactúa con galerías de proyectos y habilidades de forma dinámica.
+	Contacto Directo: Envía mensajes o consultas a través de un formulario integrado.
 
 ## Secciones
 
-1. **Biografía y Experiencia**: Espacio introductorio enfocado a la biografía del desarrollador y el recorrido laboral cronológico.
-2. **Proyectos y Habilidades**: Vista de tarjetas o galería mostrando los sistemas creados previamente combinados con los lenguajes dominados.
-3. **Formación y Contacto**: Espacio enfocado a validar certificaciones y proveer un canal interactivo a los interesados.
+Inicio: Presenta una pequeña introducción en la Hero Section y destaca las principales fortalezas.
+Sobre Mí: Ofrece una visión personal y profesional, permitiendo conocer mejor al desarrollador detrás del portafolio.
+Experiencia: Muestra la trayectoria laboral y los proyectos más relevantes, resaltando logros y aprendizajes.
+Proyectos: Galería interactiva donde se pueden explorar los proyectos desarrollados, con detalles y tecnologías utilizadas.
+Skills: Apartado dedicado a las habilidades técnicas, lenguajes y herramientas dominadas, presentado de forma visual.
+Formación: Sección que recopila estudios, certificaciones y cursos relevantes para el perfil profesional.
+Contacto: Espacio para enviar mensajes o consultas de manera directa a través de un formulario sencillo.
+Legal: Incluye los términos de uso y la política de privacidad del sitio.
+NotFound: Página de error amigable para rutas no existentes.
 
 ## Uso
 
-- **Visualizar Contenido**: El proyecto ya se encuentra en funcionamiento público. Puedes explorarlo aquí: [Portafolio Profesional](https://portafolioweb.mgdc.site/)
-- **Navegación Fluida**: Usa la barra principal de direcciones (o menú base) para moverte y ver cómo las vistas se cargan instantáneamente.
-- **Contacto Simple**: Ve directo a la hoja final de contacto donde podrás teclear tu consulta y el sistema te retroalimentará al mandarlo eficientemente.
+- Puedes visitar el portafolio en línea aquí: [portafolioweb.mgdc.site](https://portafolioweb.mgdc.site/)
+- Navega entre las distintas secciones usando el menú principal para conocer más sobre mi experiencia, proyectos y habilidades.
+- Si tienes alguna duda o quieres ponerte en contacto, utiliza el formulario en la sección de Contacto y te responderé lo antes posible.
+
 
 ## Tecnologías Utilizadas
 
-- HTML / CSS / TypeScript
+- HTML
+- CSS
+- TypeScript
 - React 19
+- React DOM
 - React Router DOM 7
-- Vite 
+- Vite
 - Tailwind CSS
-- Bun / npm
+- Bun
+- hono
+- lucide-react
+- @marsidev/react-turnstile
+- resend
+- zod
+- Vitest
+- Testing Library
+- jsdom
+- Biome
+- Wrangler
 
-## Instalación
 
-1. **Clonar el Repositorio**: Descarga el código completo de este proyecto en tu computadora usando Git.
-
-```bash
-git clone https://github.com/Ivandv19/portafolio-web-v4.git
-```
-
-2. **Instalar Dependencias**: Entra al entorno del proyecto a través de la terminal y ejecuta:
-
-```bash
-npm install
-```
-
-3. **Variables Prácticas**: Necesitarás crear un archivo `.dev.vars` colocando tus dos llaves secretas de servicios: `RESEND_API_KEY` (para los correos), `RESEND_TO_EMAIL` (bandeja de entrada base), y `TURNSTILE_SECRET_KEY` (protección anti spam), garantizando que tu formulario reciba adecuadamente todo.
-
-4. **Arrancar Localmente**: Para encender el motor visual local haz uso del comando:
-
-```bash
-npm run dev
-```
 
 ## Créditos
 
-Esta es la versión contemporánea, utilizada para la exposición base de talentos.
+Desarrollado por Ivan Cruz.
 
-- Desarrollado por Ivan Cruz.
 
 ## Despliegue
 
-La web es por naturaleza un sitio exportable diseñado para la carga rápida y la persistencia inmutable en la red. Está alojado en la infraestructura de Cloudflare Pages y puedes visitarlo aquí: [portafolioweb.mgdc.site](https://portafolioweb.mgdc.site/)
+El sitio web está desplegado en Cloudflare Pages y se puede acceder a través del siguiente enlace: [portafolioweb.mgdc.site](https://portafolioweb.mgdc.site/)
 
 ## Licencia
 
