@@ -14,8 +14,7 @@ dist-ssr
 
 # Environment variables - never commit these
 .env
-.env.*
-.dev.vars
+
 
 # Editor directories and files
 .vscode/*
