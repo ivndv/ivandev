@@ -77,11 +77,11 @@ const Projects = () => {
 			title: "MXWatch",
 			description:
 				"Dashboard interactivo diseñado para visualizar y monitorear la presencia de grupos organizados en territorio mexicano a través de mapas dinámicos.",
-			image: "/mxwatch.png",
+			image: "https://portafolio-web-front.mgdc.site/mxwatch.png",
 			tags: ["Next.js", "D3-Geo", "Hono", "Drizzle ORM", "PostgreSQL", "Cloudflare"],
 			links: {
 				demo: "https://mxwatch.mgdc.site",
-				docs: "https://mxwatch-api.mgdc.site",
+				docs: "https://mxwatch-api.fluxdv.icu/api/docs",
 				githubFrontend: "https://github.com/Ivandv19/mxwatch",
 				githubBackend: "https://github.com/Ivandv19/mxwatch-api",
 			},
