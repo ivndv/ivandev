@@ -103,7 +103,7 @@ const Projects = () => {
 			title: "Portafolio Web",
 			description:
 				"Landing page enfocada en la presentación y oferta de servicios de desarrollo de software con un diseño moderno y captura de leads.",
-			image: "/portafolio-servicios.png",
+			image: "https://portafolio-web-front.mgdc.site/portafolioweb.png",
 			tags: ["Astro", "React", "Tailwind v4", "DaisyUI", "Resend", "Cloudflare Pages"],
 			links: {
 				demo: "https://web-portfolio-f.mgdc.site/",
