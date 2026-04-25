@@ -91,7 +91,7 @@ const Projects = () => {
 			title: "Sinx Pomodoro",
 			description:
 				"Aplicación web de productividad que ayuda a gestionar el tiempo de trabajo y estudio mediante bloques de enfoque y descansos programados.",
-			image: "/sinx-pomodoro.png",
+			image: "https://portafolio-web-front.mgdc.site/sinxpomodoro.png",
 			tags: ["Astro", "React", "Hono", "Better Auth", "Drizzle ORM", "Cloudflare D1"],
 			links: {
 				demo: "https://sinx-pomodoro.mgdc.site/",
