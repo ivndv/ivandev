@@ -131,7 +131,7 @@ const Projects = () => {
 			tags: ["Astro", "React", "Payload CMS", "PostgreSQL", "Docker", "Tailwind"],
 			links: {
 				demo: "https://fluxdev-nova.mgdc.site/",
-				docs: "http://blog-personal-fluxdev-backend.fluxdv.icu/api/docs",
+				docs: "https://blog-personal-fluxdev-backend.fluxdv.icu/api/docs",
 				githubFrontend: "https://github.com/Ivandv19/blog-personal-fluxdev-frontend",
 				githubBackend: "https://github.com/Ivandv19/blog-personal-fluxdev-backend",
 			},
