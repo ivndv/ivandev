@@ -127,10 +127,11 @@ const Projects = () => {
 			title: "Fluxdev Blog V2",
 			description:
 				"Fluxdev blog es un gestor de contenido avanzado diseñado como un espacio personal y profesional para compartir artículos, tutoriales y experiencias sobre el desarrollo web.",
+			image: "https://portafolio-web-front.mgdc.site/fluxdevV2.png",
 			tags: ["Astro", "React", "Payload CMS", "PostgreSQL", "Docker", "Tailwind"],
 			links: {
-				demo: "https://fluxdev.mgdc.site",
-				docs: "https://docs.fluxdev.mgdc.site", // Cambia esto por la URL real de tu docs/API
+				demo: "https://fluxdev-nova.mgdc.site/",
+				docs: "http://blog-personal-fluxdev-backend.fluxdv.icu/api/docs",
 				githubFrontend: "https://github.com/Ivandv19/blog-personal-fluxdev-frontend",
 				githubBackend: "https://github.com/Ivandv19/blog-personal-fluxdev-backend",
 			},
