@@ -115,7 +115,7 @@ const Contacto = () => {
 								</div>
 								<button
 									type="button"
-									onClick={() => handleCopy("+525667723938", "phone")}
+									onClick={() => handleCopy("+525657455765", "phone")}
 									className="text-text-muted/50 hover:text-text-muted transition-colors"
 									title="Copiar número"
 								>
@@ -133,12 +133,12 @@ const Contacto = () => {
 								Respuesta rápida para consultas breves.
 							</p>
 							<a
-								href="https://wa.me/525667723938"
+								href="https://wa.me/525657455765"
 								target="_blank"
 								rel="noreferrer"
 								className="text-lg font-semibold text-text-main hover:text-green-600 transition-colors"
 							>
-								+52 56 6772 3938
+								+52 56 5745 5765
 							</a>
 						</div>
 						{/* Tarjeta Ubicación */}

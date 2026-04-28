@@ -21,7 +21,7 @@ describe("Contacto Page", () => {
 
 		expect(screen.getByText(/Ponte en Contacto/i)).toBeInTheDocument();
 		expect(screen.getByText("ivangtx19@gmail.com")).toBeInTheDocument();
-		expect(screen.getByText("+52 56 6772 3938")).toBeInTheDocument();
+		expect(screen.getByText("+52 56 5745 5765")).toBeInTheDocument();
 	});
 
 	it("copies email to clipboard when copy button is clicked", async () => {

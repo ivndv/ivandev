@@ -22,8 +22,9 @@ const Footer = () => {
 							Ivan Cruz
 						</h3>
 						<p className="text-sm text-text-muted leading-relaxed max-w-xs transition-colors duration-300">
-							Desarrollador Web Frontend apasionado por crear interfaces
-							modernas, funcionales y optimizadas.
+							Desarrollador Web Full Stack con enfoque en Cloud Computing y
+							DevOps, apasionado por crear aplicaciones modernas, funcionales y
+							optimizadas.
 						</p>
 						{/* Redes Sociales Sincronizadas con Hero */}
 						<div className="flex flex-wrap gap-3">
@@ -158,7 +159,7 @@ const Footer = () => {
 							Desarrollado por <span className="text-text-main">Ivan Cruz</span>
 						</p>
 						<div className="flex flex-wrap justify-center gap-2">
-							{["React 19", "Vite", "Tailwind v4", "Lucide"].map((tech) => (
+							{["React", "Vite", "Tailwind", "Cloudflare"].map((tech) => (
 								<span
 									key={tech}
 									className="px-4 py-1.5 bg-accent/5 border border-accent/10 rounded-full text-[10px] font-bold uppercase tracking-wider text-text-muted hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 cursor-default"
