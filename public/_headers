@@ -18,8 +18,8 @@
   # Fuerza HTTPS por 1 año
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   
-  # Content Security Policy - Configurado para Google Analytics, Fonts y GitHub
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://avatars.githubusercontent.com https://portafolio-web-front.mgdc.site; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://analytics.google-analytics.com https://analytics.google.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;
+  # Content Security Policy - Configurado para Umami Analytics, Fonts y GitHub
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://challenges.cloudflare.com https://umami.fluxdv.icu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://avatars.githubusercontent.com https://portafolio-web-front.mgdc.site; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://umami.fluxdv.icu; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;
 
 # Cache Headers para Assets Estáticos (JS, CSS)
 # Browser: 1 año | CDN: 30 días (immutable porque tienen hash en el nombre)
