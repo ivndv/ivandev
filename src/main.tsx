@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
 
+// biome-ignore lint/style/noNonNullAssertion: root element always exists in index.html
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<BrowserRouter>

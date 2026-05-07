@@ -44,7 +44,9 @@
 	/* custom dark red bg */
 }
 
-@variant dark (&:where(.dark, .dark *));
+@variant dark 
+(
+&:where(.dark, .dark *));
 
 /* Global Transitions for smooth theme switching */
 html,

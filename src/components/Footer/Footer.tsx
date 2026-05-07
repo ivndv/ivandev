@@ -28,26 +28,37 @@ const Footer = () => {
 						</p>
 						{/* Redes Sociales Sincronizadas con Hero */}
 						<div className="flex flex-wrap gap-3">
+							{/* biome-ignore lint/a11y/useAnchorContent: aria-label is sufficient for icon-only links */}
 							<a
 								href="https://github.com/Ivandv19"
 								target="_blank"
 								rel="noreferrer"
+								aria-label="GitHub"
 								className="p-2 bg-accent/5 hover:bg-accent/10 rounded-lg text-text-muted hover:text-accent transition-all duration-300"
 							>
-								<span className="icon-[mdi--github] text-white" aria-hidden="true" />
+								<span
+									className="icon-[mdi--github] text-white"
+									aria-hidden="true"
+								/>
 							</a>
+							{/* biome-ignore lint/a11y/useAnchorContent: aria-label is sufficient for icon-only links */}
 							<a
 								href="https://www.linkedin.com/in/ivan-cruz-1906mx"
 								target="_blank"
 								rel="noreferrer"
+								aria-label="LinkedIn"
 								className="p-2 bg-accent/5 hover:bg-accent/10 rounded-lg text-text-muted hover:text-accent transition-all duration-300"
 							>
-								<span className="icon-[mdi--linkedin] text-white" aria-hidden="true" />
+								<span
+									className="icon-[mdi--linkedin] text-white"
+									aria-hidden="true"
+								/>
 							</a>
 							<a
 								href="https://discord.com/users/ivandv19"
 								target="_blank"
 								rel="noreferrer"
+								aria-label="Discord"
 								className="p-2 bg-accent/5 hover:bg-accent/10 rounded-lg text-text-muted hover:text-accent transition-all duration-300"
 							>
 								<Send size={18} className="rotate-[-45deg]" />

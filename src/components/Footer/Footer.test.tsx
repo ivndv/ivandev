@@ -13,7 +13,7 @@ describe("Footer Component", () => {
 
 		// Verificar descripción
 		expect(
-			screen.getByText(/Desarrollador Web Frontend Jr/i),
+			screen.getByText(/Desarrollador Web Full Stack/i),
 		).toBeInTheDocument();
 
 		// Verificar links de redes sociales (ahora por aria-label)
@@ -22,7 +22,7 @@ describe("Footer Component", () => {
 		expect(screen.getByRole("link", { name: /inicio/i })).toBeInTheDocument();
 
 		// Verificar Copyright
-		expect(screen.getByText(/© 2025 Ivan Cruz/i)).toBeInTheDocument();
+		expect(screen.getByText(/© 2026 Ivan Cruz/i)).toBeInTheDocument();
 	});
 
 	it("contains links to social media", () => {

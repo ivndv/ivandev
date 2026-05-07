@@ -1,7 +1,6 @@
 import { ArrowUpRight, GraduationCap } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
-
 /**
  * Sección Hero (Presentación) de la página principal.
  * Incluye foto de perfil, título impactante, descripción corta y botones de acción.
@@ -88,7 +87,10 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<span className="icon-[mdi--github] text-white" aria-hidden="true" />
+							<span
+								className="icon-[mdi--github] text-white"
+								aria-hidden="true"
+							/>
 							Github <ArrowUpRight size={16} />
 						</a>
 						<a
@@ -97,7 +99,10 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<span className="icon-[mdi--linkedin] text-white" aria-hidden="true" />
+							<span
+								className="icon-[mdi--linkedin] text-white"
+								aria-hidden="true"
+							/>
 							Linkedin <ArrowUpRight size={16} />
 						</a>
 
@@ -107,7 +112,11 @@ const Hero = () => {
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-text-muted hover:text-accent transition-colors"
 						>
-							<span className="icon-[mdi--discord] text-white" aria-hidden="true" /> Discord <ArrowUpRight size={16} />
+							<span
+								className="icon-[mdi--discord] text-white"
+								aria-hidden="true"
+							/>{" "}
+							Discord <ArrowUpRight size={16} />
 						</a>
 
 						<a

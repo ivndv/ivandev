@@ -1,5 +1,13 @@
 import { Turnstile } from "@marsidev/react-turnstile";
-import { Check, Copy, Loader2, Mail, MapPin, MessageCircle, Send } from "lucide-react";
+import {
+	Check,
+	Copy,
+	Loader2,
+	Mail,
+	MapPin,
+	MessageCircle,
+	Send,
+} from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
@@ -11,9 +19,16 @@ const Contacto = () => {
 	const [copiedField, setCopiedField] = useState<string | null>(null);
 	const { ref, isVisible } = useScrollAnimation(0.05);
 
-	const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+	const [form, setForm] = useState({
+		name: "",
+		email: "",
+		subject: "",
+		message: "",
+	});
 	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-	const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+	const [status, setStatus] = useState<
+		"idle" | "loading" | "success" | "error"
+	>("idle");
 	const [errorMsg, setErrorMsg] = useState("");
 
 	const handleCopy = (text: string, field: string) => {
@@ -22,7 +37,9 @@ const Contacto = () => {
 		setTimeout(() => setCopiedField(null), 2000);
 	};
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => {
 		setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 	};
 
@@ -49,7 +66,9 @@ const Contacto = () => {
 			setTurnstileToken(null);
 		} catch (err) {
 			setStatus("error");
-			setErrorMsg(err instanceof Error ? err.message : "Error al enviar el mensaje.");
+			setErrorMsg(
+				err instanceof Error ? err.message : "Error al enviar el mensaje.",
+			);
 		}
 	};
 
@@ -164,7 +183,9 @@ const Contacto = () => {
 							{status === "success" && (
 								<div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center gap-3">
 									<Check size={20} />
-									<span className="font-medium">¡Mensaje enviado! Te responderé pronto.</span>
+									<span className="font-medium">
+										¡Mensaje enviado! Te responderé pronto.
+									</span>
 								</div>
 							)}
 
@@ -174,7 +195,6 @@ const Contacto = () => {
 									{errorMsg || "Hubo un error al enviar. Intenta de nuevo."}
 								</div>
 							)}
-
 
 							<form onSubmit={handleSubmit} className="space-y-6">
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">

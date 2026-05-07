@@ -54,6 +54,7 @@ const Header = () => {
 					{/* ICONOS */}
 					<div className="hidden md:flex items-center space-x-4">
 						<button
+							type="button"
 							onClick={toggleTheme}
 							className="text-text-muted hover:text-accent hover:bg-accent/10 p-2 rounded-full transition-all duration-300"
 							aria-label="Toggle Theme"
@@ -64,10 +65,15 @@ const Header = () => {
 
 					{/* BOTÓN HAMBURGUESA Y TOGGLE MÓVIL */}
 					<div className="md:hidden flex items-center space-x-3">
-						<button onClick={toggleTheme} className="text-text-muted p-2">
+						<button
+							type="button"
+							onClick={toggleTheme}
+							className="text-text-muted p-2"
+						>
 							{theme === "light" ? <Moon size={22} /> : <Sun size={22} />}
 						</button>
 						<button
+							type="button"
 							onClick={() => setIsMenuOpen(!isMenuOpen)}
 							className="text-text-muted hover:text-accent focus:outline-none transition-colors"
 						>

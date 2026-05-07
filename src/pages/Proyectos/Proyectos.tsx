@@ -1,11 +1,11 @@
 import {
+	BookOpen,
 	Code2,
 	Dog,
 	ExternalLink,
 	Lock,
 	MonitorPlay,
 	Rocket,
-	BookOpen,
 } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
@@ -68,7 +68,8 @@ const Projects = () => {
 			links: {
 				demo: "https://gestor.mgdc.site/",
 				docs: "https://gestor-activos-backend.fluxdv.icu/api/docs/",
-				githubFrontend: "https://github.com/Ivandv19/gestor-activos-frontend.git",
+				githubFrontend:
+					"https://github.com/Ivandv19/gestor-activos-frontend.git",
 				githubBackend: "https://github.com/Ivandv19/gestor-activos.git",
 			},
 		},
@@ -78,7 +79,14 @@ const Projects = () => {
 			description:
 				"Dashboard interactivo diseñado para visualizar y monitorear la presencia de grupos organizados en territorio mexicano a través de mapas dinámicos.",
 			image: "https://portafolio-web-front.mgdc.site/mxwatch.png",
-			tags: ["Next.js", "D3-Geo", "Hono", "Drizzle ORM", "PostgreSQL", "Cloudflare"],
+			tags: [
+				"Next.js",
+				"D3-Geo",
+				"Hono",
+				"Drizzle ORM",
+				"PostgreSQL",
+				"Cloudflare",
+			],
 			links: {
 				demo: "https://mxwatch.mgdc.site",
 				docs: "https://mxwatch-api.fluxdv.icu/api/docs",
@@ -92,7 +100,14 @@ const Projects = () => {
 			description:
 				"Aplicación web de productividad que ayuda a gestionar el tiempo de trabajo y estudio mediante bloques de enfoque y descansos programados.",
 			image: "https://portafolio-web-front.mgdc.site/sinxpomodoro.png",
-			tags: ["Astro", "React", "Hono", "Better Auth", "Drizzle ORM", "Cloudflare D1"],
+			tags: [
+				"Astro",
+				"React",
+				"Hono",
+				"Better Auth",
+				"Drizzle ORM",
+				"Cloudflare D1",
+			],
 			links: {
 				demo: "https://sinx-pomodoro.mgdc.site/",
 				github: "https://github.com/Ivandv19/sinx-pomodoro-v2",
@@ -104,7 +119,14 @@ const Projects = () => {
 			description:
 				"Landing page enfocada en la presentación y oferta de servicios de desarrollo de software con un diseño moderno y captura de leads.",
 			image: "https://portafolio-web-front.mgdc.site/portafolioweb.png",
-			tags: ["Astro", "React", "Tailwind v4", "DaisyUI", "Resend", "Cloudflare Pages"],
+			tags: [
+				"Astro",
+				"React",
+				"Tailwind v4",
+				"DaisyUI",
+				"Resend",
+				"Cloudflare Pages",
+			],
 			links: {
 				demo: "https://web-portfolio-f.mgdc.site/",
 				github: "https://github.com/Ivandv19/portafolio-web-serv-front",
@@ -128,12 +150,21 @@ const Projects = () => {
 			description:
 				"Fluxdev blog es un gestor de contenido avanzado diseñado como un espacio personal y profesional para compartir artículos, tutoriales y experiencias sobre el desarrollo web.",
 			image: "https://portafolio-web-front.mgdc.site/fluxdevV2.png",
-			tags: ["Astro", "React", "Payload CMS", "PostgreSQL", "Docker", "Tailwind"],
+			tags: [
+				"Astro",
+				"React",
+				"Payload CMS",
+				"PostgreSQL",
+				"Docker",
+				"Tailwind",
+			],
 			links: {
 				demo: "https://fluxdev-nova.mgdc.site/",
 				docs: "https://blog-personal-fluxdev-backend.fluxdv.icu/api/docs",
-				githubFrontend: "https://github.com/Ivandv19/blog-personal-fluxdev-frontend",
-				githubBackend: "https://github.com/Ivandv19/blog-personal-fluxdev-backend",
+				githubFrontend:
+					"https://github.com/Ivandv19/blog-personal-fluxdev-frontend",
+				githubBackend:
+					"https://github.com/Ivandv19/blog-personal-fluxdev-backend",
 			},
 		},
 	];
@@ -175,7 +206,9 @@ const Projects = () => {
 										className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
 										onError={(e) => {
 											e.currentTarget.style.display = "none";
-											e.currentTarget.parentElement?.classList.add("bg-surface-border/50");
+											e.currentTarget.parentElement?.classList.add(
+												"bg-surface-border/50",
+											);
 										}}
 									/>
 								)}
@@ -187,9 +220,12 @@ const Projects = () => {
 							<div className="p-6 flex-1 flex flex-col">
 								<div className="flex justify-between items-start mb-4">
 									{/* TÍTULO */}
-									<h3 className="text-xl font-bold text-text-main">{project.title}</h3>
+									<h3 className="text-xl font-bold text-text-main">
+										{project.title}
+									</h3>
 									<div className="p-2 bg-surface-border/30 rounded-lg text-text-muted">
-										{project.title.includes("Music") || project.title.includes("Flux") ? (
+										{project.title.includes("Music") ||
+										project.title.includes("Flux") ? (
 											<MonitorPlay size={20} />
 										) : project.title.includes("Space") ? (
 											<Rocket size={20} />
@@ -256,7 +292,11 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Código
+												<span
+													className="icon-[mdi--github] text-white"
+													aria-hidden="true"
+												/>{" "}
+												Código
 											</a>
 										)}
 										{project.links.githubFrontend && (
@@ -266,7 +306,11 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Frontend
+												<span
+													className="icon-[mdi--github] text-white"
+													aria-hidden="true"
+												/>{" "}
+												Frontend
 											</a>
 										)}
 										{project.links.githubBackend && (
@@ -276,7 +320,11 @@ const Projects = () => {
 												rel="noreferrer"
 												className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-surface-border/30 text-text-main hover:bg-text-main hover:text-page-bg rounded-lg text-xs font-medium transition-colors"
 											>
-												<span className="icon-[mdi--github] text-white" aria-hidden="true" /> Backend
+												<span
+													className="icon-[mdi--github] text-white"
+													aria-hidden="true"
+												/>{" "}
+												Backend
 											</a>
 										)}
 									</div>

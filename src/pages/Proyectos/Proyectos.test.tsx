@@ -14,7 +14,7 @@ describe("Projects Page", () => {
 		// Verificamos que algunos proyectos específicos aparezcan
 		expect(screen.getByText("Fluxbeats")).toBeInTheDocument();
 		expect(screen.getByText("Gestor de activos")).toBeInTheDocument();
-		expect(screen.getByText("Encriptador de Texto")).toBeInTheDocument();
+		expect(screen.getByText("Space App V3")).toBeInTheDocument();
 	});
 
 	it("contains correctly configured external links for projects", () => {
@@ -28,11 +28,11 @@ describe("Projects Page", () => {
 		// Verificamos el primer link de cada tipo (el de Fluxbeats)
 		expect(githubLinks[0]).toHaveAttribute(
 			"href",
-			"https://github.com/Ivandv19/landing-page-1906.git",
+			"https://github.com/Ivandv19/landing-page-1906",
 		);
 		expect(demoLinks[0]).toHaveAttribute(
 			"href",
-			"https://landing-page.mgdc.site",
+			"https://landing-page.mgdc.site/",
 		);
 	});
 

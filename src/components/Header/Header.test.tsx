@@ -1,26 +1,28 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
+import { ThemeProvider } from "../../context/ThemeContext";
 import Header from "./Header";
 
 describe("Header Component", () => {
-	it("renders the logo image", () => {
+	const renderHeader = () =>
 		render(
 			<MemoryRouter>
-				<Header />
+				<ThemeProvider>
+					<Header />
+				</ThemeProvider>
 			</MemoryRouter>,
 		);
+
+	it("renders the logo image", () => {
+		renderHeader();
 
 		const logo = screen.getByAltText(/logo/i);
 		expect(logo).toBeInTheDocument();
 	});
 
 	it("renders navigation links", () => {
-		render(
-			<MemoryRouter>
-				<Header />
-			</MemoryRouter>,
-		);
+		renderHeader();
 
 		expect(screen.getByText("Inicio")).toBeInTheDocument();
 		expect(screen.getByText("Proyectos")).toBeInTheDocument();
@@ -28,15 +30,10 @@ describe("Header Component", () => {
 	});
 
 	it("toggles mobile menu when hamburger button is clicked", () => {
-		render(
-			<MemoryRouter>
-				<Header />
-			</MemoryRouter>,
-		);
+		renderHeader();
 
-		// Buscamos el botón por su rol (el que tiene el ícono de menú)
-		// En el código es un div con un botón adentro fuera de los navs desktop
-		const menuButton = screen.getByRole("button");
+		// Buscamos el botón hamburguesa (tercer botón: desktop toggle, mobile toggle, hamburger)
+		const menuButton = screen.getAllByRole("button")[2];
 
 		// Por defecto, el menú móvil no debería estar (los links del menú móvil se renderizan condicionalmente)
 		// NOTA: Como screen.getByText fallaría si no lo encuentra, usamos queryByText para verificar ausencia
