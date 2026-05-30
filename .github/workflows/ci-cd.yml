@@ -1,4 +1,4 @@
-name: Portafolio Web V4 CI/CD
+name: portafolio-web-ci-cd
 
 on:
   push:
