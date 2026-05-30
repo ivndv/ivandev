@@ -10,9 +10,9 @@ const SobreMi = () => {
 	useEffect(() => { document.title = t.seo.sobreMi; }, [t.seo.sobreMi]);
 
 	const renderParrafo = (parts: { text: string; bold: boolean }[]) =>
-		parts.map((part, i) =>
+		parts.map((part) =>
 			part.bold ? (
-				<span key={i} className="font-bold text-text-main">
+				<span key={part.text} className="font-bold text-text-main">
 					{part.text}
 				</span>
 			) : (

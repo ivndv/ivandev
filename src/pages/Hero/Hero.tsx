@@ -10,9 +10,9 @@ const Hero = () => {
 	useEffect(() => { document.title = t.seo.hero; }, [t.seo.hero]);
 
 	const renderDescription = (parts: { text: string; bold: boolean }[]) =>
-		parts.map((part, i) =>
+		parts.map((part) =>
 			part.bold ? (
-				<span key={i} className="font-semibold text-text-main">
+				<span key={part.text} className="font-semibold text-text-main">
 					{part.text}
 				</span>
 			) : (
