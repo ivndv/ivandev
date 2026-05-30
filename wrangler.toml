@@ -1,4 +1,4 @@
-name = "portafolio-web-v4"
+name = "portafolio-web"
 pages_build_output_dir = "dist"
-compatibility_date = "2026-04-30"
+compatibility_date = "2026-05-30"
 compatibility_flags = ["nodejs_compat"]
