@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
 	Bot,
 	Box,
@@ -17,14 +18,15 @@ import {
 	Users,
 	Zap,
 } from "lucide-react";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from "@/hooks/useTranslation";
 
-/**
- * Página de Skills que agrupa habilidades por categorías (Frontend, Backend, Cloud, etc.)
- * y muestra cada tecnología con su respectivo ícono y nivel de dominio.
- */
 const Skills = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
+	const t = useTranslation();
+
+	useEffect(() => { document.title = t.seo.skills; }, [t.seo.skills]);
+
 	const skillCategories = [
 		{
 			title: "Frontend",
@@ -148,18 +150,15 @@ const Skills = () => {
 				ref={ref as React.RefObject<HTMLDivElement>}
 				className={`max-w-7xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
 			>
-				{/* ENCABEZADO */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-						Mis Habilidades Tecnológicas
+						{t.skills.title}
 					</h2>
 					<p className="text-text-muted max-w-2xl mx-auto text-lg">
-						Un desglose de las herramientas, lenguajes y tecnologías que manejo
-						y estoy aprendiendo.
+						{t.skills.subtitle}
 					</p>
 				</div>
 
-				{/* MAPEO DE CATEGORÍAS */}
 				<div className="space-y-16">
 					{skillCategories.map((category) => (
 						<div key={category.title} className="space-y-6">
@@ -179,19 +178,16 @@ const Skills = () => {
 								</p>
 							)}
 
-							{/* GRID DE SKILLS */}
 							<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
 								{category.skills.map((skill) => (
 									<div
 										key={skill.name}
 										className="group relative bg-surface-bg border border-surface-border rounded-lg p-4 shadow-sm hover:border-accent hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] hover:-translate-y-1 flex flex-col items-center justify-center gap-3 text-center"
 									>
-										{/* ICONO */}
 										<div className="text-text-muted group-hover:text-accent">
 											{skill.icon}
 										</div>
 
-										{/* INFO */}
 										<div>
 											<h4 className="font-semibold text-text-main text-sm">
 												{skill.name}

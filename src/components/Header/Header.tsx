@@ -1,31 +1,26 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../context/ThemeContext";
+import { useAppStore } from "@/store/appStore";
+import { useTranslation } from "@/hooks/useTranslation";
 
-/**
- * Componente Header que contiene la navegación principal y el logo.
- * Incluye una versión desktop con enlaces y una versión móvil con menú de hamburguesa.
- */
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { theme, toggleTheme } = useTheme();
+	const theme = useAppStore((s) => s.theme);
+	const language = useAppStore((s) => s.language);
+	const toggleTheme = useAppStore((s) => s.toggleTheme);
+	const setLanguage = useAppStore((s) => s.setLanguage);
+	const t = useTranslation();
 
-	const navLinks = [
-		{ name: "Inicio", path: "/" },
-		{ name: "Skills", path: "/skills" },
-		{ name: "Experiencia", path: "/experiencia" },
-		{ name: "Proyectos", path: "/proyectos" },
-		{ name: "Sobre Mí", path: "/sobre-mi" },
-		{ name: "Formacion", path: "/formacion" },
-		{ name: "Contacto", path: "/contacto" },
-	];
+	const navLinks = t.header.navLinks.map((name, i) => ({
+		name,
+		path: ["/", "/skills", "/experiencia", "/proyectos", "/sobre-mi", "/formacion", "/contacto"][i],
+	}));
 
 	return (
 		<header className="fixed top-0 w-full z-50 bg-surface-bg/95 backdrop-blur-sm border-b border-accent shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
-					{/* LOGO */}
 					<Link
 						to="/"
 						className="flex-shrink-0 flex items-center cursor-pointer"
@@ -37,7 +32,6 @@ const Header = () => {
 						/>
 					</Link>
 
-					{/* NAV DESKTOP */}
 					<nav className="hidden md:flex space-x-8">
 						{navLinks.map((link) => (
 							<Link
@@ -51,8 +45,15 @@ const Header = () => {
 						))}
 					</nav>
 
-					{/* ICONOS */}
 					<div className="hidden md:flex items-center space-x-4">
+						<button
+							type="button"
+							onClick={() => setLanguage(language === "es" ? "en" : "es")}
+							className="text-text-muted hover:text-accent font-semibold text-sm transition-colors duration-200"
+							aria-label="Toggle Language"
+						>
+							{language === "es" ? "EN" : "ES"}
+						</button>
 						<button
 							type="button"
 							onClick={toggleTheme}
@@ -63,8 +64,14 @@ const Header = () => {
 						</button>
 					</div>
 
-					{/* BOTÓN HAMBURGUESA Y TOGGLE MÓVIL */}
 					<div className="md:hidden flex items-center space-x-3">
+						<button
+							type="button"
+							onClick={() => setLanguage(language === "es" ? "en" : "es")}
+							className="text-text-muted hover:text-accent font-semibold text-sm transition-colors duration-200"
+						>
+							{language === "es" ? "EN" : "ES"}
+						</button>
 						<button
 							type="button"
 							onClick={toggleTheme}
@@ -83,7 +90,6 @@ const Header = () => {
 				</div>
 			</div>
 
-			{/* MENÚ MÓVIL */}
 			{isMenuOpen && (
 				<div className="md:hidden bg-surface-bg border-t border-accent absolute w-full shadow-2xl">
 					<div className="px-4 pt-2 pb-6 space-y-1">

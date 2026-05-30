@@ -1,17 +1,14 @@
 import { Send } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
-/**
- * Componente Footer rediseñado basado en la estética de Flux/Sinx.
- * Incluye secciones de marca, navegación, legal, suscripción y badges de tecnologías.
- */
 const Footer = () => {
+	const t = useTranslation();
+
 	return (
 		<footer className="bg-surface-bg text-text-muted py-16 border-t border-accent/20 font-sans transition-colors duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				{/* TOP SECTION: 4 Columns */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-					{/* COLUMNA 1: Marca y Redes */}
 					<div className="space-y-6">
 						<h3 className="text-3xl font-bold text-text-main tracking-tighter flex items-center gap-2">
 							<img
@@ -22,11 +19,8 @@ const Footer = () => {
 							Ivan Cruz
 						</h3>
 						<p className="text-sm text-text-muted leading-relaxed max-w-xs transition-colors duration-300">
-							Desarrollador Web Full Stack con enfoque en Cloud Computing y
-							DevOps, apasionado por crear aplicaciones modernas, funcionales y
-							optimizadas.
+							{t.footer.brandDesc}
 						</p>
-						{/* Redes Sociales Sincronizadas con Hero */}
 						<div className="flex flex-wrap gap-3">
 							{/* biome-ignore lint/a11y/useAnchorContent: aria-label is sufficient for icon-only links */}
 							<a
@@ -66,15 +60,14 @@ const Footer = () => {
 						</div>
 					</div>
 
-					{/* COLUMNA 2: Navegación Principal */}
 					<div>
 						<h4 className="text-text-main font-bold mb-6 uppercase tracking-widest text-xs">
-							Navegación
+							{t.footer.navegacion}
 						</h4>
 						<ul className="space-y-4 text-sm font-medium">
 							<li>
 								<Link to="/" className="hover:text-accent transition-colors">
-									Inicio
+									{t.header.navLinks[0]}
 								</Link>
 							</li>
 							<li>
@@ -82,7 +75,7 @@ const Footer = () => {
 									to="/skills"
 									className="hover:text-accent transition-colors"
 								>
-									Skills
+									{t.header.navLinks[1]}
 								</Link>
 							</li>
 							<li>
@@ -90,7 +83,7 @@ const Footer = () => {
 									to="/experiencia"
 									className="hover:text-accent transition-colors"
 								>
-									Experiencia
+									{t.header.navLinks[2]}
 								</Link>
 							</li>
 							<li>
@@ -98,13 +91,12 @@ const Footer = () => {
 									to="/proyectos"
 									className="hover:text-accent transition-colors"
 								>
-									Proyectos
+									{t.header.navLinks[3]}
 								</Link>
 							</li>
 						</ul>
 					</div>
 
-					{/* COLUMNA 3: Más Navegación */}
 					<div className="md:pt-10">
 						<ul className="space-y-4 text-sm font-medium">
 							<li>
@@ -112,7 +104,7 @@ const Footer = () => {
 									to="/sobre-mi"
 									className="hover:text-accent transition-colors"
 								>
-									Sobre Mí
+									{t.header.navLinks[4]}
 								</Link>
 							</li>
 							<li>
@@ -120,7 +112,7 @@ const Footer = () => {
 									to="/formacion"
 									className="hover:text-accent transition-colors"
 								>
-									Formacion
+									{t.header.navLinks[5]}
 								</Link>
 							</li>
 							<li>
@@ -128,16 +120,15 @@ const Footer = () => {
 									to="/contacto"
 									className="hover:text-accent transition-colors"
 								>
-									Contacto
+									{t.header.navLinks[6]}
 								</Link>
 							</li>
 						</ul>
 					</div>
 
-					{/* COLUMNA 4: Legal */}
 					<div>
 						<h4 className="text-text-main font-bold mb-6 uppercase tracking-widest text-xs">
-							Legal
+							{t.footer.legal}
 						</h4>
 						<ul className="space-y-4 text-sm font-medium">
 							<li>
@@ -145,7 +136,7 @@ const Footer = () => {
 									to="/terminos"
 									className="hover:text-accent transition-colors"
 								>
-									Términos y Condiciones
+									{t.footer.terminos}
 								</Link>
 							</li>
 							<li>
@@ -153,24 +144,22 @@ const Footer = () => {
 									to="/privacidad"
 									className="hover:text-accent transition-colors"
 								>
-									Política de Privacidad
+									{t.footer.privacidad}
 								</Link>
 							</li>
 						</ul>
 					</div>
 				</div>
 
-				{/* MIDDLE BAR: Thin Line */}
 				<div className="h-[1px] w-full bg-surface-border mb-12"></div>
 
-				{/* BOTTOM SECTION: Badges & Copyright */}
 				<div className="flex flex-col items-center space-y-8">
 					<div className="text-center">
 						<p className="text-xs uppercase tracking-[0.2em] text-text-muted font-bold mb-4">
-							Desarrollado por <span className="text-text-main">Ivan Cruz</span>
+							{t.footer.desarrolladoPor} <span className="text-text-main">Ivan Cruz</span>
 						</p>
 						<div className="flex flex-wrap justify-center gap-2">
-							{["React", "Vite", "Tailwind", "Cloudflare"].map((tech) => (
+							{["React", "Tailwind", "Hono", "GitHub", "Cloudflare"].map((tech) => (
 								<span
 									key={tech}
 									className="px-4 py-1.5 bg-accent/5 border border-accent/10 rounded-full text-[10px] font-bold uppercase tracking-wider text-text-muted hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 cursor-default"
@@ -183,8 +172,7 @@ const Footer = () => {
 
 					<div className="flex flex-col items-center gap-4 py-4">
 						<p className="text-[11px] text-text-muted opacity-60 tracking-wider">
-							© {new Date().getFullYear()} Ivan Cruz. Todos los derechos
-							reservados.
+							© {new Date().getFullYear()} Ivan Cruz. {t.footer.derechos}
 						</p>
 						<img
 							src="/CircleFlagsMx.svg"

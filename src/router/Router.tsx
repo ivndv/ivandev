@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout/Layout.tsx";
 
-// Lazy Loading
 const Hero = lazy(() => import("@/pages/Hero/Hero"));
 const Skills = lazy(() => import("@/pages/Skills/Skills"));
 const Experiencia = lazy(() => import("@/pages/Experiencia/Experiencia"));
@@ -16,13 +15,7 @@ const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const Router = () => {
 	return (
-		<Suspense
-			fallback={
-				<div className="min-h-screen flex items-center justify-center">
-					Cargando...
-				</div>
-			}
-		>
+		<Suspense fallback={<div className="min-h-screen flex items-center justify-center text-text-muted">Cargando...</div>}>
 			<Routes>
 				<Route element={<Layout />}>
 					<Route path="/" element={<Hero />} />

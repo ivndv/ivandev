@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 const Terminos = () => {
+	useEffect(() => { document.title = "Términos | Ivan Cruz"; }, []);
 	return (
 		<div className="min-h-screen bg-page-bg text-text-main pt-32 pb-20 transition-colors duration-300">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

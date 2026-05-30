@@ -8,16 +8,16 @@ import {
 	MessageCircle,
 	Send,
 } from "lucide-react";
-import { useState } from "react";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { useEffect, useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from "@/hooks/useTranslation";
 
-/**
- * Página de Contacto que incluye tarjetas de información (email, WhatsApp)
- * y un formulario para enviar mensajes conectado a /api/contact (CF Pages Function).
- */
 const Contacto = () => {
 	const [copiedField, setCopiedField] = useState<string | null>(null);
 	const { ref, isVisible } = useScrollAnimation(0.05);
+	const t = useTranslation();
+
+	useEffect(() => { document.title = t.seo.contacto; }, [t.seo.contacto]);
 
 	const [form, setForm] = useState({
 		name: "",
@@ -67,7 +67,7 @@ const Contacto = () => {
 		} catch (err) {
 			setStatus("error");
 			setErrorMsg(
-				err instanceof Error ? err.message : "Error al enviar el mensaje.",
+				err instanceof Error ? err.message : t.contacto.error,
 			);
 		}
 	};
@@ -78,23 +78,21 @@ const Contacto = () => {
 				ref={ref as React.RefObject<HTMLDivElement>}
 				className={`max-w-6xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
 			>
-				{/* ENCABEZADO "SÁNDWICH" */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-						Ponte en Contacto
+						{t.contacto.title}
 					</h2>
 					<div className="flex items-center justify-center gap-4">
 						<div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]" />
 						<p className="text-text-muted text-lg italic">
-							¿Tienes un proyecto en mente? ¡Hablemos!
+							{t.contacto.subtitle}
 						</p>
 						<div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]" />
 					</div>
 				</div>
+
 				<div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-					{/* COLUMNA IZQUIERDA: INFORMACIÓN DE CONTACTO (2/5 del ancho) */}
 					<div className="lg:col-span-2 space-y-6">
-						{/* Tarjeta Email */}
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow group">
 							<div className="flex items-start justify-between mb-4">
 								<div className="p-3 bg-accent-muted text-accent rounded-xl group-hover:bg-accent group-hover:text-white transition-colors duration-300">
@@ -104,7 +102,7 @@ const Contacto = () => {
 									type="button"
 									onClick={() => handleCopy("ivangtx19@gmail.com", "email")}
 									className="text-text-muted/50 hover:text-text-muted transition-colors"
-									title="Copiar correo"
+									title={t.contacto.copiar}
 								>
 									{copiedField === "email" ? (
 										<Check size={20} className="text-green-500" />
@@ -114,10 +112,10 @@ const Contacto = () => {
 								</button>
 							</div>
 							<h3 className="text-lg font-bold text-text-main mb-1">
-								Correo Electrónico
+								{t.contacto.emailTitulo}
 							</h3>
 							<p className="text-text-muted text-sm mb-4">
-								Para consultas detalladas o colaboraciones formales.
+								{t.contacto.emailDesc}
 							</p>
 							<a
 								href="mailto:ivangtx19@gmail.com"
@@ -126,7 +124,7 @@ const Contacto = () => {
 								ivangtx19@gmail.com
 							</a>
 						</div>
-						{/* Tarjeta WhatsApp */}
+
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow group">
 							<div className="flex items-start justify-between mb-4">
 								<div className="p-3 bg-green-50 text-green-600 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
@@ -136,7 +134,7 @@ const Contacto = () => {
 									type="button"
 									onClick={() => handleCopy("+525657455765", "phone")}
 									className="text-text-muted/50 hover:text-text-muted transition-colors"
-									title="Copiar número"
+									title={t.contacto.copiarPhone}
 								>
 									{copiedField === "phone" ? (
 										<Check size={20} className="text-green-500" />
@@ -146,10 +144,10 @@ const Contacto = () => {
 								</button>
 							</div>
 							<h3 className="text-lg font-bold text-text-main mb-1">
-								WhatsApp / Teléfono
+								{t.contacto.whatsappTitulo}
 							</h3>
 							<p className="text-text-muted text-sm mb-4">
-								Respuesta rápida para consultas breves.
+								{t.contacto.whatsappDesc}
 							</p>
 							<a
 								href="https://wa.me/525657455765"
@@ -160,51 +158,43 @@ const Contacto = () => {
 								+52 56 5745 5765
 							</a>
 						</div>
-						{/* Tarjeta Ubicación */}
+
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
 							<div className="p-3 bg-surface-border/50 text-text-muted rounded-xl">
 								<MapPin size={24} />
 							</div>
 							<div>
-								<h3 className="font-bold text-text-main">Ubicación</h3>
-								<p className="text-text-muted text-sm">
-									Chimalhuacán, Estado de México
-								</p>
+								<h3 className="font-bold text-text-main">{t.contacto.ubicacionTitulo}</h3>
+								<p className="text-text-muted text-sm">{t.contacto.ubicacionValor}</p>
 							</div>
 						</div>
 					</div>
 
-					{/* COLUMNA DERECHA: FORMULARIO (3/5 del ancho) */}
 					<div className="lg:col-span-3">
 						<div className="bg-surface-bg p-8 md:p-10 rounded-2xl border border-surface-border shadow-lg">
-							<h3 className="text-2xl font-bold mb-6">Envíame un mensaje</h3>
+							<h3 className="text-2xl font-bold mb-6">{t.contacto.formTitulo}</h3>
 
-							{/* SUCCESS */}
 							{status === "success" && (
 								<div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center gap-3">
 									<Check size={20} />
-									<span className="font-medium">
-										¡Mensaje enviado! Te responderé pronto.
-									</span>
+									<span className="font-medium">{t.contacto.success}</span>
 								</div>
 							)}
 
-							{/* ERROR */}
 							{status === "error" && (
 								<div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm">
-									{errorMsg || "Hubo un error al enviar. Intenta de nuevo."}
+									{errorMsg || t.contacto.error}
 								</div>
 							)}
 
 							<form onSubmit={handleSubmit} className="space-y-6">
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-									{/* Nombre */}
 									<div className="space-y-2">
 										<label
 											htmlFor="name"
 											className="text-sm font-semibold text-text-muted"
 										>
-											Nombre
+											{t.contacto.labelNombre}
 										</label>
 										<input
 											type="text"
@@ -212,17 +202,16 @@ const Contacto = () => {
 											value={form.name}
 											onChange={handleChange}
 											required
-											placeholder="Tu nombre"
+											placeholder={t.contacto.placeholderNombre}
 											className="w-full px-4 py-3 rounded-lg bg-page-bg border border-surface-border focus:border-accent focus:bg-surface-bg focus:ring-2 focus:ring-accent/30 outline-none"
 										/>
 									</div>
-									{/* Email */}
 									<div className="space-y-2">
 										<label
 											htmlFor="email"
 											className="text-sm font-semibold text-text-muted"
 										>
-											Email
+											{t.contacto.labelEmail}
 										</label>
 										<input
 											type="email"
@@ -230,18 +219,18 @@ const Contacto = () => {
 											value={form.email}
 											onChange={handleChange}
 											required
-											placeholder="tu@correo.com"
+											placeholder={t.contacto.placeholderEmail}
 											className="w-full px-4 py-3 rounded-lg bg-page-bg border border-surface-border focus:border-accent focus:bg-surface-bg focus:ring-2 focus:ring-accent/30 outline-none"
 										/>
 									</div>
 								</div>
-								{/* Asunto */}
+
 								<div className="space-y-2">
 									<label
 										htmlFor="subject"
 										className="text-sm font-semibold text-text-muted"
 									>
-										Asunto
+										{t.contacto.labelAsunto}
 									</label>
 									<input
 										type="text"
@@ -249,17 +238,17 @@ const Contacto = () => {
 										value={form.subject}
 										onChange={handleChange}
 										required
-										placeholder="¿En qué puedo ayudarte?"
+										placeholder={t.contacto.placeholderAsunto}
 										className="w-full px-4 py-3 rounded-lg bg-page-bg border border-surface-border focus:border-accent focus:bg-surface-bg focus:ring-2 focus:ring-accent/30 outline-none"
 									/>
 								</div>
-								{/* Mensaje */}
+
 								<div className="space-y-2">
 									<label
 										htmlFor="message"
 										className="text-sm font-semibold text-text-muted"
 									>
-										Mensaje
+										{t.contacto.labelMensaje}
 									</label>
 									<textarea
 										id="message"
@@ -267,34 +256,27 @@ const Contacto = () => {
 										value={form.message}
 										onChange={handleChange}
 										required
-										placeholder="Cuéntame sobre tu proyecto..."
+										placeholder={t.contacto.placeholderMensaje}
 										className="w-full px-4 py-3 rounded-lg bg-page-bg border border-surface-border focus:border-accent focus:bg-surface-bg focus:ring-2 focus:ring-accent/30 outline-none resize-none"
 									/>
 								</div>
-								{/* Turnstile Widget */}
+
 								<Turnstile
 									siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-									onSuccess={setTurnstileToken}
-									onExpire={() => setTurnstileToken(null)}
-									options={{ theme: "auto" }}
+									onSuccess={(token) => setTurnstileToken(token)}
 								/>
-								{/* Botón Submit */}
+
 								<button
 									type="submit"
 									disabled={status === "loading" || !turnstileToken}
-									className="w-full py-4 px-6 bg-accent hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 transition-all"
+									className="w-full bg-accent hover:opacity-90 disabled:opacity-50 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
 								>
 									{status === "loading" ? (
-										<>
-											<Loader2 size={20} className="animate-spin" />
-											Enviando...
-										</>
+										<Loader2 size={20} className="animate-spin" />
 									) : (
-										<>
-											<Send size={20} />
-											Enviar Mensaje
-										</>
+										<Send size={20} />
 									)}
+									{status === "loading" ? t.contacto.enviando : t.contacto.enviar}
 								</button>
 							</form>
 						</div>

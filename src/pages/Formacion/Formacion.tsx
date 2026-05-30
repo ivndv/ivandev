@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
 	Award,
 	BookOpen,
@@ -5,14 +6,14 @@ import {
 	CheckCircle2,
 	GraduationCap,
 } from "lucide-react";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from "@/hooks/useTranslation";
 
-/**
- * Página de Formación que lista certificaciones, estudios académicos
- * y competencias adquiridas en cada institución.
- */
 const Formacion = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
+	const t = useTranslation();
+
+	useEffect(() => { document.title = t.seo.formacion; }, [t.seo.formacion]);
 	const educationData = [
 		{
 			id: 1,
@@ -78,15 +79,14 @@ const Formacion = () => {
 				ref={ref as React.RefObject<HTMLDivElement>}
 				className={`max-w-5xl mx-auto animate-on-scroll ${isVisible ? "visible" : ""}`}
 			>
-				{/* ENCABEZADO "SÁNDWICH" */}
 				<div className="text-center mb-16 space-y-4 mt-16">
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-						Mi Formación Académica
+						{t.formacion.title}
 					</h2>
 					<div className="flex items-center justify-center gap-4">
 						<div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
 						<p className="text-text-muted text-lg italic">
-							Certificaciones y Estudios
+							{t.formacion.subtitle}
 						</p>
 						<div className="h-px bg-text-main flex-1 rounded-full opacity-20 max-w-[100px]"></div>
 					</div>
@@ -111,7 +111,6 @@ const Formacion = () => {
 											{edu.type}
 										</span>
 									</div>
-									{/* Título */}
 									<h3 className="text-2xl font-bold text-text-main mb-2">
 										{edu.title}
 									</h3>
@@ -121,9 +120,7 @@ const Formacion = () => {
 											<BookOpen size={16} className="text-accent" />
 											{edu.institution}
 										</span>
-										<span className="hidden md:inline text-surface-border">
-											|
-										</span>
+										<span className="hidden md:inline text-surface-border">|</span>
 										<span className="flex items-center gap-1.5 bg-surface-border/50 px-3 py-1 rounded-full text-sm text-text-main">
 											<Calendar size={14} />
 											{edu.date}
