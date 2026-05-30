@@ -6,8 +6,30 @@ import { z } from "zod";
 type Env = {
 	RESEND_API_KEY: string;
 	RESEND_TO_EMAIL: string;
+	RESEND_FROM_EMAIL?: string;
 	TURNSTILE_SECRET_KEY: string;
 };
+
+function escapeHtml(str: string): string {
+	return str
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+}
+
+function buildEmailHtml(name: string, email: string, subject: string, message: string): string {
+	return `
+		<h2>Nuevo mensaje desde tu portafolio</h2>
+		<p><strong>Nombre:</strong> ${name}</p>
+		<p><strong>Email:</strong> ${email}</p>
+		<p><strong>Asunto:</strong> ${subject}</p>
+		<hr />
+		<p><strong>Mensaje:</strong></p>
+		<p>${message.replace(/\n/g, "<br/>")}</p>
+	`;
+}
 
 const ContactSchema = z.object({
 	name: z.string().min(1, "El nombre es requerido.").max(100),
@@ -60,24 +82,22 @@ app.post("/api/contact", async (c) => {
 	// Enviar email via Resend
 	const resend = new Resend(c.env.RESEND_API_KEY);
 	const toEmail = c.env.RESEND_TO_EMAIL || "ivangtx19@gmail.com";
+	const fromEmail = c.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+
+	const safeName = escapeHtml(name);
+	const safeEmail = escapeHtml(email);
+	const safeSubject = escapeHtml(subject);
+	const safeMessage = escapeHtml(message);
 
 	const { error } = await resend.emails.send({
-		from: "Portafolio <onboarding@resend.dev>",
+		from: `Portafolio <${fromEmail}>`,
 		to: [toEmail],
-		subject: `[Portafolio] ${subject}`,
-		html: `
-      <h2>Nuevo mensaje desde tu portafolio</h2>
-      <p><strong>Nombre:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Asunto:</strong> ${subject}</p>
-      <hr />
-      <p><strong>Mensaje:</strong></p>
-      <p>${message.replace(/\n/g, "<br/>")}</p>
-    `,
+		subject: `[Portafolio] ${safeSubject}`,
+		html: buildEmailHtml(safeName, safeEmail, safeSubject, safeMessage),
 	});
 
 	if (error) {
-		console.error("Resend error:", error);
+		console.error("[Contact API] Resend error:", error);
 		return c.json(
 			{ success: false, error: "Error al enviar el mensaje." },
 			500,
