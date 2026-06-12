@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  // Nombre del proyecto
+  "name": "portafolio-web",
+  // Directorio de salida del build
+  "pages_build_output_dir": "dist",
+  // Fecha de compatibilidad de Workers
+  "compatibility_date": "2026-05-30",
+  // Flags de compatibilidad
+  "compatibility_flags": ["nodejs_compat"]
+}

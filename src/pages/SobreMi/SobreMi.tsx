@@ -1,14 +1,20 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import { Briefcase, GraduationCap, MapPin, User } from "lucide-react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// SobreMi
 const SobreMi = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.sobreMi; }, [t.seo.sobreMi]);
 
+	// 2. Renderizar párrafo con partes en negrita
 	const renderParrafo = (parts: { text: string; bold: boolean }[]) =>
 		parts.map((part) =>
 			part.bold ? (
@@ -40,6 +46,7 @@ const SobreMi = () => {
 				</div>
 
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+					{/* Info personal */}
 					<div className="lg:col-span-1 space-y-6">
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm">
 							<h3 className="text-xl font-bold mb-6 border-b border-surface-border/50 pb-2">
@@ -100,6 +107,7 @@ const SobreMi = () => {
 						</div>
 					</div>
 
+					{/* Párrafos descriptivos */}
 					<div className="lg:col-span-2">
 						<div className="bg-surface-bg p-8 md:p-10 rounded-2xl border border-surface-border shadow-sm leading-relaxed text-lg text-text-muted space-y-6">
 							<p>{renderParrafo(t.sobreMi.parrafo1)}</p>

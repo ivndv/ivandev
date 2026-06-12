@@ -1,7 +1,11 @@
+// Iconos
 import { Send } from "lucide-react";
+// React Router
 import { Link } from "react-router-dom";
+// Hooks
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Footer
 const Footer = () => {
 	const t = useTranslation();
 
@@ -9,10 +13,11 @@ const Footer = () => {
 		<footer className="bg-surface-bg text-text-muted py-16 border-t border-accent/20 font-sans transition-colors duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+					{/* Info personal + redes */}
 					<div className="space-y-6">
 						<h3 className="text-3xl font-bold text-text-main tracking-tighter flex items-center gap-2">
 							<img
-								src="/logo.png"
+								src="/assets/logo.png"
 								alt="Logo"
 								className="h-8 w-8 rounded-full"
 							/>
@@ -60,6 +65,7 @@ const Footer = () => {
 						</div>
 					</div>
 
+					{/* Navegación */}
 					<div>
 						<h4 className="text-text-main font-bold mb-6 uppercase tracking-widest text-xs">
 							{t.footer.navegacion}
@@ -97,6 +103,7 @@ const Footer = () => {
 						</ul>
 					</div>
 
+					{/* Más navegación */}
 					<div className="md:pt-10">
 						<ul className="space-y-4 text-sm font-medium">
 							<li>
@@ -126,6 +133,7 @@ const Footer = () => {
 						</ul>
 					</div>
 
+					{/* Legal */}
 					<div>
 						<h4 className="text-text-main font-bold mb-6 uppercase tracking-widest text-xs">
 							{t.footer.legal}
@@ -153,6 +161,7 @@ const Footer = () => {
 
 				<div className="h-[1px] w-full bg-surface-border mb-12"></div>
 
+				{/* Tecnologías + copyright */}
 				<div className="flex flex-col items-center space-y-8">
 					<div className="text-center">
 						<p className="text-xs uppercase tracking-[0.2em] text-text-muted font-bold mb-4">
@@ -175,7 +184,7 @@ const Footer = () => {
 							© {new Date().getFullYear()} Ivan Cruz. {t.footer.derechos}
 						</p>
 						<img
-							src="/CircleFlagsMx.svg"
+							src="/assets/CircleFlagsMx.svg"
 							alt="México"
 							className="h-4 w-4 opacity-80"
 						/>

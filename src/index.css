@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
 
+/* Tokens semánticos */
 @theme {
 	--font-sans: "Montserrat", "sans-serif";
 
-	/* Semantic Tokens */
 	--color-page-bg: var(--page-bg);
 	--color-text-main: var(--text-main);
 	--color-text-muted: var(--text-muted);
@@ -14,49 +14,49 @@
 	--color-accent-muted: var(--accent-muted);
 }
 
+/* Tema claro */
 :root {
 	--page-bg: #f9fafb;
-	/* gray-50 */
+	/* gray-50 — fondo de página */
 	--text-main: #111827;
-	/* gray-900 */
+	/* gray-900 — texto principal */
 	--text-muted: #1f2937;
-	/* gray-800 - even darker for maximum legibility */
+	/* gray-800 — texto secundario */
 	--surface-bg: #ffffff;
 	--surface-border: #e5e7eb;
-	/* gray-200 */
+	/* gray-200 — bordes */
 	--accent: #dc2626;
-	/* red-600 */
+	/* red-600 — color de acento */
 	--accent-muted: #fef2f2;
-	/* red-50 */
+	/* red-50 — acento tenue */
 }
 
+/* Tema oscuro */
 .dark {
 	--page-bg: #000000;
 	--text-main: #ffffff;
 	--text-muted: #d1d5db;
-	/* gray-300 - more intense than gray-400 */
+	/* gray-300 — más intenso que gray-400 */
 	--surface-bg: #0a0a0a;
 	--surface-border: #1f2937;
-	/* gray-800 */
+	/* gray-800 — bordes */
 	--accent: #ef4444;
 	/* red-500 */
 	--accent-muted: #331010;
-	/* custom dark red bg */
+	/* bg rojo oscuro personalizado */
 }
 
 @variant dark 
 (
 &:where(.dark, .dark *));
 
-/* Global Transitions for smooth theme switching */
+/* Transiciones globales para cambio de tema */
 html,
 body {
 	transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-/* ===========================================
-   🎞️ SCROLL ANIMATIONS
-   =========================================== */
+/* Animaciones de scroll */
 @keyframes fadeInUp {
 	from {
 		opacity: 0;

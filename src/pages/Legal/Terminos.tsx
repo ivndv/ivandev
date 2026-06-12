@@ -1,10 +1,13 @@
+// React
 import { useEffect } from "react";
 
+// Terminos
 const Terminos = () => {
 	useEffect(() => { document.title = "Términos | Ivan Cruz"; }, []);
 	return (
 		<div className="min-h-screen bg-page-bg text-text-main pt-32 pb-20 transition-colors duration-300">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				{/* Título */}
 				<h1 className="text-4xl font-bold mb-8 text-accent">
 					Términos y Condiciones
 				</h1>
@@ -15,6 +18,7 @@ const Terminos = () => {
 						alguno de estos términos, te pedimos no utilizar nuestro formulario
 						ni extraer material del sitio.
 					</p>
+					{/* 1. Propiedad Intelectual */}
 					<h2 className="text-2xl font-semibold text-text-main mt-8">
 						1. Propiedad Intelectual
 					</h2>
@@ -26,6 +30,7 @@ const Terminos = () => {
 						permite la copia, reproducción o uso comercial sin autorización
 						previa.
 					</p>
+					{/* 2. Uso del Formulario de Contacto */}
 					<h2 className="text-2xl font-semibold text-text-main mt-8">
 						2. Uso del Formulario de Contacto
 					</h2>
@@ -35,6 +40,7 @@ const Terminos = () => {
 						estrictamente prohibido su uso para el envío de spam, promociones
 						comerciales no solicitadas o cualquier tipo de contenido malicioso.
 					</p>
+					{/* 3. Descargo de Responsabilidad */}
 					<h2 className="text-2xl font-semibold text-text-main mt-8">
 						3. Descargo de Responsabilidad
 					</h2>

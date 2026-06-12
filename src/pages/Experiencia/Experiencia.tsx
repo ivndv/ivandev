@@ -1,13 +1,19 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import { Briefcase, Building2, Calendar, MapPin } from "lucide-react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Experiencia
 const Experience = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.experiencia; }, [t.seo.experiencia]);
+	// Datos de experiencia laboral
 	const experienceData = [
 		{
 			id: 1,
@@ -45,6 +51,7 @@ const Experience = () => {
 					</div>
 				</div>
 
+				{/* Timeline de experiencia */}
 				<div className="relative border-l-2 border-surface-border ml-4 md:ml-6 space-y-12">
 					{experienceData.map((job) => (
 						<div key={job.id} className="relative pl-8 md:pl-12 group">

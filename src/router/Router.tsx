@@ -1,7 +1,11 @@
+// React
 import { lazy, Suspense } from "react";
+// React Router
 import { Route, Routes } from "react-router-dom";
+// Componentes
 import { Layout } from "@/components/Layout/Layout.tsx";
 
+// Carga diferida (lazy) de páginas
 const Hero = lazy(() => import("@/pages/Hero/Hero"));
 const Skills = lazy(() => import("@/pages/Skills/Skills"));
 const Experiencia = lazy(() => import("@/pages/Experiencia/Experiencia"));
@@ -13,9 +17,12 @@ const Privacidad = lazy(() => import("@/pages/Legal/Privacidad"));
 const Terminos = lazy(() => import("@/pages/Legal/Terminos"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
+// Router
 export const Router = () => {
 	return (
+		// Suspense con fallback de carga
 		<Suspense fallback={<div className="min-h-screen flex items-center justify-center text-text-muted">Cargando...</div>}>
+			{/* Layout con páginas anidadas */}
 			<Routes>
 				<Route element={<Layout />}>
 					<Route path="/" element={<Hero />} />
@@ -27,6 +34,7 @@ export const Router = () => {
 					<Route path="/contacto" element={<Contacto />} />
 					<Route path="/privacidad" element={<Privacidad />} />
 					<Route path="/terminos" element={<Terminos />} />
+					{/* 404 */}
 					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>

@@ -1,5 +1,8 @@
+// Testing Library
 import { fireEvent, render, screen } from "@testing-library/react";
+// Vitest
 import { beforeEach, describe, expect, it, vi } from "vitest";
+// Componentes
 import Contacto from "./Contacto";
 
 // Mock de navigator.clipboard
@@ -10,13 +13,13 @@ Object.assign(navigator, {
 	},
 });
 
-describe("Contacto Page", () => {
+describe("Página Contacto", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		vi.useFakeTimers();
 	});
 
-	it("renders contact cards and information", () => {
+	it("renderiza tarjetas de contacto e información", () => {
 		render(<Contacto />);
 
 		expect(screen.getByText(/Ponte en Contacto/i)).toBeInTheDocument();
@@ -24,23 +27,19 @@ describe("Contacto Page", () => {
 		expect(screen.getByText("+52 56 5745 5765")).toBeInTheDocument();
 	});
 
-	it("copies email to clipboard when copy button is clicked", async () => {
+	it("copia el email al portapapeles al hacer clic en copiar", async () => {
 		render(<Contacto />);
 
+		// 1. Obtener botones de copiar
 		const copyButtons = screen.getAllByTitle(/Copiar/i);
-		const emailCopyButton = copyButtons[0]; // El primero es el de email según el orden en el JSX
+		const emailCopyButton = copyButtons[0]; // El primero es el de email
 
 		fireEvent.click(emailCopyButton);
 
 		expect(mockWriteText).toHaveBeenCalledWith("ivangtx19@gmail.com");
-
-		// Verificar que cambie el ícono (aparece el check)
-		// En el componente, cuando copiedField === 'email' se muestra un ícono de Check
-		// Podemos buscar por la clase o estructura, pero lo más fácil es ver si cambia el estado visual
-		// que el componente maneja internamente.
 	});
 
-	it("renders the contact form with all fields", () => {
+	it("renderiza el formulario con todos los campos", () => {
 		render(<Contacto />);
 
 		expect(screen.getByLabelText(/Nombre/i)).toBeInTheDocument();
@@ -52,7 +51,7 @@ describe("Contacto Page", () => {
 		).toBeInTheDocument();
 	});
 
-	it("allows typing in form fields", () => {
+	it("permite escribir en los campos del formulario", () => {
 		render(<Contacto />);
 
 		const nameInput = screen.getByLabelText(/Nombre/i) as HTMLInputElement;

@@ -1,10 +1,14 @@
+// Testing Library
 import { render, screen } from "@testing-library/react";
+// React Router
 import { MemoryRouter } from "react-router-dom";
+// Vitest
 import { describe, expect, it } from "vitest";
+// Componentes
 import Footer from "./Footer";
 
-describe("Footer Component", () => {
-	it("renders correctly with essential information", () => {
+describe("Componente Footer", () => {
+	it("renderiza información esencial correctamente", () => {
 		render(
 			<MemoryRouter>
 				<Footer />
@@ -25,7 +29,7 @@ describe("Footer Component", () => {
 		expect(screen.getByText(/© 2026 Ivan Cruz/i)).toBeInTheDocument();
 	});
 
-	it("contains links to social media", () => {
+	it("contiene enlaces a redes sociales", () => {
 		render(
 			<MemoryRouter>
 				<Footer />

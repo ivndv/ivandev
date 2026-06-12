@@ -1,8 +1,14 @@
+// Hono
 import { Hono } from "hono";
 import { handle } from "hono/cloudflare-pages";
-import { Resend } from "resend";
-import { z } from "zod";
+// Validaciones
+import { ContactSchema } from "../_shared/schema";
+// Turnstile
+import { verifyTurnstile } from "../_shared/turnstile";
+// Email
+import { sendContactEmail } from "../_shared/email";
 
+// Bindings del Worker: claves de Resend y Turnstile
 type Env = {
 	RESEND_API_KEY: string;
 	RESEND_TO_EMAIL: string;
@@ -10,101 +16,65 @@ type Env = {
 	TURNSTILE_SECRET_KEY: string;
 };
 
-function escapeHtml(str: string): string {
-	return str
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#039;");
-}
-
-function buildEmailHtml(name: string, email: string, subject: string, message: string): string {
-	return `
-		<h2>Nuevo mensaje desde tu portafolio</h2>
-		<p><strong>Nombre:</strong> ${name}</p>
-		<p><strong>Email:</strong> ${email}</p>
-		<p><strong>Asunto:</strong> ${subject}</p>
-		<hr />
-		<p><strong>Mensaje:</strong></p>
-		<p>${message.replace(/\n/g, "<br/>")}</p>
-	`;
-}
-
-const ContactSchema = z.object({
-	name: z.string().min(1, "El nombre es requerido.").max(100),
-	email: z.string().email("El email no es válido."),
-	subject: z.string().min(1, "El asunto es requerido.").max(200),
-	message: z
-		.string()
-		.min(10, "El mensaje debe tener al menos 10 caracteres.")
-		.max(2000),
-	turnstileToken: z.string().min(1, "Token de seguridad requerido."),
-});
-
 const app = new Hono<{ Bindings: Env }>();
 
+// POST /api/contact - Envia un mensaje con validacion, captcha y email
 app.post("/api/contact", async (c) => {
-	const body = await c.req.json();
+	try {
+		// 1. Validar cuerpo de la solicitud con Zod
+		const body = await c.req.json();
+		const parsed = ContactSchema.safeParse(body);
+		if (!parsed.success) {
+			const firstError =
+				parsed.error.issues[0]?.message ?? "Datos invalidos.";
+			return c.json({ success: false, error: firstError }, 400);
+		}
 
-	const parsed = ContactSchema.safeParse(body);
-	if (!parsed.success) {
-		const firstError = parsed.error.issues[0]?.message ?? "Datos inválidos.";
-		return c.json({ success: false, error: firstError }, 400);
-	}
+		const { name, email, subject, message, turnstileToken } = parsed.data;
 
-	const { name, email, subject, message, turnstileToken } = parsed.data;
-
-	// Verificar Turnstile
-	const tsRes = await fetch(
-		"https://challenges.cloudflare.com/turnstile/v0/siteverify",
-		{
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: new URLSearchParams({
-				secret: c.env.TURNSTILE_SECRET_KEY,
-				response: turnstileToken,
-			}),
-		},
-	);
-
-	const tsData = (await tsRes.json()) as { success: boolean };
-	if (!tsData.success) {
-		return c.json(
-			{
-				success: false,
-				error: "Verificación de seguridad fallida. Intenta de nuevo.",
-			},
-			403,
+		// 2. Verificar captcha con Turnstile
+		const isValid = await verifyTurnstile(
+			c.env.TURNSTILE_SECRET_KEY,
+			turnstileToken,
 		);
-	}
+		if (!isValid) {
+			return c.json(
+				{
+					success: false,
+					error: "Verificacion de seguridad fallida. Intenta de nuevo.",
+				},
+				403,
+			);
+		}
 
-	// Enviar email via Resend
-	const resend = new Resend(c.env.RESEND_API_KEY);
-	const toEmail = c.env.RESEND_TO_EMAIL || "ivangtx19@gmail.com";
-	const fromEmail = c.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+		// 3. Enviar email mediante Resend
+		const toEmail = c.env.RESEND_TO_EMAIL || "ivangtx19@gmail.com";
+		const fromEmail =
+			c.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
-	const safeName = escapeHtml(name);
-	const safeEmail = escapeHtml(email);
-	const safeSubject = escapeHtml(subject);
-	const safeMessage = escapeHtml(message);
+		const { error } = await sendContactEmail(
+			c.env.RESEND_API_KEY,
+			toEmail,
+			fromEmail,
+			{ name, email, subject, message },
+		);
 
-	const { error } = await resend.emails.send({
-		from: `Portafolio <${fromEmail}>`,
-		to: [toEmail],
-		subject: `[Portafolio] ${safeSubject}`,
-		html: buildEmailHtml(safeName, safeEmail, safeSubject, safeMessage),
-	});
+		if (error) {
+			console.error("[Contact API] Resend error:", error);
+			return c.json(
+				{ success: false, error: "Error al enviar el mensaje." },
+				500,
+			);
+		}
 
-	if (error) {
-		console.error("[Contact API] Resend error:", error);
+		return c.json({ success: true });
+	} catch (err) {
+		console.error("[Contact API] Error:", err);
 		return c.json(
-			{ success: false, error: "Error al enviar el mensaje." },
+			{ success: false, error: "Error interno del servidor." },
 			500,
 		);
 	}
-
-	return c.json({ success: true });
 });
 
 export const onRequest = handle(app);

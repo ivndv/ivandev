@@ -1,4 +1,6 @@
+// Turnstile
 import { Turnstile } from "@marsidev/react-turnstile";
+// Iconos
 import {
 	Check,
 	Copy,
@@ -8,17 +10,23 @@ import {
 	MessageCircle,
 	Send,
 } from "lucide-react";
+// React
 import { useEffect, useState } from "react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Contacto
 const Contacto = () => {
+	// 1. Estado del campo copiado (email o teléfono)
 	const [copiedField, setCopiedField] = useState<string | null>(null);
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 2. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.contacto; }, [t.seo.contacto]);
 
+	// 3. Estado del formulario
 	const [form, setForm] = useState({
 		name: "",
 		email: "",
@@ -31,18 +39,21 @@ const Contacto = () => {
 	>("idle");
 	const [errorMsg, setErrorMsg] = useState("");
 
+	// 4. Copiar texto al portapapeles
 	const handleCopy = (text: string, field: string) => {
 		navigator.clipboard.writeText(text);
 		setCopiedField(field);
 		setTimeout(() => setCopiedField(null), 2000);
 	};
 
+	// 5. Actualizar campo del formulario
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
 		setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 	};
 
+	// 6. Enviar formulario
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setStatus("loading");
@@ -92,7 +103,9 @@ const Contacto = () => {
 				</div>
 
 				<div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+					{/* Tarjetas de contacto */}
 					<div className="lg:col-span-2 space-y-6">
+						{/* Email */}
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow group">
 							<div className="flex items-start justify-between mb-4">
 								<div className="p-3 bg-accent-muted text-accent rounded-xl group-hover:bg-accent group-hover:text-white transition-colors duration-300">
@@ -125,6 +138,7 @@ const Contacto = () => {
 							</a>
 						</div>
 
+						{/* WhatsApp */}
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow group">
 							<div className="flex items-start justify-between mb-4">
 								<div className="p-3 bg-green-50 text-green-600 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
@@ -159,6 +173,7 @@ const Contacto = () => {
 							</a>
 						</div>
 
+						{/* Ubicación */}
 						<div className="bg-surface-bg p-6 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
 							<div className="p-3 bg-surface-border/50 text-text-muted rounded-xl">
 								<MapPin size={24} />
@@ -170,10 +185,12 @@ const Contacto = () => {
 						</div>
 					</div>
 
+					{/* Formulario */}
 					<div className="lg:col-span-3">
 						<div className="bg-surface-bg p-8 md:p-10 rounded-2xl border border-surface-border shadow-lg">
 							<h3 className="text-2xl font-bold mb-6">{t.contacto.formTitulo}</h3>
 
+							{/* Mensaje de éxito */}
 							{status === "success" && (
 								<div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center gap-3">
 									<Check size={20} />
@@ -181,6 +198,7 @@ const Contacto = () => {
 								</div>
 							)}
 
+							{/* Mensaje de error */}
 							{status === "error" && (
 								<div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm">
 									{errorMsg || t.contacto.error}
@@ -188,6 +206,7 @@ const Contacto = () => {
 							)}
 
 							<form onSubmit={handleSubmit} className="space-y-6">
+								{/* Nombre y Email */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 									<div className="space-y-2">
 										<label
@@ -225,6 +244,7 @@ const Contacto = () => {
 									</div>
 								</div>
 
+								{/* Asunto */}
 								<div className="space-y-2">
 									<label
 										htmlFor="subject"
@@ -243,6 +263,7 @@ const Contacto = () => {
 									/>
 								</div>
 
+								{/* Mensaje */}
 								<div className="space-y-2">
 									<label
 										htmlFor="message"
@@ -261,11 +282,13 @@ const Contacto = () => {
 									/>
 								</div>
 
+								{/* Turnstile */}
 								<Turnstile
 									siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
 									onSuccess={(token) => setTurnstileToken(token)}
 								/>
 
+								{/* Botón enviar */}
 								<button
 									type="submit"
 									disabled={status === "loading" || !turnstileToken}

@@ -1,4 +1,6 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import {
 	Award,
 	BookOpen,
@@ -6,15 +8,20 @@ import {
 	CheckCircle2,
 	GraduationCap,
 } from "lucide-react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Formacion
 const Formacion = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.formacion; }, [t.seo.formacion]);
+	// Datos de formación académica
 	const educationData = [
+		// Código Facilito
 		{
 			id: 1,
 			institution: "Código Facilito",
@@ -34,6 +41,7 @@ const Formacion = () => {
 			logo: "https://media.licdn.com/dms/image/v2/D4E0BAQGvT-5yZf8V3w/company-logo_200_200/company-logo_200_200/0/1719256667793?e=1741824000&v=beta&t=H-SgF_qXz-uE7j9c7d8s9d8s9d8s9d8s9d8s9d8s9d8",
 			certified: true,
 		},
+		// Alura Latam / Oracle Next Education
 		{
 			id: 2,
 			institution: "Alura Latam / Oracle Next Education",
@@ -53,6 +61,7 @@ const Formacion = () => {
 			logo: "https://media.licdn.com/dms/image/v2/C4E0BAQGHj4y1yZf8V3w/company-logo_200_200/company-logo_200_200/0/1630616667793?e=1741824000&v=beta&t=uE7j9c7d8s9d8s9d8s9d8s9d8s9d8s9d8s9d8s9d8",
 			certified: true,
 		},
+		// CECYTEM Chimalhuacán II
 		{
 			id: 3,
 			institution: "CECYTEM Chimalhuacán II",
@@ -92,6 +101,7 @@ const Formacion = () => {
 					</div>
 				</div>
 
+				{/* Lista de formación */}
 				<div className="space-y-8">
 					{educationData.map((edu) => (
 						<div
@@ -102,6 +112,7 @@ const Formacion = () => {
 								<Award size={180} strokeWidth={0.5} />
 							</div>
 							<div className="relative z-10 flex flex-col md:flex-row gap-6">
+								{/* Info del curso */}
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-2">
 										<span className="bg-accent-muted text-accent p-2 rounded-lg">
@@ -131,6 +142,7 @@ const Formacion = () => {
 										{edu.description}
 									</p>
 
+									{/* Competencias */}
 									<div>
 										<h4 className="text-sm font-bold text-text-main mb-3 flex items-center gap-2">
 											<CheckCircle2 size={14} className="text-accent" />{" "}
@@ -148,6 +160,7 @@ const Formacion = () => {
 										</div>
 									</div>
 								</div>
+								{/* Estado (completado / en curso) */}
 								<div className="md:w-1/4 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-surface-border/50 pt-6 md:pt-0 md:pl-6 mt-6 md:mt-0">
 									{edu.certified ? (
 										<div className="text-center">

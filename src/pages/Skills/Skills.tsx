@@ -1,4 +1,6 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import {
 	Bot,
 	Box,
@@ -21,13 +23,17 @@ import {
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Skills
 const Skills = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.skills; }, [t.seo.skills]);
 
+	// Categorías de habilidades
 	const skillCategories = [
+		// Frontend
 		{
 			title: "Frontend",
 			description: "",
@@ -43,6 +49,7 @@ const Skills = () => {
 				{ name: "Next.js", icon: <Globe />, level: "Básico" },
 			],
 		},
+		// Backend
 		{
 			title: "Backend",
 			description: "",
@@ -60,6 +67,7 @@ const Skills = () => {
 				{ name: "Next.js (Fullstack)", icon: <Globe />, level: "Básico" },
 			],
 		},
+		// Herramientas & Control
 		{
 			title: "Herramientas & Control",
 			description: "",
@@ -73,6 +81,7 @@ const Skills = () => {
 				{ name: "Postman", icon: <Globe />, level: "Intermedio API" },
 			],
 		},
+		// Cloud Computing
 		{
 			title: "Cloud Computing",
 			description: "",
@@ -82,6 +91,7 @@ const Skills = () => {
 				{ name: "Oracle Cloud", icon: <Cloud />, level: "Básico" },
 			],
 		},
+		// DevOps
 		{
 			title: "DevOps",
 			description: "",
@@ -90,6 +100,7 @@ const Skills = () => {
 				{ name: "GitHub Actions", icon: <Zap />, level: "Básico" },
 			],
 		},
+		// En Desarrollo / Explorando
 		{
 			title: "En Desarrollo / Explorando",
 			description: "",
@@ -104,6 +115,7 @@ const Skills = () => {
 				{ name: "Google Cloud", icon: <Cloud />, level: "Aprendiendo" },
 			],
 		},
+		// QA & Testing
 		{
 			title: "QA & Testing",
 			description: "",
@@ -113,12 +125,14 @@ const Skills = () => {
 				{ name: "React Testing", icon: <ShieldCheck />, level: "Básico" },
 			],
 		},
+		// Accesibilidad
 		{
 			title: "Accesibilidad",
 			description: "",
 			skills: [{ name: "WCAG / ARIA", icon: <Users />, level: "Básico" }],
 		},
 
+		// Inteligencia Artificial
 		{
 			title: "Inteligencia Artificial",
 			description: "",
@@ -130,6 +144,7 @@ const Skills = () => {
 			],
 		},
 
+		// Habilidades Blandas
 		{
 			title: "Habilidades Blandas",
 			description: "",
@@ -159,6 +174,7 @@ const Skills = () => {
 					</p>
 				</div>
 
+				{/* Categorías */}
 				<div className="space-y-16">
 					{skillCategories.map((category) => (
 						<div key={category.title} className="space-y-6">

@@ -1,14 +1,20 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import { ArrowUpRight, GraduationCap } from "lucide-react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Hero
 const Hero = () => {
 	const { ref, isVisible } = useScrollAnimation(0.1);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.hero; }, [t.seo.hero]);
 
+	// 2. Renderizar texto con partes en negrita
 	const renderDescription = (parts: { text: string; bold: boolean }[]) =>
 		parts.map((part) =>
 			part.bold ? (
@@ -29,6 +35,7 @@ const Hero = () => {
 				ref={ref as React.RefObject<HTMLDivElement>}
 				className={`w-full max-w-5xl mx-auto space-y-12 animate-on-scroll ${isVisible ? "visible" : ""}`}
 			>
+				{/* Título + avatar */}
 				<div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-20 w-full px-4">
 					<div className="text-center md:text-left max-w-2xl">
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-main tracking-tight leading-tight">
@@ -37,6 +44,7 @@ const Hero = () => {
 						</h1>
 					</div>
 
+					{/* Avatar */}
 					<div className="relative group flex-shrink-0">
 						<img
 							src="https://avatars.githubusercontent.com/u/157653669?s=400&u=883ac80aa9d82dd7d1b3eaa81fa500ca2060640f&v=4"
@@ -47,6 +55,7 @@ const Hero = () => {
 				</div>
 
 				<div className="flex flex-col items-center gap-10">
+					{/* Descripción */}
 					<div className="max-w-4xl text-center">
 						<p className="text-text-muted font-light sm:text-base text-[4vw]">
 							{renderDescription(t.hero.description)}
@@ -57,6 +66,7 @@ const Hero = () => {
 						</p>
 					</div>
 
+					{/* Redes sociales */}
 					<div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm md:text-base">
 						<a
 							href="https://github.com/Ivandv19"
@@ -117,9 +127,10 @@ const Hero = () => {
 						</a>
 					</div>
 
+					{/* Descargar CV */}
 					<div className="w-full flex justify-center">
 						<a
-							href="/cv.pdf"
+							href="/docs/cv.pdf"
 							download
 							className="bg-accent hover:opacity-90 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-[0_0_15px_var(--accent)]"
 						>

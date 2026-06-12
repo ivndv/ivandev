@@ -1,5 +1,7 @@
+// Hooks
 import { useTranslation } from "@/hooks/useTranslation";
 
+// NotFound
 const NotFound = () => {
 	const t = useTranslation();
 
@@ -11,6 +13,7 @@ const NotFound = () => {
 					{t.notFound.title}
 				</h2>
 				<p className="text-text-muted text-lg mb-8">{t.notFound.mensaje}</p>
+				{/* Botón volver */}
 				<a
 					href="/"
 					className="inline-block bg-accent hover:opacity-90 text-white font-bold py-3 px-8 rounded-md transition-all duration-300"

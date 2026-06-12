@@ -1,4 +1,6 @@
+// React
 import { useEffect } from "react";
+// Iconos
 import {
 	BookOpen,
 	Code2,
@@ -8,14 +10,18 @@ import {
 	MonitorPlay,
 	Rocket,
 } from "lucide-react";
+// Hooks
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from "@/hooks/useTranslation";
+// Datos
 import { projects } from "@/data/projects";
 
+// Proyectos
 const Projects = () => {
 	const { ref, isVisible } = useScrollAnimation(0.05);
 	const t = useTranslation();
 
+	// 1. Actualizar título SEO
 	useEffect(() => { document.title = t.seo.proyectos; }, [t.seo.proyectos]);
 
 	return (
@@ -38,12 +44,14 @@ const Projects = () => {
 					</div>
 				</div>
 
+				{/* Lista de proyectos */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{projects.map((project) => (
 						<article
 							key={project.id}
 							className="group bg-surface-bg rounded-2xl overflow-hidden border border-surface-border shadow-sm hover:shadow-[0_0_25px_rgba(0,0,0,0.15)] hover:border-accent/30 hover:-translate-y-2 flex flex-col"
 						>
+							{/* Imagen del proyecto */}
 							<div className="relative h-48 overflow-hidden bg-surface-border/20 flex justify-center items-center">
 								{project.image && (
 									<img
@@ -66,6 +74,7 @@ const Projects = () => {
 									<h3 className="text-xl font-bold text-text-main">
 										{project.title}
 									</h3>
+									{/* Icono según tipo de proyecto */}
 									<div className="p-2 bg-surface-border/30 rounded-lg text-text-muted">
 										{project.title.includes("Music") ||
 										project.title.includes("Flux") ? (
@@ -82,10 +91,12 @@ const Projects = () => {
 									</div>
 								</div>
 
+								{/* Descripción */}
 								<p className="text-text-muted text-sm leading-relaxed mb-6 flex-1 line-clamp-4">
 									{project.description}
 								</p>
 
+								{/* Tags */}
 								<div className="flex flex-wrap gap-2 mb-6">
 									{project.tags.map((tag) => (
 										<span
@@ -97,6 +108,7 @@ const Projects = () => {
 									))}
 								</div>
 
+								{/* Enlaces */}
 								<div className="flex flex-col gap-2 mt-auto pt-4 border-t border-surface-border/50">
 									{(project.links.demo || project.links.docs) && (
 										<div className="flex gap-2">
@@ -123,6 +135,7 @@ const Projects = () => {
 										</div>
 									)}
 
+									{/* GitHub links */}
 									<div className="flex gap-2">
 										{project.links.github && (
 											<a

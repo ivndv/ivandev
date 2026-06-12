@@ -1,9 +1,15 @@
+// Iconos
 import { Menu, Moon, Sun, X } from "lucide-react";
+// React
 import { useState } from "react";
+// React Router
 import { Link } from "react-router-dom";
+// Store
 import { useAppStore } from "@/store/appStore";
+// Hooks
 import { useTranslation } from "@/hooks/useTranslation";
 
+// Header
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const theme = useAppStore((s) => s.theme);
@@ -12,6 +18,7 @@ const Header = () => {
 	const setLanguage = useAppStore((s) => s.setLanguage);
 	const t = useTranslation();
 
+	// 1. Mapear nombres de navegación desde traducciones
 	const navLinks = t.header.navLinks.map((name, i) => ({
 		name,
 		path: ["/", "/skills", "/experiencia", "/proyectos", "/sobre-mi", "/formacion", "/contacto"][i],
@@ -21,17 +28,19 @@ const Header = () => {
 		<header className="fixed top-0 w-full z-50 bg-surface-bg/95 backdrop-blur-sm border-b border-accent shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
+					{/* Logo */}
 					<Link
 						to="/"
 						className="flex-shrink-0 flex items-center cursor-pointer"
 					>
 						<img
-							src="/logo.png"
+							src="/assets/logo.png"
 							alt="Logo"
 							className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent hover:ring-accent transition-all duration-300"
 						/>
 					</Link>
 
+					{/* Navegación desktop */}
 					<nav className="hidden md:flex space-x-8">
 						{navLinks.map((link) => (
 							<Link
@@ -45,6 +54,7 @@ const Header = () => {
 						))}
 					</nav>
 
+					{/* Botones: idioma y tema */}
 					<div className="hidden md:flex items-center space-x-4">
 						<button
 							type="button"
@@ -64,6 +74,7 @@ const Header = () => {
 						</button>
 					</div>
 
+					{/* Menú mobile */}
 					<div className="md:hidden flex items-center space-x-3">
 						<button
 							type="button"
@@ -90,6 +101,7 @@ const Header = () => {
 				</div>
 			</div>
 
+			{/* Menú desplegable mobile */}
 			{isMenuOpen && (
 				<div className="md:hidden bg-surface-bg border-t border-accent absolute w-full shadow-2xl">
 					<div className="px-4 pt-2 pb-6 space-y-1">
