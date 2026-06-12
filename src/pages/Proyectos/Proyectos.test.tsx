@@ -31,11 +31,11 @@ describe("Página Proyectos", () => {
 		// Verificar el primer link de cada tipo (el de Fluxbeats)
 		expect(githubLinks[0]).toHaveAttribute(
 			"href",
-			"https://github.com/Ivandv19/landing-page-1906",
+			"https://github.com/ivndv/fluxbeats",
 		);
 		expect(demoLinks[0]).toHaveAttribute(
 			"href",
-			"https://landing-page.mgdc.site/",
+			"https://fluxbeats.mgdc.site/",
 		);
 	});
 
