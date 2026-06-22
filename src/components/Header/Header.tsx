@@ -34,7 +34,7 @@ const Header = () => {
 						className="flex-shrink-0 flex items-center cursor-pointer"
 					>
 						<img
-							src="/assets/logo.png"
+							src="https://assets.portafolioweb.mgdc.site/logo.png"
 							alt="Logo"
 							className="h-10 w-10 rounded-full object-cover ring-2 ring-transparent hover:ring-accent transition-all duration-300"
 						/>

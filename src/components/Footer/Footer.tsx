@@ -17,7 +17,7 @@ const Footer = () => {
 					<div className="space-y-6">
 						<h3 className="text-3xl font-bold text-text-main tracking-tighter flex items-center gap-2">
 							<img
-								src="/assets/logo.png"
+								src="https://assets.portafolioweb.mgdc.site/logo.png"
 								alt="Logo"
 								className="h-8 w-8 rounded-full"
 							/>
@@ -184,7 +184,7 @@ const Footer = () => {
 							© {new Date().getFullYear()} Ivan Cruz. {t.footer.derechos}
 						</p>
 						<img
-							src="/assets/CircleFlagsMx.svg"
+							src="https://assets.portafolioweb.mgdc.site/bandera-mx.svg"
 							alt="México"
 							className="h-4 w-4 opacity-80"
 						/>
