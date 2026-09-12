@@ -61,8 +61,10 @@ const Hero = () => {
 							{/* Botón Descargar CV */}
 							<div className="flex justify-center lg:justify-start">
 								<a
-									href="/docs/cv.pdf"
-									download
+									href="https://assets.mgdc.site/ivandev/cv.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									download="cv.pdf"
 									className="bg-accent hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-[0_0_15px_var(--accent)]"
 								>
 									{t.hero.cv}
