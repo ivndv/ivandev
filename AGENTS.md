@@ -32,22 +32,22 @@ Guía operativa y técnica para agentes de Inteligencia Artificial que colaboren
 
 | Capa | Tecnología | Versión / Detalle |
 | :--- | :--- | :--- |
-| **Runtime & Gestor** | **Bun** | `v1.3.x` / `v1.2.x` (`bun.lock`) |
+| **Runtime & Gestor** | **Bun** | `v1.4.x` (`bun.lock`) |
 | **Lenguaje** | **TypeScript** | `^7.0.2` (Modo estricto con `tsconfig.json`) |
-| **Frontend & UI** | **React 19** | `react ^19.2.8`, `react-dom ^19.2.8` |
-| **Bundler** | **Vite 8** | `vite ^8.2.2`, `@vitejs/plugin-react-swc ^4.3.3` |
-| **Enrutamiento** | **React Router 7** | `react-router-dom ^7.18.3` (Lazy loading por vista) |
+| **Frontend & UI** | **React 19** | `react ^19.3.1`, `react-dom ^19.3.1` |
+| **Bundler** | **Vite 8** | `vite ^8.3.4`, `@vitejs/plugin-react-swc ^4.3.3` |
+| **Enrutamiento** | **React Router 7** | `react-router-dom ^7.18.4` (Lazy loading por vista) |
 | **Estilos** | **Tailwind CSS 4** | `@tailwindcss/vite ^4.3.3`, `tailwindcss ^4.3.3` |
-| **Iconos** | **Lucide React** + **Iconify** | `lucide-react ^1.43.0`, `@iconify/tailwind4 ^1.2.3` |
+| **Iconos** | **Lucide React** + **Iconify** | `lucide-react ^1.58.0`, `@iconify/tailwind4 ^1.2.3` |
 | **Estado Global** | **Zustand 5** | `zustand ^5.0.15` (Slices de tema e idioma en `src/store/`) |
-| **Backend / Edge API** | **Hono 4** en Cloudflare Pages Functions | `hono ^4.13.7` (`functions/api/[[route]].ts`) |
-| **Validación & Sanitización** | **Zod 4** | `zod ^4.5.4` (`functions/_validators/`) |
-| **Anti-Bot / Captcha** | **Cloudflare Turnstile** | `@marsidev/react-turnstile ^1.6.1` (Validación server-side) |
-| **Servicio de Email** | **Resend** | `resend ^6.26.0` (Envío transaccional) |
-| **Linter & Formatter** | **Biome 2** | `@biomejs/biome ^2.5.12` (`biome.json`) |
-| **Testing** | **Vitest 5** + **Testing Library** | `vitest ^5.0.0`, `@testing-library/react ^16.3.3`, `jsdom ^30.0.1` |
-| **Infraestructura & Edge** | **Cloudflare Pages** | `wrangler ^4.130.0` (`wrangler.jsonc`) |
-| **CI/CD** | **GitHub Actions** | Workflow `.github/workflows/ci-cd.yml` |
+| **Backend / Edge API** | **Hono 4** en Cloudflare Pages Functions | `hono ^4.13.13` (`functions/api/[[route]].ts`) |
+| **Validación & Sanitización** | **Zod 4** | `zod ^4.6.7` (`functions/_validators/`) |
+| **Anti-Bot / Captcha** | **Cloudflare Turnstile** | `@marsidev/react-turnstile ^1.6.2` (Validación server-side) |
+| **Servicio de Email** | **Resend** | `resend ^6.34.1` (Envío transaccional) |
+| **Linter & Formatter** | **Biome 2** | `@biomejs/biome ^2.5.15` (`biome.json`) |
+| **Testing** | **Vitest 5** + **Testing Library** | `vitest ^5.0.5`, `@testing-library/react ^16.3.3`, `jsdom ^30.1.3` |
+| **Infraestructura & Edge** | **Cloudflare Pages** | `wrangler ^4.151.1` (`wrangler.jsonc`) |
+| **CI/CD** | **GitHub Actions** | Workflow `.github/workflows/ci-cd.yml` (lint read-only, unit tests y deploy) |
 
 ---
 
@@ -113,13 +113,16 @@ bun run build
 # Previsualización del build estático
 bun run preview
 
-# Verificación y corrección de formato/linter con Biome
+# Verificación de formato/lint (read-only, igual que en CI)
 bun run check
+
+# Corrección automática de formato/lint (escribe archivos)
 bun run lint
 bun run format
 
-# Pruebas Unitarias y de Integración con Vitest
-bun run test
+# Pruebas Unitarias con Vitest (una sola pasada)
+bun run test        # alias de test:unit
+bun run test:ui
 ```
 
 ---
@@ -127,7 +130,7 @@ bun run test
 ## 6. Convenciones Obligatorias para Agentes
 
 ### 6.1 Regla de Oro en Ejecución de Tests y Checks
-* **PROHIBIDO ejecutar tests o linter de forma reactiva tras cada pequeño cambio.** Realiza todos los cambios de código primero; corre `bun run check` o `bun run test` **una sola vez al final** cuando todo el conjunto esté listo y verificado.
+* **PROHIBIDO ejecutar tests o linter de forma reactiva tras cada pequeño cambio.** Realiza todos los cambios de código primero; corre `bun run check` (read-only) o `bun run test:unit` **una sola vez al final** cuando todo el conjunto esté listo y verificado.
 
 ### 6.2 Restricción Estricta de Herramientas
 * **PROHIBIDO el uso de Playwright, Puppeteer o navegadores headless** en este proyecto. No lances herramientas ni scripts de navegación visual a menos que el usuario lo solicite explícitamente.
