@@ -67,6 +67,8 @@ const Skills = () => {
 				{ name: "JWT", icon: <ShieldCheck size={20} /> },
 				{ name: "Swagger", icon: <Globe size={20} /> },
 				{ name: "Next.js (Fullstack)", icon: <Globe size={20} /> },
+				{ name: "Python", icon: <Code2 size={20} /> },
+				{ name: "FastAPI", icon: <Server size={20} /> },
 			],
 		},
 		// Herramientas & Control
@@ -91,6 +93,9 @@ const Skills = () => {
 				{ name: "GitHub Actions", icon: <Zap size={20} /> },
 				{ name: "Azure", icon: <Cloud size={20} /> },
 				{ name: "Oracle Cloud", icon: <Cloud size={20} /> },
+				{ name: "Supabase", icon: <Database size={20} /> },
+				{ name: "Vercel", icon: <Cloud size={20} /> },
+				{ name: "Railway", icon: <Cloud size={20} /> },
 			],
 		},
 		// QA & Testing
@@ -106,7 +111,6 @@ const Skills = () => {
 		{
 			title: "En Desarrollo / Explorando",
 			skills: [
-				{ name: "Python", icon: <Code2 size={20} /> },
 				{ name: "Django", icon: <Server size={20} /> },
 				{ name: "PostgreSQL", icon: <Database size={20} /> },
 				{ name: "MongoDB", icon: <Database size={20} /> },
