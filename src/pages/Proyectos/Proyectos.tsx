@@ -92,7 +92,7 @@ const Projects = () => {
 								</div>
 
 								{/* Descripción */}
-								<p className="text-text-muted text-sm leading-relaxed mb-6 flex-1 line-clamp-4">
+								<p className="text-text-muted text-sm leading-relaxed mb-6 flex-1">
 									{project.description}
 								</p>
 
