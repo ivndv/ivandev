@@ -19,7 +19,32 @@ export type Project = {
 
 // Proyectos
 export const projects: Project[] = [
-	// 1. Fluxbeats
+	// 1. Codebook (frontend + API de IA)
+	{
+		id: 9,
+		title: "Codebook",
+		description:
+			"Aplicación web que usa inteligencia artificial para explicar fragmentos de código en una línea y guardarlos en una colección personal.",
+		image: "https://assets.mgdc.site/ivandev/codebook.png",
+		tags: [
+			"Next.js",
+			"TypeScript",
+			"Tailwindcss",
+			"Supabase",
+			"Python",
+			"FastAPI",
+			"Groq (IA)",
+			"Vercel",
+			"Railway",
+		],
+		links: {
+			demo: "https://codebook-three.vercel.app",
+			docs: "https://codebook-api-production-6cfa.up.railway.app/docs",
+			githubFrontend: "https://github.com/ivndv/codebook",
+			githubBackend: "https://github.com/ivndv/codebook-api",
+		},
+	},
+	// 2. Fluxbeats
 	{
 		id: 1,
 		title: "Fluxbeats",
@@ -32,7 +57,7 @@ export const projects: Project[] = [
 			github: "https://github.com/ivndv/fluxbeats",
 		},
 	},
-	// 2. Nemi (anteriormente Gestor de activos)
+	// 3. Nemi (anteriormente Gestor de activos)
 	{
 		id: 3,
 		title: "Nemi",
@@ -47,7 +72,7 @@ export const projects: Project[] = [
 			githubBackend: "https://github.com/ivndv/nemi-api",
 		},
 	},
-	// 3. Tempo
+	// 4. Tempo
 	{
 		id: 5,
 		title: "Tempo",
@@ -68,7 +93,7 @@ export const projects: Project[] = [
 			github: "https://github.com/ivndv/tempo",
 		},
 	},
-	// 4. MXWatch
+	// 5. MXWatch
 	{
 		id: 4,
 		title: "MXWatch",
@@ -90,7 +115,7 @@ export const projects: Project[] = [
 			githubBackend: "https://github.com/ivndv/mxwatch-api",
 		},
 	},
-	// 5. Fluxblog (anteriormente Fluxdev Blog V1)
+	// 6. Fluxblog (anteriormente Fluxdev Blog V1)
 	{
 		id: 2,
 		title: "Fluxblog",
@@ -103,7 +128,7 @@ export const projects: Project[] = [
 			github: "https://github.com/ivndv/fluxdev-blog",
 		},
 	},
-	// 6. Cosmos (anteriormente Space App V3)
+	// 7. Cosmos (anteriormente Space App V3)
 	{
 		id: 7,
 		title: "Cosmos",
@@ -116,7 +141,7 @@ export const projects: Project[] = [
 			github: "https://github.com/ivndv/cosmos",
 		},
 	},
-	// 7. Portafolio Web
+	// 8. Portafolio Web
 	{
 		id: 6,
 		title: "Portafolio Web",
@@ -136,7 +161,7 @@ export const projects: Project[] = [
 			github: "https://github.com/ivndv/ivandev-srvcs",
 		},
 	},
-	// 8. Fluxdev (anteriormente Fluxdev Blog V2)
+	// 9. Fluxdev (anteriormente Fluxdev Blog V2)
 	{
 		id: 8,
 		title: "Fluxdev",

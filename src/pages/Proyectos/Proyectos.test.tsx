@@ -15,6 +15,7 @@ describe("Página Proyectos", () => {
 		render(<Projects />);
 
 		// Verificar que algunos proyectos específicos aparezcan
+		expect(screen.getByText("Codebook")).toBeInTheDocument();
 		expect(screen.getByText("Fluxbeats")).toBeInTheDocument();
 		expect(screen.getByText("Nemi")).toBeInTheDocument();
 		expect(screen.getByText("Cosmos")).toBeInTheDocument();
@@ -23,19 +24,24 @@ describe("Página Proyectos", () => {
 	it("contiene enlaces externos correctamente configurados", () => {
 		render(<Projects />);
 
-		// Buscar links del primer proyecto (Fluxbeats)
 		// getAllByRole porque hay varios botones de "Código" y "Demo"
 		const githubLinks = screen.getAllByRole("link", { name: /código/i });
 		const demoLinks = screen.getAllByRole("link", { name: /demo/i });
+		const docsLinks = screen.getAllByRole("link", { name: /docs/i });
 
-		// Verificar el primer link de cada tipo (el de Fluxbeats)
+		// El primer proyecto del listado es Codebook
+		expect(demoLinks[0]).toHaveAttribute(
+			"href",
+			"https://codebook-three.vercel.app",
+		);
+		expect(docsLinks[0]).toHaveAttribute(
+			"href",
+			"https://codebook-api-production-6cfa.up.railway.app/docs",
+		);
+		// Codebook usa "Frontend"/"Backend", así que el primer "Código" sigue siendo Fluxbeats
 		expect(githubLinks[0]).toHaveAttribute(
 			"href",
 			"https://github.com/ivndv/fluxbeats",
-		);
-		expect(demoLinks[0]).toHaveAttribute(
-			"href",
-			"https://fluxbeats.mgdc.site/",
 		);
 	});
 
