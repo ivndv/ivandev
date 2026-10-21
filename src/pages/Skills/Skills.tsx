@@ -2,6 +2,7 @@
 
 // Iconos
 import {
+	Blocks,
 	Bot,
 	Box,
 	Brain,
@@ -12,7 +13,9 @@ import {
 	GitBranch,
 	Globe,
 	Layout,
+	Paintbrush,
 	Palette,
+	RefreshCw,
 	Server,
 	ShieldCheck,
 	Sparkles,
@@ -43,9 +46,11 @@ const Skills = () => {
 			skills: [
 				{ name: "HTML5", icon: <Layout size={20} /> },
 				{ name: "CSS3", icon: <Palette size={20} /> },
+				{ name: "Sass & SCSS", icon: <Paintbrush size={20} /> },
 				{ name: "JavaScript", icon: <Code2 size={20} /> },
 				{ name: "TypeScript", icon: <Code2 size={20} /> },
 				{ name: "React", icon: <Cpu size={20} /> },
+				{ name: "Zustand", icon: <Blocks size={20} /> },
 				{ name: "Tailwind CSS", icon: <Palette size={20} /> },
 				{ name: "Astro", icon: <Zap size={20} /> },
 				{ name: "Angular", icon: <Layout size={20} /> },
@@ -60,6 +65,7 @@ const Skills = () => {
 				{ name: "Express", icon: <Server size={20} /> },
 				{ name: "Hono", icon: <Server size={20} /> },
 				{ name: "MySQL", icon: <Database size={20} /> },
+				{ name: "PostgreSQL", icon: <Database size={20} /> },
 				{ name: "Drizzle ORM", icon: <Database size={20} /> },
 				{ name: "REST APIs", icon: <Globe size={20} /> },
 				{ name: "Zod", icon: <ShieldCheck size={20} /> },
@@ -112,9 +118,9 @@ const Skills = () => {
 			title: "En Desarrollo / Explorando",
 			skills: [
 				{ name: "Django", icon: <Server size={20} /> },
-				{ name: "PostgreSQL", icon: <Database size={20} /> },
 				{ name: "MongoDB", icon: <Database size={20} /> },
 				{ name: "Vue", icon: <Layout size={20} /> },
+				{ name: "TanStack Query", icon: <RefreshCw size={20} /> },
 				{ name: "AWS", icon: <Cloud size={20} /> },
 				{ name: "Java", icon: <Code2 size={20} /> },
 				{ name: "Google Cloud", icon: <Cloud size={20} /> },
@@ -127,6 +133,7 @@ const Skills = () => {
 				{ name: "Claude", icon: <Brain size={20} /> },
 				{ name: "ChatGPT", icon: <Bot size={20} /> },
 				{ name: "GitHub Copilot", icon: <Sparkles size={20} /> },
+				{ name: "OpenCode", icon: <Terminal size={20} /> },
 				{ name: "Gemini", icon: <Sparkles size={20} /> },
 			],
 		},
