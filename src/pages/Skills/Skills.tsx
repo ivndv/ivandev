@@ -21,6 +21,7 @@ import {
 	Sparkles,
 	Terminal,
 	Users,
+	Waypoints,
 	Zap,
 } from "lucide-react";
 import { useEffect } from "react";
@@ -117,10 +118,11 @@ const Skills = () => {
 		{
 			title: "En Desarrollo / Explorando",
 			skills: [
-				{ name: "Django", icon: <Server size={20} /> },
+				{ name: "Flask", icon: <Server size={20} /> },
 				{ name: "MongoDB", icon: <Database size={20} /> },
 				{ name: "Vue", icon: <Layout size={20} /> },
 				{ name: "TanStack Query", icon: <RefreshCw size={20} /> },
+				{ name: "GraphQL", icon: <Waypoints size={20} /> },
 				{ name: "AWS", icon: <Cloud size={20} /> },
 				{ name: "Java", icon: <Code2 size={20} /> },
 				{ name: "Google Cloud", icon: <Cloud size={20} /> },
