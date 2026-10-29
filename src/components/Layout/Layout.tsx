@@ -1,7 +1,7 @@
-// React
-import { useEffect } from "react";
 // React Router
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+// Mensajes
+import { m } from "@/paraglide/messages";
 // Componentes
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -9,18 +9,18 @@ import Header from "../Header/Header";
 // Layout
 // Contenedor principal que envuelve Header, contenido y Footer
 export const Layout = () => {
-	const { pathname } = useLocation();
-
-	// 1. Scroll al inicio en cada cambio de ruta
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [pathname]);
-
 	return (
 		<div className="layout-container">
+			{/* Salto directo al contenido para lectores de pantalla */}
+			<a
+				href="#contenido"
+				className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-white focus:font-semibold"
+			>
+				{m.a11y_skip()}
+			</a>
 			<Header />
 			{/* Contenido principal */}
-			<main style={{ minHeight: "80vh" }}>
+			<main id="contenido" style={{ minHeight: "80vh" }}>
 				<Outlet />
 			</main>
 			<Footer />

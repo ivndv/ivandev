@@ -4,6 +4,16 @@
 /* Tokens semánticos */
 @theme {
 	--font-sans: "Montserrat", "sans-serif";
+	--font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+	/* Escala fluida: crece con el viewport sin saltos por breakpoint */
+	--text-h1: clamp(1.875rem, 1.2rem + 3vw, 3rem);
+	--text-h1--line-height: 1.1;
+	--text-h2: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+	--text-h2--line-height: 1.15;
+
+	/* Ritmo vertical de sección */
+	--spacing-section: clamp(4rem, 7vw, 5.5rem);
 
 	--color-page-bg: var(--page-bg);
 	--color-text-main: var(--text-main);

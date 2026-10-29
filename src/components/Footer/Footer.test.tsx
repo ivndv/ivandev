@@ -4,37 +4,49 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 // Vitest
 import { describe, expect, it } from "vitest";
+// i18n
+import { LocaleSync } from "@/i18n/LocaleSync";
 // Componentes
 import Footer from "./Footer";
 
 describe("Componente Footer", () => {
-	it("renderiza información esencial correctamente", () => {
+	const renderFooter = (ruta = "/") =>
 		render(
-			<MemoryRouter>
-				<Footer />
+			<MemoryRouter initialEntries={[ruta]}>
+				<LocaleSync>
+					<Footer />
+				</LocaleSync>
 			</MemoryRouter>,
 		);
 
-		// Verificar descripción
-		expect(
-			screen.getByText(/Desarrollador Web Full Stack/i),
-		).toBeInTheDocument();
+	it("renderiza información esencial correctamente", () => {
+		renderFooter();
 
-		// Verificar links de redes sociales (ahora por aria-label)
-		expect(screen.getByLabelText(/github/i)).toBeInTheDocument();
-		expect(screen.getByLabelText(/linkedin/i)).toBeInTheDocument();
-		expect(screen.getByRole("link", { name: /inicio/i })).toBeInTheDocument();
+		expect(screen.getByText(/Full Stack Web Developer/i)).toBeInTheDocument();
+
+		// Verificar links de redes sociales (por aria-label)
+		expect(screen.getByRole("link", { name: /github/i })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: /linkedin/i })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
 
 		// Verificar Copyright
 		expect(screen.getByText(/© 2026 Ivan Cruz/i)).toBeInTheDocument();
 	});
 
-	it("contiene enlaces a redes sociales", () => {
-		render(
-			<MemoryRouter>
-				<Footer />
-			</MemoryRouter>,
+	it("enlaza las secciones con las anclas del idioma", () => {
+		renderFooter("/es");
+
+		expect(screen.getByRole("link", { name: "Proyectos" })).toHaveAttribute(
+			"href",
+			"/es#proyectos",
 		);
+		expect(
+			screen.getByRole("link", { name: /Política de Privacidad/i }),
+		).toHaveAttribute("href", "/es/privacidad");
+	});
+
+	it("contiene enlaces a redes sociales", () => {
+		renderFooter();
 
 		const links = screen.getAllByRole("link");
 		const githubExists = links.some(
