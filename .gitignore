@@ -1,3 +1,6 @@
+# Cobertura de tests
+coverage
+
 # Logs
 logs
 *.log
