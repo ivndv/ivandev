@@ -1,4 +1,4 @@
-# ivandev CI/CD: lint y tests en paralelo, deploy a Cloudflare Pages solo en push a main
+# ivandev CI/CD: lint, tests con cobertura y build en paralelo; deploy a Cloudflare Pages solo en push a main
 name: ivandev CI/CD
 
 # Disparadores: pushes y pull requests a las ramas principales
@@ -39,9 +39,9 @@ jobs:
       - name: Format & lint check
         run: bun run check
 
-  # Job 2: pruebas unitarias con Vitest — paralelo a lint
+  # Job 2: pruebas unitarias con cobertura — paralelo a lint
   test:
-    name: Unit tests
+    name: Tests & Coverage
     runs-on: ubuntu-latest
     steps:
       # 1. Clona el repositorio
@@ -52,15 +52,41 @@ jobs:
       - name: Setup Bun env
         uses: ./.github/actions/setup
 
-      # 3. Ejecuta la suite de pruebas unitarias
-      - name: Run unit tests
-        run: bun run test:unit
+      # 3. Ejecuta la suite con reporte de cobertura
+      - name: Run tests with coverage
+        run: bun run test:coverage
 
-  # Job 3: despliegue a Cloudflare Pages (solo push a main y con todo verde)
+      # 4. Publica el reporte HTML para revisarlo desde el run
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
+
+  # Job 3: typecheck y build de producción en cada push y PR
+  build:
+    name: Build & Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Clona el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      # 2. Configura Node, Bun y dependencias con caché
+      - name: Setup Bun env
+        uses: ./.github/actions/setup
+
+      # 3. Compila (tsc -b + vite build) sin necesidad de secretos
+      - name: Build project
+        run: bun run build
+
+  # Job 4: despliegue a Cloudflare Pages (solo push a main y con todo verde)
   deploy:
     name: Deploy to Cloudflare Pages
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: [lint, test]
+    needs: [lint, test, build]
     runs-on: ubuntu-latest
     steps:
       # 1. Clona el repositorio
