@@ -1,3 +1,6 @@
+// Mensajes
+import { m } from "@/paraglide/messages";
+
 // Tipos
 export type ProjectLinks = {
 	demo?: string;
@@ -11,7 +14,8 @@ export type ProjectLinks = {
 export type Project = {
 	readonly id: number;
 	title: string;
-	description: string;
+	description: () => string;
+	features: () => readonly string[];
 	image?: string;
 	tags: string[];
 	links: ProjectLinks;
@@ -19,13 +23,82 @@ export type Project = {
 
 // Proyectos
 export const projects: Project[] = [
-	// 1. Codebook (frontend + API de IA)
+	// 1. Tempo v2 (reescritura en Next.js sobre Workers)
+	{
+		id: 10,
+		title: "Tempo v2",
+		description: m.project_tempo_v2,
+		features: () => [
+			m.project_tempo_v2_f1(),
+			m.project_tempo_v2_f2(),
+			m.project_tempo_v2_f3(),
+			m.project_tempo_v2_f4(),
+		],
+		image: "https://assets.mgdc.site/ivandev/tempo2.png",
+		tags: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Tailwind CSS",
+			"Cloudflare Workers",
+			"OpenNext",
+			"Supabase",
+			"PostgreSQL",
+			"Dexie",
+			"Polar",
+			"Zod",
+			"Vitest",
+		],
+		links: {
+			demo: "https://tempo2.mgdc.site",
+			github: "https://github.com/ivndv/tempo-v2",
+		},
+	},
+	// 2. Palette Lab (Vue + FastAPI)
+	{
+		id: 11,
+		title: "Palette Lab",
+		description: m.project_palette_lab,
+		features: () => [
+			m.project_palette_lab_f1(),
+			m.project_palette_lab_f2(),
+			m.project_palette_lab_f3(),
+			m.project_palette_lab_f4(),
+		],
+		image: "https://assets.mgdc.site/ivandev/palettelab.png",
+		tags: [
+			"Vue",
+			"Vite",
+			"TypeScript",
+			"Pinia",
+			"Sass",
+			"Tailwind CSS",
+			"Supabase",
+			"Cloudflare Pages",
+			"FastAPI",
+			"Python",
+			"Groq (IA)",
+			"Vitest",
+		],
+		links: {
+			demo: "https://palettelab.mgdc.site",
+			docs: "https://api-palettelab.fluxdv.icu/docs",
+			githubFrontend: "https://github.com/ivndv/palette-lab",
+			githubBackend: "https://github.com/ivndv/palette-lab-api",
+		},
+	},
+	// 3. Codebook (frontend + API de IA)
 	{
 		id: 9,
 		title: "Codebook",
-		description:
-			"Aplicación web que usa inteligencia artificial para explicar fragmentos de código en una línea y guardarlos en una colección personal.",
-		image: "https://assets.mgdc.site/ivandev/codebook.png",
+		description: m.project_codebook,
+		features: () => [
+			m.project_codebook_f1(),
+			m.project_codebook_f2(),
+			m.project_codebook_f3(),
+			m.project_codebook_f4(),
+		],
+		image: "https://assets.mgdc.site/ivandev/codebook-v2.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -48,8 +121,13 @@ export const projects: Project[] = [
 	{
 		id: 1,
 		title: "Fluxbeats",
-		description:
-			"Fluxbeats es una landing page para mostrar un servicio de ventas de licencias de beats musicales libres de derechos de autor.",
+		description: m.project_fluxbeats,
+		features: () => [
+			m.project_fluxbeats_f1(),
+			m.project_fluxbeats_f2(),
+			m.project_fluxbeats_f3(),
+			m.project_fluxbeats_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/fluxbeats.png",
 		tags: ["React", "Vite", "Tailwindcss", "Node.js", "Cloudflare"],
 		links: {
@@ -61,8 +139,13 @@ export const projects: Project[] = [
 	{
 		id: 3,
 		title: "Nemi",
-		description:
-			"Aplicaci\u00f3n web dise\u00f1ada para centralizar y administrar los equipos f\u00edsicos de una empresa, facilitando el control de inventario y las asignaciones de personal.",
+		description: m.project_nemi,
+		features: () => [
+			m.project_nemi_f1(),
+			m.project_nemi_f2(),
+			m.project_nemi_f3(),
+			m.project_nemi_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/nemi.png",
 		tags: ["Angular", "TypeScript", "Node.js", "Express", "MySQL"],
 		links: {
@@ -76,8 +159,13 @@ export const projects: Project[] = [
 	{
 		id: 5,
 		title: "Tempo",
-		description:
-			"Aplicaci\u00f3n web de productividad que ayuda a gestionar el tiempo de trabajo y estudio mediante bloques de enfoque y descansos programados.",
+		description: m.project_tempo,
+		features: () => [
+			m.project_tempo_f1(),
+			m.project_tempo_f2(),
+			m.project_tempo_f3(),
+			m.project_tempo_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/tempo.png",
 		tags: [
 			"Astro",
@@ -97,8 +185,13 @@ export const projects: Project[] = [
 	{
 		id: 4,
 		title: "MXWatch",
-		description:
-			"Dashboard interactivo dise\u00f1ado para visualizar y monitorear la presencia de grupos organizados en territorio mexicano a trav\u00e9s de mapas din\u00e1micos.",
+		description: m.project_mxwatch,
+		features: () => [
+			m.project_mxwatch_f1(),
+			m.project_mxwatch_f2(),
+			m.project_mxwatch_f3(),
+			m.project_mxwatch_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/mxwatch.png",
 		tags: [
 			"Next.js",
@@ -119,8 +212,13 @@ export const projects: Project[] = [
 	{
 		id: 2,
 		title: "Fluxblog",
-		description:
-			"Fluxblog es un gestor de contenido dise\u00f1ado como un espacio personal y profesional para compartir art\u00edculos, tutoriales y experiencias sobre el desarrollo web.",
+		description: m.project_fluxblog,
+		features: () => [
+			m.project_fluxblog_f1(),
+			m.project_fluxblog_f2(),
+			m.project_fluxblog_f3(),
+			m.project_fluxblog_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/fluxdev.png",
 		tags: ["Astro", "Cloudflare", "D1 (SQLite)", "TailwindCSS"],
 		links: {
@@ -132,8 +230,13 @@ export const projects: Project[] = [
 	{
 		id: 7,
 		title: "Cosmos",
-		description:
-			"Plataforma interactiva que permite explorar el universo, consultar noticias astron\u00f3micas y visualizar datos sobre el sistema solar.",
+		description: m.project_cosmos,
+		features: () => [
+			m.project_cosmos_f1(),
+			m.project_cosmos_f2(),
+			m.project_cosmos_f3(),
+			m.project_cosmos_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/cosmos.png",
 		tags: ["React", "React Router", "API NASA", "CSS Modules"],
 		links: {
@@ -145,8 +248,13 @@ export const projects: Project[] = [
 	{
 		id: 6,
 		title: "Portafolio Web",
-		description:
-			"Landing page enfocada en la presentaci\u00f3n y oferta de servicios de desarrollo de software con un dise\u00f1o moderno y captura de leads.",
+		description: m.project_portfolio,
+		features: () => [
+			m.project_portfolio_f1(),
+			m.project_portfolio_f2(),
+			m.project_portfolio_f3(),
+			m.project_portfolio_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/ivandev-srvcs.png",
 		tags: [
 			"Astro",
@@ -165,8 +273,13 @@ export const projects: Project[] = [
 	{
 		id: 8,
 		title: "Fluxdev",
-		description:
-			"Fluxdev es un gestor de contenido avanzado dise\u00f1ado como un espacio personal y profesional para compartir art\u00edculos, tutoriales y experiencias sobre el desarrollo web.",
+		description: m.project_fluxdev,
+		features: () => [
+			m.project_fluxdev_f1(),
+			m.project_fluxdev_f2(),
+			m.project_fluxdev_f3(),
+			m.project_fluxdev_f4(),
+		],
 		image: "https://assets.mgdc.site/ivandev/fluxdev-v2.png",
 		tags: ["Astro", "React", "Payload CMS", "PostgreSQL", "Docker", "Tailwind"],
 		links: {

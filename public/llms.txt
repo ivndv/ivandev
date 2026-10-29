@@ -1,17 +1,18 @@
-# Ivan's Portfolio
+# Ivan Cruz Portfolio
 
-> Full Stack Web Developer specializing in React, TypeScript, and Modern Web Technologies.
+> Full Stack Web Developer specializing in React, TypeScript, Cloud Computing and DevOps.
 
 ## Sections
 
-- [Home](/) - Introduction and Hero section.
-- [Projects](/proyectos) - Showcase of recent web development work and applications.
-- [Experience](/experiencia) - Professional history and roles.
-- [Skills](/skills) - Technical stack including React, Node.js, TypeScript, Tailwind CSS.
-- [About](/sobre-mi) - Personal background and philosophy.
-- [Contact](/contacto) - Channels for professional inquiries.
+The whole portfolio lives on a single scrolling page:
+
+- [Home](/) - Hero, about, skills, experience, projects, education and contact.
+- [Español](/es) - Versión en español de la misma página.
+- [Privacy](/privacy) - Privacy policy.
+- [Terms](/terms) - Terms and conditions.
 
 ## Technical Details
 
 - **Stack**: React 19, Vite, Tailwind CSS 4, TypeScript.
+- **i18n**: Paraglide JS with English at the root and Spanish under `/es`.
 - **Goals**: Creating high-performance, accessible, and aesthetically pleasing web experiences.
