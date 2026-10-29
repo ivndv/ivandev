@@ -16,7 +16,7 @@ type Env = {
 	TURNSTILE_SECRET_KEY: string;
 };
 
-const app = new Hono<{ Bindings: Env }>();
+export const app = new Hono<{ Bindings: Env }>();
 
 // POST /api/contact - Envia un mensaje con validacion, captcha y email
 app.post("/api/contact", async (c) => {
