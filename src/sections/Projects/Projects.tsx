@@ -64,7 +64,7 @@ const Projects = () => {
 										src={project.image}
 										alt={project.title}
 										loading="lazy"
-										className="absolute inset-0 w-full h-full object-cover"
+										className="absolute inset-0 w-full h-full object-cover scale-110 sm:scale-110 lg:scale-115"
 										onError={(e) => {
 											e.currentTarget.style.display = "none";
 											e.currentTarget.parentElement?.classList.add(
