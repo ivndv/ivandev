@@ -134,7 +134,7 @@ export const projects: Project[] = [
 		],
 		links: {
 			demo: "https://codebook-three.vercel.app",
-			docs: "https://codebook-api.fluxdv.icu/docs",
+			docs: "https://codebook-api-production-0be5.up.railway.app/docs",
 			githubFrontend: "https://github.com/ivndv/codebook",
 			githubBackend: "https://github.com/ivndv/codebook-api",
 		},
