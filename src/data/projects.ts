@@ -10,10 +10,24 @@ export type ProjectLinks = {
 	githubBackend?: string;
 };
 
+// Icono temático de la tarjeta
+export type ProjectIcon =
+	| "timer"
+	| "palette"
+	| "code"
+	| "music"
+	| "inventory"
+	| "map"
+	| "blog"
+	| "space"
+	| "services"
+	| "cms";
+
 // Proyecto individual con id inmutable
 export type Project = {
 	readonly id: number;
 	title: string;
+	icon: ProjectIcon;
 	description: () => string;
 	features: () => readonly string[];
 	image?: string;
@@ -27,27 +41,28 @@ export const projects: Project[] = [
 	{
 		id: 10,
 		title: "Tempo v2",
+		icon: "timer",
 		description: m.project_tempo_v2,
 		features: () => [
 			m.project_tempo_v2_f1(),
 			m.project_tempo_v2_f2(),
 			m.project_tempo_v2_f3(),
 			m.project_tempo_v2_f4(),
+			m.project_tempo_v2_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/tempo2.png",
 		tags: [
 			"Next.js",
-			"React",
 			"TypeScript",
 			"Tailwind CSS",
-			"Cloudflare Workers",
-			"OpenNext",
-			"Supabase",
-			"PostgreSQL",
-			"Dexie",
-			"Polar",
+			"next-intl",
 			"Zod",
+			"Polar",
 			"Vitest",
+			"Supabase",
+			"Dexie",
+			"Cloudflare",
+			"Redis",
 		],
 		links: {
 			demo: "https://tempo2.mgdc.site",
@@ -58,12 +73,14 @@ export const projects: Project[] = [
 	{
 		id: 11,
 		title: "Palette Lab",
+		icon: "palette",
 		description: m.project_palette_lab,
 		features: () => [
 			m.project_palette_lab_f1(),
 			m.project_palette_lab_f2(),
 			m.project_palette_lab_f3(),
 			m.project_palette_lab_f4(),
+			m.project_palette_lab_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/palettelab.png",
 		tags: [
@@ -71,14 +88,16 @@ export const projects: Project[] = [
 			"Vite",
 			"TypeScript",
 			"Pinia",
+			"Vue Router",
 			"Sass",
-			"Tailwind CSS",
-			"Supabase",
-			"Cloudflare Pages",
 			"FastAPI",
 			"Python",
 			"Groq (IA)",
+			"Turnstile",
 			"Vitest",
+			"Supabase",
+			"Cloudflare",
+			"Redis",
 		],
 		links: {
 			demo: "https://palettelab.mgdc.site",
@@ -91,28 +110,31 @@ export const projects: Project[] = [
 	{
 		id: 9,
 		title: "Codebook",
+		icon: "code",
 		description: m.project_codebook,
 		features: () => [
 			m.project_codebook_f1(),
 			m.project_codebook_f2(),
 			m.project_codebook_f3(),
 			m.project_codebook_f4(),
+			m.project_codebook_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/codebook-v2.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
-			"Tailwindcss",
-			"Supabase",
+			"Tailwind CSS",
 			"Python",
 			"FastAPI",
 			"Groq (IA)",
+			"Supabase",
 			"Vercel",
 			"Railway",
+			"Redis",
 		],
 		links: {
 			demo: "https://codebook-three.vercel.app",
-			docs: "https://codebook-api-production-6cfa.up.railway.app/docs",
+			docs: "https://codebook-api.fluxdv.icu/docs",
 			githubFrontend: "https://github.com/ivndv/codebook",
 			githubBackend: "https://github.com/ivndv/codebook-api",
 		},
@@ -121,15 +143,28 @@ export const projects: Project[] = [
 	{
 		id: 1,
 		title: "Fluxbeats",
+		icon: "music",
 		description: m.project_fluxbeats,
 		features: () => [
 			m.project_fluxbeats_f1(),
 			m.project_fluxbeats_f2(),
 			m.project_fluxbeats_f3(),
 			m.project_fluxbeats_f4(),
+			m.project_fluxbeats_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/fluxbeats.png",
-		tags: ["React", "Vite", "Tailwindcss", "Node.js", "Cloudflare"],
+		tags: [
+			"React",
+			"Vite",
+			"TypeScript",
+			"Tailwind CSS",
+			"React Router",
+			"Zustand",
+			"Hono",
+			"Turnstile",
+			"Resend",
+			"Cloudflare",
+		],
 		links: {
 			demo: "https://fluxbeats.mgdc.site/",
 			github: "https://github.com/ivndv/fluxbeats",
@@ -139,18 +174,28 @@ export const projects: Project[] = [
 	{
 		id: 3,
 		title: "Nemi",
+		icon: "inventory",
 		description: m.project_nemi,
 		features: () => [
 			m.project_nemi_f1(),
 			m.project_nemi_f2(),
 			m.project_nemi_f3(),
 			m.project_nemi_f4(),
+			m.project_nemi_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/nemi.png",
-		tags: ["Angular", "TypeScript", "Node.js", "Express", "MySQL"],
+		tags: [
+			"Angular",
+			"TypeScript",
+			"Node.js",
+			"Express",
+			"Drizzle ORM",
+			"MySQL",
+			"Cloudflare",
+		],
 		links: {
 			demo: "https://nemi.mgdc.site/",
-			docs: "http://nemi-api.fluxdv.icu/api/docs",
+			docs: "https://nemi-api.fluxdv.icu/api/docs",
 			githubFrontend: "https://github.com/ivndv/nemi",
 			githubBackend: "https://github.com/ivndv/nemi-api",
 		},
@@ -159,6 +204,7 @@ export const projects: Project[] = [
 	{
 		id: 5,
 		title: "Tempo",
+		icon: "timer",
 		description: m.project_tempo,
 		features: () => [
 			m.project_tempo_f1(),
@@ -166,14 +212,19 @@ export const projects: Project[] = [
 			m.project_tempo_f3(),
 			m.project_tempo_f4(),
 		],
-		image: "https://assets.mgdc.site/ivandev/tempo.png",
+		image: "https://assets.mgdc.site/ivandev/tempo-2026.png",
 		tags: [
 			"Astro",
 			"React",
+			"Tailwind CSS",
+			"Paraglide",
 			"Hono",
 			"Better Auth",
 			"Drizzle ORM",
-			"Cloudflare D1",
+			"Turnstile",
+			"Resend",
+			"Zod",
+			"Cloudflare",
 		],
 		links: {
 			demo: "https://tempo.mgdc.site/",
@@ -185,17 +236,23 @@ export const projects: Project[] = [
 	{
 		id: 4,
 		title: "MXWatch",
+		icon: "map",
 		description: m.project_mxwatch,
 		features: () => [
 			m.project_mxwatch_f1(),
 			m.project_mxwatch_f2(),
 			m.project_mxwatch_f3(),
 			m.project_mxwatch_f4(),
+			m.project_mxwatch_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/mxwatch.png",
+		image: "https://assets.mgdc.site/ivandev/mxwatch-v2.png",
 		tags: [
 			"Next.js",
-			"D3-Geo",
+			"TypeScript",
+			"Tailwind CSS",
+			"Paraglide",
+			"Zustand",
+			"@visx/geo",
 			"Hono",
 			"Drizzle ORM",
 			"PostgreSQL",
@@ -212,15 +269,17 @@ export const projects: Project[] = [
 	{
 		id: 2,
 		title: "Fluxblog",
+		icon: "blog",
 		description: m.project_fluxblog,
 		features: () => [
 			m.project_fluxblog_f1(),
 			m.project_fluxblog_f2(),
 			m.project_fluxblog_f3(),
 			m.project_fluxblog_f4(),
+			m.project_fluxblog_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/fluxdev.png",
-		tags: ["Astro", "Cloudflare", "D1 (SQLite)", "TailwindCSS"],
+		tags: ["Astro", "React", "Tailwind CSS", "Pagefind", "Hono", "Cloudflare"],
 		links: {
 			demo: "https://fluxdev-nebula.mgdc.site/",
 			github: "https://github.com/ivndv/fluxdev-blog",
@@ -230,6 +289,7 @@ export const projects: Project[] = [
 	{
 		id: 7,
 		title: "Cosmos",
+		icon: "space",
 		description: m.project_cosmos,
 		features: () => [
 			m.project_cosmos_f1(),
@@ -238,9 +298,19 @@ export const projects: Project[] = [
 			m.project_cosmos_f4(),
 		],
 		image: "https://assets.mgdc.site/ivandev/cosmos.png",
-		tags: ["React", "React Router", "API NASA", "CSS Modules"],
+		tags: [
+			"React",
+			"Vite",
+			"TypeScript",
+			"React Router",
+			"TanStack Query",
+			"Tailwind CSS",
+			"Hono",
+			"API NASA",
+			"Cloudflare",
+		],
 		links: {
-			demo: "https://space-app-v3.pages.dev/",
+			demo: "https://cosmos.mgdc.site",
 			github: "https://github.com/ivndv/cosmos",
 		},
 	},
@@ -248,21 +318,25 @@ export const projects: Project[] = [
 	{
 		id: 6,
 		title: "Portafolio Web",
+		icon: "services",
 		description: m.project_portfolio,
 		features: () => [
 			m.project_portfolio_f1(),
 			m.project_portfolio_f2(),
 			m.project_portfolio_f3(),
 			m.project_portfolio_f4(),
+			m.project_portfolio_f5(),
 		],
 		image: "https://assets.mgdc.site/ivandev/ivandev-srvcs.png",
 		tags: [
 			"Astro",
 			"React",
-			"Tailwind v4",
+			"Tailwind CSS",
 			"DaisyUI",
+			"Paraglide",
+			"Hono",
 			"Resend",
-			"Cloudflare Pages",
+			"Cloudflare",
 		],
 		links: {
 			demo: "https://web-portfolio.mgdc.site/",
@@ -273,18 +347,30 @@ export const projects: Project[] = [
 	{
 		id: 8,
 		title: "Fluxdev",
+		icon: "cms",
 		description: m.project_fluxdev,
 		features: () => [
 			m.project_fluxdev_f1(),
 			m.project_fluxdev_f2(),
 			m.project_fluxdev_f3(),
 			m.project_fluxdev_f4(),
+			m.project_fluxdev_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxdev-v2.png",
-		tags: ["Astro", "React", "Payload CMS", "PostgreSQL", "Docker", "Tailwind"],
+		image: "https://assets.mgdc.site/ivandev/fluxdev-nova.png",
+		tags: [
+			"Astro",
+			"React",
+			"Tailwind CSS",
+			"Paraglide",
+			"Pagefind",
+			"Payload CMS",
+			"Docker",
+			"PostgreSQL",
+			"Cloudflare",
+		],
 		links: {
 			demo: "https://fluxdev-nova.mgdc.site/",
-			docs: "https://blog-personal-fluxdev-backend.fluxdv.icu/api/docs",
+			docs: "https://fluxblog-api.fluxdv.icu/api/docs",
 			githubFrontend: "https://github.com/ivndv/fluxblog-ui",
 			githubBackend: "https://github.com/ivndv/fluxblog-api",
 		},

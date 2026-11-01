@@ -33,10 +33,7 @@ describe("Sección Proyectos", () => {
 		).toHaveAttribute("href", "https://codebook-three.vercel.app");
 		expect(
 			within(codebook as HTMLElement).getByRole("link", { name: /api docs/i }),
-		).toHaveAttribute(
-			"href",
-			"https://codebook-api-production-6cfa.up.railway.app/docs",
-		);
+		).toHaveAttribute("href", "https://codebook-api.fluxdv.icu/docs");
 
 		// 2. Fluxbeats tiene un solo repositorio
 		const fluxbeats = screen.getByText("Fluxbeats").closest("article");
@@ -60,11 +57,11 @@ describe("Sección Proyectos", () => {
 		const codebook = screen.getByText("Codebook").closest("article");
 		expect(codebook).not.toBeNull();
 
-		// Cada proyecto declara cuatro funciones en una lista
+		// Cada proyecto declara sus funciones en una lista
 		const items = within(codebook as HTMLElement).getAllByRole("listitem");
-		expect(items).toHaveLength(4);
+		expect(items).toHaveLength(5);
 		expect(
-			within(codebook as HTMLElement).getByText(/AI summary/i),
+			within(codebook as HTMLElement).getByText(/one-line summary/i),
 		).toBeInTheDocument();
 	});
 
@@ -72,7 +69,7 @@ describe("Sección Proyectos", () => {
 		render(<Projects />);
 
 		expect(screen.getAllByText("React").length).toBeGreaterThan(0);
-		expect(screen.getAllByText("Tailwindcss").length).toBeGreaterThan(0);
+		expect(screen.getAllByText("Tailwind CSS").length).toBeGreaterThan(0);
 		expect(screen.getAllByText("Node.js").length).toBeGreaterThan(0);
 		expect(screen.getAllByText("Vue").length).toBeGreaterThan(0);
 	});
