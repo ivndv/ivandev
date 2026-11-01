@@ -33,7 +33,7 @@ describe("Sección Proyectos", () => {
 		).toHaveAttribute("href", "https://codebook-three.vercel.app");
 		expect(
 			within(codebook as HTMLElement).getByRole("link", { name: /api docs/i }),
-		).toHaveAttribute("href", "https://codebook-api.fluxdv.icu/docs");
+		).toHaveAttribute("href", "https://codebook-api-production-0be5.up.railway.app/docs");
 
 		// 2. Fluxbeats tiene un solo repositorio
 		const fluxbeats = screen.getByText("Fluxbeats").closest("article");
