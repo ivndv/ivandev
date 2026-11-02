@@ -278,7 +278,7 @@ export const projects: Project[] = [
 			m.project_fluxblog_f4(),
 			m.project_fluxblog_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxdev.png",
+		image: "https://assets.mgdc.site/ivandev/fluxblog-v2.png",
 		tags: ["Astro", "React", "Tailwind CSS", "Pagefind", "Hono", "Cloudflare"],
 		links: {
 			demo: "https://fluxdev-nebula.mgdc.site/",
@@ -297,7 +297,7 @@ export const projects: Project[] = [
 			m.project_cosmos_f3(),
 			m.project_cosmos_f4(),
 		],
-		image: "https://assets.mgdc.site/ivandev/cosmos.png",
+		image: "https://assets.mgdc.site/ivandev/cosmos-v2.png",
 		tags: [
 			"React",
 			"Vite",
@@ -327,7 +327,7 @@ export const projects: Project[] = [
 			m.project_portfolio_f4(),
 			m.project_portfolio_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/ivandev-srvcs.png",
+		image: "https://assets.mgdc.site/ivandev/portafolio-v2.png",
 		tags: [
 			"Astro",
 			"React",
