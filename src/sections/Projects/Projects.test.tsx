@@ -76,4 +76,19 @@ describe("Sección Proyectos", () => {
 		expect(screen.getAllByText("Node.js").length).toBeGreaterThan(0);
 		expect(screen.getAllByText("Vue").length).toBeGreaterThan(0);
 	});
+
+	it("muestra el acceso demo de Nemi", () => {
+		render(<Projects />);
+
+		const nemi = screen.getByText("Nemi").closest("article");
+		expect(nemi).not.toBeNull();
+
+		expect(
+			within(nemi as HTMLElement).getByText("empleado@nemi.dev"),
+		).toBeInTheDocument();
+
+		expect(
+			within(nemi as HTMLElement).getByRole("link", { name: /api docs/i }),
+		).toHaveAttribute("href", "https://nemi-api.fluxdv.icu/api/docs");
+	});
 });

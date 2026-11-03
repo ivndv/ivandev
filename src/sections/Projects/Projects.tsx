@@ -92,6 +92,33 @@ const Projects = () => {
 									{project.description()}
 								</p>
 
+								{/* Acceso demo */}
+								{project.demoAccess && (
+									<div className="mb-4 rounded-lg border border-surface-border bg-surface-border/20 p-3">
+										<p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-text-muted/70">
+											{m.projects_demo_access()}
+										</p>
+										<div className="grid gap-1 text-xs sm:grid-cols-2">
+											<div>
+												<span className="text-text-muted/70">
+													{m.projects_demo_email()}:
+												</span>{" "}
+												<span className="font-mono text-text-main">
+													{project.demoAccess.email}
+												</span>
+											</div>
+											<div>
+												<span className="text-text-muted/70">
+													{m.projects_demo_password()}:
+												</span>{" "}
+												<span className="font-mono text-text-main">
+													{project.demoAccess.password}
+												</span>
+											</div>
+										</div>
+									</div>
+								)}
+
 								{/* Funciones principales */}
 								<ul className="space-y-1 mb-4">
 									{project.features().map((funcion) => (

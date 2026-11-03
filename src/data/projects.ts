@@ -33,6 +33,10 @@ export type Project = {
 	image?: string;
 	tags: string[];
 	links: ProjectLinks;
+	demoAccess?: {
+		email: string;
+		password: string;
+	};
 };
 
 // Proyectos
@@ -184,7 +188,7 @@ export const projects: Project[] = [
 			m.project_nemi_f5(),
 			m.project_nemi_f6(),
 		],
-		image: "/projects/nemi.png",
+		image: "https://assets.mgdc.site/ivandev/nemi.png?v=2",
 		tags: [
 			"Angular",
 			"TypeScript",
@@ -199,8 +203,13 @@ export const projects: Project[] = [
 		],
 		links: {
 			demo: "https://nemi.mgdc.site/",
+			docs: "https://nemi-api.fluxdv.icu/api/docs",
 			githubFrontend: "https://github.com/ivndv/nemi",
 			githubBackend: "https://github.com/ivndv/nemi-api",
+		},
+		demoAccess: {
+			email: "empleado@nemi.dev",
+			password: "Nemi123!",
 		},
 	},
 	// 4. Tempo
