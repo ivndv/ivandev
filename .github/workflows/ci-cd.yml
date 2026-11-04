@@ -25,7 +25,7 @@ jobs:
   # Job 1: verificación de formato y lint con Biome (read-only, falla si hay problemas)
   lint:
     name: Biome
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, arm64]
     steps:
       # 1. Clona el repositorio
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
   # Job 2: pruebas unitarias con cobertura — paralelo a lint
   test:
     name: Tests & Coverage
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, arm64]
     steps:
       # 1. Clona el repositorio
       - name: Checkout code
@@ -68,7 +68,7 @@ jobs:
   # Job 3: typecheck y build de producción en cada push y PR
   build:
     name: Build & Typecheck
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, arm64]
     steps:
       # 1. Clona el repositorio
       - name: Checkout code
@@ -87,7 +87,7 @@ jobs:
     name: Deploy to Cloudflare Pages
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: [lint, test, build]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, arm64]
     steps:
       # 1. Clona el repositorio
       - name: Checkout code
