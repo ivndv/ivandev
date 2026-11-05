@@ -86,7 +86,7 @@ export const projects: Project[] = [
 			m.project_palette_lab_f4(),
 			m.project_palette_lab_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/palettelab.png",
+		image: "https://assets.mgdc.site/ivandev/palettelab-v2.png",
 		tags: [
 			"Vue",
 			"Vite",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
 			m.project_codebook_f4(),
 			m.project_codebook_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/codebook-v2.png",
+		image: "https://assets.mgdc.site/ivandev/codebook-v3.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -188,7 +188,7 @@ export const projects: Project[] = [
 			m.project_nemi_f5(),
 			m.project_nemi_f6(),
 		],
-		image: "https://assets.mgdc.site/ivandev/nemi.png?v=2",
+		image: "https://assets.mgdc.site/ivandev/nemi-v2.png",
 		tags: [
 			"Angular",
 			"TypeScript",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
 			m.project_fluxblog_f4(),
 			m.project_fluxblog_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxblog-v2.png",
+		image: "https://assets.mgdc.site/ivandev/fluxblog-v3.png",
 		tags: ["Astro", "React", "Tailwind CSS", "Pagefind", "Hono", "Cloudflare"],
 		links: {
 			demo: "https://fluxdev-nebula.mgdc.site/",
