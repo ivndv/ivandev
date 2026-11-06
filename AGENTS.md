@@ -120,12 +120,12 @@ ivandev/
 
 Definidas como bindings de Cloudflare Pages Functions:
 
-| Variable                | Descripción                                                        |
-| :---------------------- | :----------------------------------------------------------------- |
-| `RESEND_API_KEY`        | Clave de API de Resend para el envío del correo de contacto.       |
-| `RESEND_TO_EMAIL`       | Dirección destinataria que recibe los mensajes del formulario.     |
-| `RESEND_FROM_EMAIL`     | Dirección remitente (opcional; si falta se usa la de Resend).      |
-| `TURNSTILE_SECRET_KEY`  | Secreto usado para verificar el token de Cloudflare Turnstile.     |
+| Variable               | Descripción                                                    |
+| :--------------------- | :------------------------------------------------------------- |
+| `RESEND_API_KEY`       | Clave de API de Resend para el envío del correo de contacto.   |
+| `RESEND_TO_EMAIL`      | Dirección destinataria que recibe los mensajes del formulario. |
+| `RESEND_FROM_EMAIL`    | Dirección remitente (opcional; si falta se usa la de Resend).  |
+| `TURNSTILE_SECRET_KEY` | Secreto usado para verificar el token de Cloudflare Turnstile. |
 
 ## 7. Comandos
 
