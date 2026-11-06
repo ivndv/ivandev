@@ -54,7 +54,7 @@ export const projects: Project[] = [
 			m.project_tempo_v2_f4(),
 			m.project_tempo_v2_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/tempo2.png",
+		image: "https://assets.liuma.app/ivandev/tempo2.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
 			"Redis",
 		],
 		links: {
-			demo: "https://tempo2.mgdc.site",
+			demo: "https://tempo-v2.liuma.app",
 			github: "https://github.com/ivndv/tempo-v2",
 		},
 	},
@@ -86,7 +86,7 @@ export const projects: Project[] = [
 			m.project_palette_lab_f4(),
 			m.project_palette_lab_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/palettelab-v2.png",
+		image: "https://assets.liuma.app/ivandev/palettelab-v2.png",
 		tags: [
 			"Vue",
 			"Vite",
@@ -104,8 +104,8 @@ export const projects: Project[] = [
 			"Redis",
 		],
 		links: {
-			demo: "https://palettelab.mgdc.site",
-			docs: "https://api-palettelab.fluxdv.icu/docs",
+			demo: "https://palette-lab.liuma.app",
+			docs: "https://palette-lab-api.liuma.app/docs",
 			githubFrontend: "https://github.com/ivndv/palette-lab",
 			githubBackend: "https://github.com/ivndv/palette-lab-api",
 		},
@@ -123,7 +123,7 @@ export const projects: Project[] = [
 			m.project_codebook_f4(),
 			m.project_codebook_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/codebook-v3.png",
+		image: "https://assets.liuma.app/ivandev/codebook-v3.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -137,8 +137,8 @@ export const projects: Project[] = [
 			"Redis",
 		],
 		links: {
-			demo: "https://codebook-three.vercel.app",
-			docs: "https://codebook-api-production-0be5.up.railway.app/docs",
+			demo: "https://codebook.liuma.app",
+			docs: "https://codebook-api.liuma.app/docs",
 			githubFrontend: "https://github.com/ivndv/codebook",
 			githubBackend: "https://github.com/ivndv/codebook-api",
 		},
@@ -156,7 +156,7 @@ export const projects: Project[] = [
 			m.project_fluxbeats_f4(),
 			m.project_fluxbeats_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxbeats.png",
+		image: "https://assets.liuma.app/ivandev/fluxbeats.png",
 		tags: [
 			"React",
 			"Vite",
@@ -170,7 +170,7 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://fluxbeats.mgdc.site/",
+			demo: "https://fluxbeats.liuma.app/",
 			github: "https://github.com/ivndv/fluxbeats",
 		},
 	},
@@ -188,7 +188,7 @@ export const projects: Project[] = [
 			m.project_nemi_f5(),
 			m.project_nemi_f6(),
 		],
-		image: "https://assets.mgdc.site/ivandev/nemi-v2.png",
+		image: "https://assets.liuma.app/ivandev/nemi-v2.png",
 		tags: [
 			"Angular",
 			"TypeScript",
@@ -202,8 +202,8 @@ export const projects: Project[] = [
 			"Cloudflare R2",
 		],
 		links: {
-			demo: "https://nemi.mgdc.site/",
-			docs: "https://nemi-api.fluxdv.icu/api/docs",
+			demo: "https://nemi.liuma.app/",
+			docs: "https://nemi-api.liuma.app/api/docs",
 			githubFrontend: "https://github.com/ivndv/nemi",
 			githubBackend: "https://github.com/ivndv/nemi-api",
 		},
@@ -224,7 +224,7 @@ export const projects: Project[] = [
 			m.project_tempo_f3(),
 			m.project_tempo_f4(),
 		],
-		image: "https://assets.mgdc.site/ivandev/tempo-2026.png",
+		image: "https://assets.liuma.app/ivandev/tempo-2026.png",
 		tags: [
 			"Astro",
 			"React",
@@ -239,8 +239,8 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://tempo.mgdc.site/",
-			docs: "https://tempo.mgdc.site/api/docs",
+			demo: "https://tempo.liuma.app/",
+			docs: "https://tempo.liuma.app/api/docs",
 			github: "https://github.com/ivndv/tempo",
 		},
 	},
@@ -257,7 +257,7 @@ export const projects: Project[] = [
 			m.project_mxwatch_f4(),
 			m.project_mxwatch_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/mxwatch-v2.png",
+		image: "https://assets.liuma.app/ivandev/mxwatch-v2.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -271,8 +271,8 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://mxwatch.mgdc.site",
-			docs: "https://mxwatch-api.fluxdv.icu/api/docs",
+			demo: "https://mxwatch.liuma.app",
+			docs: "https://mxwatch-api.liuma.app/api/docs",
 			githubFrontend: "https://github.com/ivndv/mxwatch",
 			githubBackend: "https://github.com/ivndv/mxwatch-api",
 		},
@@ -290,10 +290,10 @@ export const projects: Project[] = [
 			m.project_fluxblog_f4(),
 			m.project_fluxblog_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxblog-v3.png",
+		image: "https://assets.liuma.app/ivandev/fluxblog-v3.png",
 		tags: ["Astro", "React", "Tailwind CSS", "Pagefind", "Hono", "Cloudflare"],
 		links: {
-			demo: "https://fluxdev-nebula.mgdc.site/",
+			demo: "https://fluxdev.liuma.app/",
 			github: "https://github.com/ivndv/fluxdev-blog",
 		},
 	},
@@ -309,7 +309,7 @@ export const projects: Project[] = [
 			m.project_cosmos_f3(),
 			m.project_cosmos_f4(),
 		],
-		image: "https://assets.mgdc.site/ivandev/cosmos-v2.png",
+		image: "https://assets.liuma.app/ivandev/cosmos-v2.png",
 		tags: [
 			"React",
 			"Vite",
@@ -322,7 +322,7 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://cosmos.mgdc.site",
+			demo: "https://cosmos.liuma.app",
 			github: "https://github.com/ivndv/cosmos",
 		},
 	},
@@ -339,7 +339,7 @@ export const projects: Project[] = [
 			m.project_portfolio_f4(),
 			m.project_portfolio_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/portafolio-v2.png",
+		image: "https://assets.liuma.app/ivandev/portafolio-v2.png",
 		tags: [
 			"Astro",
 			"React",
@@ -351,7 +351,7 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://web-portfolio.mgdc.site/",
+			demo: "https://web-portfolio.liuma.app/",
 			github: "https://github.com/ivndv/ivandev-srvcs",
 		},
 	},
@@ -368,7 +368,7 @@ export const projects: Project[] = [
 			m.project_fluxdev_f4(),
 			m.project_fluxdev_f5(),
 		],
-		image: "https://assets.mgdc.site/ivandev/fluxdev-nova.png",
+		image: "https://assets.liuma.app/ivandev/fluxdev-nova.png",
 		tags: [
 			"Astro",
 			"React",
@@ -381,8 +381,8 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://fluxdev-nova.mgdc.site/",
-			docs: "https://fluxblog-api.fluxdv.icu/api/docs",
+			demo: "https://fluxblog.liuma.app/",
+			docs: "https://fluxblog-api.liuma.app/api/docs",
 			githubFrontend: "https://github.com/ivndv/fluxblog-ui",
 			githubBackend: "https://github.com/ivndv/fluxblog-api",
 		},

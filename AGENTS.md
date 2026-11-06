@@ -8,7 +8,7 @@ Guía operativa y técnica para agentes de IA que colaboran en el desarrollo, ma
 
 - **Propósito:** experiencia fluida, rápida y accesible con navegación SPA, diseño responsive mobile-first, soporte bilingüe (inglés y español), modo oscuro/claro persistente y backend serverless en el Edge con formulario de contacto seguro.
 - **Formato:** una sola página con scroll; las secciones se navegan por anclas y cada idioma tiene su propia URL.
-- **Dominio en producción:** [https://portafolioweb.mgdc.site](https://portafolioweb.mgdc.site)
+- **Dominio en producción:** [https://ivandev.liuma.app](https://ivandev.liuma.app)
 - **Repositorio:** [https://github.com/ivndv/ivandev](https://github.com/ivndv/ivandev)
 
 ### 1.1 Rutas

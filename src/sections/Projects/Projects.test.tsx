@@ -30,13 +30,10 @@ describe("Sección Proyectos", () => {
 		expect(codebook).not.toBeNull();
 		expect(
 			within(codebook as HTMLElement).getByRole("link", { name: /live demo/i }),
-		).toHaveAttribute("href", "https://codebook-three.vercel.app");
+		).toHaveAttribute("href", "https://codebook.liuma.app");
 		expect(
 			within(codebook as HTMLElement).getByRole("link", { name: /api docs/i }),
-		).toHaveAttribute(
-			"href",
-			"https://codebook-api-production-0be5.up.railway.app/docs",
-		);
+		).toHaveAttribute("href", "https://codebook-api.liuma.app/docs");
 
 		// 2. Fluxbeats tiene un solo repositorio
 		const fluxbeats = screen.getByText("Fluxbeats").closest("article");
@@ -89,6 +86,6 @@ describe("Sección Proyectos", () => {
 
 		expect(
 			within(nemi as HTMLElement).getByRole("link", { name: /api docs/i }),
-		).toHaveAttribute("href", "https://nemi-api.fluxdv.icu/api/docs");
+		).toHaveAttribute("href", "https://nemi-api.liuma.app/api/docs");
 	});
 });

@@ -109,7 +109,7 @@ const Header = () => {
 						className="flex items-center gap-2.5 shrink-0 group rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-page-bg"
 					>
 						<img
-							src="https://assets.mgdc.site/ivandev/logo.png"
+							src="https://assets.liuma.app/ivandev/logo.png"
 							alt="Logo"
 							className="h-8 w-8 rounded-full object-cover ring-1 ring-surface-border transition-transform duration-300 group-hover:scale-105"
 						/>

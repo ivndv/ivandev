@@ -31,7 +31,7 @@ const Footer = () => {
 							className="text-xl font-bold text-text-main tracking-tight flex items-center gap-2 w-fit"
 						>
 							<img
-								src="https://assets.mgdc.site/ivandev/logo.png"
+								src="https://assets.liuma.app/ivandev/logo.png"
 								alt="Logo"
 								className="h-8 w-8 rounded-full"
 							/>
@@ -111,7 +111,7 @@ const Footer = () => {
 							© {new Date().getFullYear()} Ivan Cruz. {m.footer_rights()}
 						</p>
 						<img
-							src="https://assets.mgdc.site/ivandev/bandera-mx.svg"
+							src="https://assets.liuma.app/ivandev/bandera-mx.svg"
 							alt="México"
 							className="h-4 w-4 opacity-80"
 						/>

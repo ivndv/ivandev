@@ -64,7 +64,7 @@ const Hero = () => {
 							{/* Botón Descargar CV */}
 							<div className="flex justify-center lg:justify-start">
 								<a
-									href="https://assets.mgdc.site/ivandev/cv.pdf"
+									href="https://assets.liuma.app/ivandev/cv.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
 									download="cv.pdf"

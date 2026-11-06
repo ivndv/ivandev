@@ -46,7 +46,7 @@ Además, dos páginas aparte con la **política de privacidad** y los **término
 
 ## Despliegue
 
-La aplicación se encuentra desplegada en **Cloudflare Pages** y puedes visitarla aquí: [portafolioweb.mgdc.site](https://portafolioweb.mgdc.site/)
+La aplicación se encuentra desplegada en **Cloudflare Pages** y puedes visitarla aquí: [ivandev.liuma.app](https://ivandev.liuma.app/)
 
 ## Licencia
 

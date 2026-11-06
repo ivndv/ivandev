@@ -1,7 +1,7 @@
 # robots.txt
-# https://portafolioweb.mgdc.site
+# https://ivandev.liuma.app
 
 User-agent: *
 Allow: /
 
-Sitemap: https://portafolioweb.mgdc.site/sitemap.xml
+Sitemap: https://ivandev.liuma.app/sitemap.xml
