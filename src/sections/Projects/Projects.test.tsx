@@ -14,7 +14,7 @@ describe("Sección Proyectos", () => {
 	it("renderiza todos los proyectos del listado", () => {
 		render(<Projects />);
 
-		expect(screen.getByText("Tempo v2")).toBeInTheDocument();
+		expect(screen.getByText("Tempo")).toBeInTheDocument();
 		expect(screen.getByText("Palette Lab")).toBeInTheDocument();
 		expect(screen.getByText("Codebook")).toBeInTheDocument();
 		expect(screen.getByText("Fluxbeats")).toBeInTheDocument();

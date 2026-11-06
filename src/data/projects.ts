@@ -44,7 +44,7 @@ export const projects: Project[] = [
 	// 1. Tempo v2 (reescritura en Next.js sobre Workers)
 	{
 		id: 10,
-		title: "Tempo v2",
+		title: "Tempo",
 		icon: "timer",
 		description: m.project_tempo_v2,
 		features: () => [
@@ -69,7 +69,7 @@ export const projects: Project[] = [
 			"Redis",
 		],
 		links: {
-			demo: "https://tempo-v2.liuma.app",
+			demo: "https://tempo.liuma.app",
 			github: "https://github.com/ivndv/tempo-v2",
 		},
 	},
@@ -215,7 +215,7 @@ export const projects: Project[] = [
 	// 4. Tempo
 	{
 		id: 5,
-		title: "Tempo",
+		title: "Tempo Legacy",
 		icon: "timer",
 		description: m.project_tempo,
 		features: () => [
@@ -239,8 +239,8 @@ export const projects: Project[] = [
 			"Cloudflare",
 		],
 		links: {
-			demo: "https://tempo.liuma.app/",
-			docs: "https://tempo.liuma.app/api/docs",
+			demo: "https://tempo-legacy.liuma.app/",
+			docs: "https://tempo-legacy.liuma.app/api/docs",
 			github: "https://github.com/ivndv/tempo",
 		},
 	},
