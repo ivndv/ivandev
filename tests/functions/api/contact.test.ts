@@ -21,7 +21,7 @@ import { app } from "../../../functions/api/[[route]]";
 const env = {
 	RESEND_API_KEY: "resend-key",
 	RESEND_TO_EMAIL: "destino@example.com",
-	RESEND_FROM_EMAIL: "no-reply@mgdc.site",
+	RESEND_FROM_EMAIL: "noreply@liuma.app",
 	TURNSTILE_SECRET_KEY: "turnstile-secret",
 };
 
@@ -137,7 +137,7 @@ describe("POST /api/contact", () => {
 		expect(sendContactEmail).toHaveBeenCalledWith(
 			"resend-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			{
 				name: cuerpoValido.name,
 				email: cuerpoValido.email,

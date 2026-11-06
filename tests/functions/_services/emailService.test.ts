@@ -31,19 +31,19 @@ describe("sendContactEmail", () => {
 		await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
 		const [payload] = send.mock.calls[0] as [Record<string, unknown>];
-		expect(payload.from).toBe("Portafolio <no-reply@mgdc.site>");
+		expect(payload.from).toBe("Portafolio <noreply@liuma.app>");
 	});
 
 	it("envía al destinatario como arreglo", async () => {
 		await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
@@ -55,7 +55,7 @@ describe("sendContactEmail", () => {
 		await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
@@ -67,7 +67,7 @@ describe("sendContactEmail", () => {
 		await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
@@ -81,7 +81,7 @@ describe("sendContactEmail", () => {
 		await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
@@ -98,7 +98,7 @@ describe("sendContactEmail", () => {
 		const resultado = await sendContactEmail(
 			"api-key",
 			"destino@example.com",
-			"no-reply@mgdc.site",
+			"noreply@liuma.app",
 			datos,
 		);
 
