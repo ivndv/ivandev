@@ -54,7 +54,7 @@ export const projects: Project[] = [
 			m.project_tempo_v2_f4(),
 			m.project_tempo_v2_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/tempo2.png",
+		image: "https://assets.liuma.app/ivandev/tempo.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
 			m.project_palette_lab_f4(),
 			m.project_palette_lab_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/palettelab-v2.png",
+		image: "https://assets.liuma.app/ivandev/palettelab.png",
 		tags: [
 			"Vue",
 			"Vite",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
 			m.project_codebook_f4(),
 			m.project_codebook_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/codebook-v3.png",
+		image: "https://assets.liuma.app/ivandev/codebook.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -188,7 +188,7 @@ export const projects: Project[] = [
 			m.project_nemi_f5(),
 			m.project_nemi_f6(),
 		],
-		image: "https://assets.liuma.app/ivandev/nemi-v2.png",
+		image: "https://assets.liuma.app/ivandev/nemi.png",
 		tags: [
 			"Angular",
 			"TypeScript",
@@ -224,7 +224,7 @@ export const projects: Project[] = [
 			m.project_tempo_f3(),
 			m.project_tempo_f4(),
 		],
-		image: "https://assets.liuma.app/ivandev/tempo-2026.png",
+		image: "https://assets.liuma.app/ivandev/tempo-legacy.png",
 		tags: [
 			"Astro",
 			"React",
@@ -257,7 +257,7 @@ export const projects: Project[] = [
 			m.project_mxwatch_f4(),
 			m.project_mxwatch_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/mxwatch-v2.png",
+		image: "https://assets.liuma.app/ivandev/mxwatch.png",
 		tags: [
 			"Next.js",
 			"TypeScript",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
 			m.project_fluxblog_f4(),
 			m.project_fluxblog_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/fluxblog-v3.png",
+		image: "https://assets.liuma.app/ivandev/fluxblog.png",
 		tags: ["Astro", "React", "Tailwind CSS", "Pagefind", "Hono", "Cloudflare"],
 		links: {
 			demo: "https://fluxdev.liuma.app/",
@@ -309,7 +309,7 @@ export const projects: Project[] = [
 			m.project_cosmos_f3(),
 			m.project_cosmos_f4(),
 		],
-		image: "https://assets.liuma.app/ivandev/cosmos-v2.png",
+		image: "https://assets.liuma.app/ivandev/cosmos.png",
 		tags: [
 			"React",
 			"Vite",
@@ -339,7 +339,7 @@ export const projects: Project[] = [
 			m.project_portfolio_f4(),
 			m.project_portfolio_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/portafolio-v2.png",
+		image: "https://assets.liuma.app/ivandev/portafolio.png",
 		tags: [
 			"Astro",
 			"React",
@@ -368,7 +368,7 @@ export const projects: Project[] = [
 			m.project_fluxdev_f4(),
 			m.project_fluxdev_f5(),
 		],
-		image: "https://assets.liuma.app/ivandev/fluxdev-nova.png",
+		image: "https://assets.liuma.app/ivandev/fluxdev.png",
 		tags: [
 			"Astro",
 			"React",
